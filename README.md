@@ -37,17 +37,17 @@ Add your google-services.json (for Android) and GoogleService-Info.plist (for iO
 flutter run
 ```
 
-🌱 Development
+## 🌱 Development
 This project is a work in progress and I'm adding new features and improvements as time permits. If you have any ideas or would like to contribute, feel free to fork the repository and submit a pull request!
 
-🧑‍🤝‍🧑 Contributing
+## 🧑‍🤝‍🧑 Contributing
 Contributions are welcome! Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-📫 Contact
+## 📫 Contact
 For any inquiries or suggestions, feel free to reach out to me on GitHub.
 
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 This project is still under development, and the features may change over time. Your feedback is appreciated!
