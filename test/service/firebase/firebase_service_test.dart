@@ -10,7 +10,7 @@ import 'firebase_service_test.mocks.dart';
 
 @GenerateMocks([FirebaseService])
 void main() {
-  group('NoteService Tests', () {
+  group('TaskService Tests', () {
     late TaskService taskService;
     late MockFirebaseService mockFirebaseService;
 

@@ -42,7 +42,7 @@ Ensure existing tests still pass after your changes.
 Once you've made your changes and tested them, submit a pull request. Please provide a clear description of your changes and reference any relevant issues.
 
 🤝 Code Reviews
-All contributions will be reviewed. During the review process, the following aspects will be considered:
+All contributions will be reviewed.
 
 🎉 Appreciation for Improvements
 Even minor improvements are valuable! Whether it's a refactor, renaming a variable for better clarity, or optimizing a function, these changes contribute significantly to the overall health of the project. We appreciate your attention to detail and commitment to enhancing taskup!
