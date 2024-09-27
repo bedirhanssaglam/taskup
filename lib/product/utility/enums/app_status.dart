@@ -1,0 +1,4 @@
+enum AppStatus {
+  authenticated,
+  unauthenticated,
+}

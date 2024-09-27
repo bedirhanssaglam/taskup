@@ -1,0 +1,18 @@
+{
+    "hello": "Hello",    
+    "error": {
+        "failedToUsers": "Kullanıcılar yüklenemedi.",
+        "unknownException": "Bilinmeyen bir hata oluştu.",
+        "userDisabled": "Bu kullanıcı devre dışı bırakıldı. Yardım için lütfen destekle iletişime geçin.",
+        "invalidEmail": "Geçersiz email.",
+        "signUp": {
+            "emailAlreadyInUse": "Bu e-mail için zaten bir hesap mevcut",
+            "operationNotAllowed": "İşleme izin verilmiyor. Lütfen desteğe başvurun.",
+            "weakPassword": "Lütfen daha güçlü bir şifre girin."
+        },
+        "login": {
+            "userNotFound": "E-mail bulunamadı, lütfen bir hesap oluşturun.",
+            "wrongPassword": "Yanlış şifre, lütfen tekrar deneyin."
+        }
+    }
+}

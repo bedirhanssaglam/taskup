@@ -1,0 +1,18 @@
+{
+    "hello": "Merhaba",
+    "error": {
+        "failedToUsers": "Failed to load users.",
+        "unknownException": "An unknown exception occurred.",
+        "userDisabled": "This user has been disabled. Please contact support for help.",
+        "invalidEmail": "Email is not valid or badly formatted.",
+        "signUp": {
+            "emailAlreadyInUse": "An account already exists for that email.",
+            "operationNotAllowed": "Operation is not allowed. Please contact support.",
+            "weakPassword": "Please enter a stronger password."
+        },
+        "login": {
+            "userNotFound": "Email is not found, please create an account.",
+            "wrongPassword": "Incorrect password, please try again."
+        }
+    } 
+}
