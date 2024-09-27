@@ -10,7 +10,10 @@ class ProductProviderItems {
     return AuthService();
   });
 
-  static final appStateProvider = StateNotifierProvider<AppViewModel, AppState>((ref) {
+  static final appStateProvider =
+      StateNotifierProvider<AppViewModel, AppState>((
+    ref,
+  ) {
     final authService = ref.watch(authServiceProvider);
     return AppViewModel(authService);
   });

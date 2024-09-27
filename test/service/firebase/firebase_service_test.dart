@@ -21,8 +21,13 @@ void main() {
 
     test('getAllTasks returns list of tasks', () async {
       // Arrange
-      final List<Task> mockTasks = [];
-      when(mockFirebaseService.getList<Task>(CollectionPaths.tasks, any)).thenAnswer((_) async => mockTasks);
+      final mockTasks = <Task>[];
+      when(
+        mockFirebaseService.getList<Task>(
+          CollectionPaths.tasks,
+          any,
+        ),
+      ).thenAnswer((_) async => mockTasks);
 
       // Act
       final result = await taskService.getAllTasks();

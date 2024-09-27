@@ -3,16 +3,16 @@ import 'package:task_management/product/base/model/base_firebase_model.dart';
 
 @immutable
 final class Task extends BaseFirebaseModel<Task> {
+  Task({this.id, this.title});
+
   final String? id;
   final String? title;
-
-  Task({this.id, this.title});
 
   @override
   Task fromFirestore(Map<String, dynamic> data, String documentId) {
     return Task(
       id: documentId,
-      title: data['title'],
+      title: data['title'] as String?,
     );
   }
 

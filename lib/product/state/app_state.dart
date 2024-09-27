@@ -8,7 +8,11 @@ class AppState extends Equatable {
     this.account = Account.empty,
   });
 
-  const AppState.authenticated(Account user) : this._(status: AppStatus.authenticated, account: user);
+  const AppState.authenticated(Account user)
+      : this._(
+          status: AppStatus.authenticated,
+          account: user,
+        );
 
   const AppState.unauthenticated() : this._(status: AppStatus.unauthenticated);
 

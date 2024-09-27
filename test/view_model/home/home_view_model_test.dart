@@ -10,26 +10,30 @@ final class _MocTaskService extends Mock implements TaskService {
   @override
   Future<List<Task>> getAllTasks() {
     return Future.value([
-      Task(title: "2"),
-      Task(title: "3"),
+      Task(title: '2'),
+      Task(title: '3'),
     ]);
   }
 }
 
 void main() {
   test('HomeViewModel fetches tasks', () async {
-    final container = ProviderContainer(overrides: [
-      ProductProviderItems.taskServiceProvider.overrideWithValue(_MocTaskService()),
-    ]);
+    final container = ProviderContainer(
+      overrides: [
+        ProductProviderItems.taskServiceProvider.overrideWithValue(
+          _MocTaskService(),
+        ),
+      ],
+    );
 
-    final HomeViewModel viewModel = container.read(homeViewModelProvider.notifier);
+    final viewModel = container.read(homeViewModelProvider.notifier);
 
     await viewModel.fetchTasks();
     expect(
       viewModel.state.value?.tasks,
       equals([
-        Task(title: "2"),
-        Task(title: "3"),
+        Task(title: '2'),
+        Task(title: '3'),
       ]),
     );
   });

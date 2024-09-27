@@ -19,7 +19,10 @@ class FirebaseService extends IFirebaseService {
 
     return snapshot.docs
         .map((doc) {
-          return model.fromFirestore(doc.data() as Map<String, dynamic>, doc.id);
+          return model.fromFirestore(
+            doc.data()! as Map<String, dynamic>,
+            doc.id,
+          );
         })
         .cast<T>()
         .toList();

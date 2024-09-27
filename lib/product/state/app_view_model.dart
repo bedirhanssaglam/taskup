@@ -8,18 +8,24 @@ import 'package:task_management/product/state/app_state.dart';
 class AppViewModel extends StateNotifier<AppState> {
   AppViewModel(this._authService)
       : super(
-          _authService.currentUser.isNotEmpty ? AppState.authenticated(_authService.currentUser) : const AppState.unauthenticated(),
+          _authService.currentUser.isNotEmpty
+              ? AppState.authenticated(
+                  _authService.currentUser,
+                )
+              : const AppState.unauthenticated(),
         ) {
-    _userSubscription = _authService.account.listen((user) {
-      _onUserChanged(user);
-    });
+    _userSubscription = _authService.account.listen(_onUserChanged);
   }
 
   final AuthService _authService;
   late final StreamSubscription<Account> _userSubscription;
 
   void _onUserChanged(Account user) {
-    state = user.isNotEmpty ? AppState.authenticated(user) : const AppState.unauthenticated();
+    state = user.isNotEmpty
+        ? AppState.authenticated(
+            user,
+          )
+        : const AppState.unauthenticated();
   }
 
   Future<void> logout() async {

@@ -14,18 +14,19 @@ class HomeViewModel extends _$HomeViewModel {
     state = const AsyncValue.loading();
 
     state = await AsyncValue.guard(() async {
-      final List<Task> tasks = await ref.read(ProductProviderItems.taskServiceProvider).getAllTasks();
+      final tasks = await ref
+          .read(ProductProviderItems.taskServiceProvider)
+          .getAllTasks();
       return HomeState(tasks: tasks);
     });
   }
 }
 
 final class HomeState extends Equatable {
-  final List<Task>? tasks;
-
   const HomeState({
     this.tasks = const [],
   });
+  final List<Task>? tasks;
 
   HomeState copyWith({
     List<Task>? tasks,

@@ -21,7 +21,9 @@ final class AppButton extends StatelessWidget {
           ? ElevatedButton(
               onPressed: onPressed,
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(context.colorScheme.primary),
+                backgroundColor: MaterialStateProperty.all(
+                  context.colorScheme.primary,
+                ),
               ),
               child: Text(
                 text.locale,

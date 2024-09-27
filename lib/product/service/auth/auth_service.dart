@@ -27,7 +27,8 @@ final class AuthService {
   /// Emits [User.empty] if the user is not authenticated.
   Stream<Account> get account {
     return _firebaseAuth.authStateChanges().map((firebaseUser) {
-      final user = firebaseUser == null ? Account.empty : firebaseUser.toAccount;
+      final user =
+          firebaseUser == null ? Account.empty : firebaseUser.toAccount;
       _cache.write(key: userCacheKey, value: user);
       return user;
     });
@@ -60,7 +61,9 @@ final class AuthService {
         fullName: '$firstName $lastName',
       );
 
-      await CollectionPaths.users.collection.doc(userCredential.user!.uid).set(account.toFirestore());
+      await CollectionPaths.users.collection.doc(userCredential.user!.uid).set(
+            account.toFirestore(),
+          );
     } on FirebaseAuthException catch (e) {
       throw SignUpWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {
@@ -102,5 +105,6 @@ final class AuthService {
 
 extension on User {
   /// Maps a [User] into a [Account].
-  Account get toAccount => Account(uid: uid, email: email, fullName: displayName);
+  Account get toAccount =>
+      Account(uid: uid, email: email, fullName: displayName);
 }

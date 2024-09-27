@@ -22,7 +22,9 @@ final class AppTextButton extends StatelessWidget {
             onPressed: onPressed,
             child: Text(
               text.locale,
-              style: context.textTheme.bodyMedium?.copyWith(color: context.colorScheme.primary),
+              style: context.textTheme.bodyMedium?.copyWith(
+                color: context.colorScheme.primary,
+              ),
             ),
           );
   }

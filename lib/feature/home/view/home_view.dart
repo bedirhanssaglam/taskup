@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_management/feature/home/view/mixin/home_view_mixin.dart';
 import 'package:task_management/feature/home/view_model/home_view_model.dart';
-import 'package:task_management/product/base/model/note.dart';
 
 final class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -21,12 +20,14 @@ class _HomeViewState extends ConsumerState<HomeView> with HomeViewMixin {
         children: [
           homeState.when(
             data: (HomeState data) {
-              final List<Task>? tasks = data.tasks;
+              final tasks = data.tasks;
 
               return ListView.builder(
                 shrinkWrap: true,
                 itemCount: tasks?.length,
-                itemBuilder: (context, index) => Text(tasks?[index].title ?? ''),
+                itemBuilder: (context, index) => Text(
+                  tasks?[index].title ?? '',
+                ),
               );
             },
             error: (error, _) => Text(error.toString()),

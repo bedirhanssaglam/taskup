@@ -25,7 +25,6 @@ class _AppState extends ConsumerState<App> with AppProviderMixin {
         state: appState.status,
         onGeneratePages: _onGeneratePages,
       ),
-      themeMode: ThemeMode.system,
       theme: LightThemeManager().themeData,
       darkTheme: DarkThemeManager().themeData,
       localizationsDelegates: context.localizationDelegates,

@@ -4,5 +4,7 @@ enum CollectionPaths {
   users,
   tasks;
 
-  CollectionReference<Map<String, dynamic>> get collection => FirebaseFirestore.instance.collection(name);
+  CollectionReference<Map<String, dynamic>> get collection {
+    return FirebaseFirestore.instance.collection(name);
+  }
 }
