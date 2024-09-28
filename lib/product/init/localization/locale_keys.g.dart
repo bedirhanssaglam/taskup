@@ -15,6 +15,14 @@ abstract class LocaleKeys {
   static const register_passwordAgain = 'register.passwordAgain';
   static const register_alreadyHaveAnAccount = 'register.alreadyHaveAnAccount';
   static const register = 'register';
+  static const bottomNavBar_home = 'bottomNavBar.home';
+  static const bottomNavBar_calendar = 'bottomNavBar.calendar';
+  static const bottomNavBar_profile = 'bottomNavBar.profile';
+  static const bottomNavBar = 'bottomNavBar';
+  static const home_hello = 'home.hello';
+  static const home_whatDoYouWantToDoToday = 'home.whatDoYouWantToDoToday';
+  static const home_tapPlusButton = 'home.tapPlusButton';
+  static const home = 'home';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_unknownException = 'error.unknownException';
   static const error_userDisabled = 'error.userDisabled';

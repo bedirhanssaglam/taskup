@@ -4,8 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/extensions/string_extensions.dart';
 
 class AppBottomNavBar extends StatelessWidget {
   const AppBottomNavBar({
@@ -39,7 +41,7 @@ class AppBottomNavBar extends StatelessWidget {
                   : context.colorScheme.onSurfaceVariant,
               height: 28.h,
             ),
-            label: 'Ana sayfa',
+            label: LocaleKeys.bottomNavBar_home.locale,
           ),
           NavigationDestination(
             icon: Assets.icons.calendar.colored(
@@ -48,7 +50,7 @@ class AppBottomNavBar extends StatelessWidget {
                   : context.colorScheme.onSurfaceVariant,
               height: 28.h,
             ),
-            label: 'Calendar',
+            label: LocaleKeys.bottomNavBar_calendar.locale,
           ),
           NavigationDestination(
             icon: Assets.icons.user.colored(
@@ -57,7 +59,7 @@ class AppBottomNavBar extends StatelessWidget {
                   : context.colorScheme.onSurfaceVariant,
               height: 28.h,
             ),
-            label: 'Profile',
+            label: LocaleKeys.bottomNavBar_profile.locale,
           ),
         ],
       );
@@ -73,7 +75,7 @@ class AppBottomNavBar extends StatelessWidget {
                 ? context.colorScheme.primary
                 : context.colorScheme.onSurfaceVariant,
           ),
-          label: 'Ana sayfa',
+          label: LocaleKeys.bottomNavBar_home.locale,
         ),
         BottomNavigationBarItem(
           icon: Icon(
@@ -83,7 +85,7 @@ class AppBottomNavBar extends StatelessWidget {
                 ? context.colorScheme.primary
                 : context.colorScheme.onSurfaceVariant,
           ),
-          label: 'Calendar',
+          label: LocaleKeys.bottomNavBar_calendar.locale,
         ),
         BottomNavigationBarItem(
           icon: Icon(
@@ -93,7 +95,7 @@ class AppBottomNavBar extends StatelessWidget {
                 ? context.colorScheme.primary
                 : context.colorScheme.onSurfaceVariant,
           ),
-          label: 'Profile',
+          label: LocaleKeys.bottomNavBar_profile.locale,
         ),
       ];
 }

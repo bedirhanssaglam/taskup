@@ -15,6 +15,16 @@
         "passwordAgain": "Parola (Tekrar)",
         "alreadyHaveAnAccount": "Zaten bir hesabınız var mı?"
     },
+    "bottomNavBar": {
+        "home": "Ana sayfa",
+        "calendar": "Takvim",
+        "profile": "Profil"
+    },
+    "home": {
+        "hello": "Merhaba",
+        "whatDoYouWantToDoToday": "Bugün ne yapmak istiyorsunuz?",
+        "tapPlusButton": "Görevlerinizi eklemek için + butonuna dokunun"
+    },
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "unknownException": "Bilinmeyen bir hata oluştu.",

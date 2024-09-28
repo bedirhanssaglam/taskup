@@ -14,7 +14,17 @@
         "surname": "Last name",
         "passwordAgain": "Confirm Password",
         "alreadyHaveAnAccount": "Already have an account?"
-    },    
+    },   
+    "bottomNavBar": {
+        "home": "Home",
+        "calendar": "Calendar",
+        "profile": "Profile"
+    },
+    "home": {
+        "hello": "Hello",
+        "whatDoYouWantToDoToday": "What do you want to do today?",
+        "tapPlusButton": "Tap + to add your tasks"
+    },     
     "error": {
         "failedToUsers": "Failed to load users.",
         "unknownException": "An unknown exception occurred.",
