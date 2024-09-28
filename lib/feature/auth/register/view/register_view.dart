@@ -76,6 +76,7 @@ class _RegisterViewState extends ConsumerState<RegisterView>
                 ),
                 WidgetSizes.spacingM.verticalSpace,
                 AppTextField(
+                  controller: confirmPasswordController,
                   hintText: AppConstants.passwordHint,
                   title: LocaleKeys.register_passwordAgain,
                   textInputAction: TextInputAction.done,
