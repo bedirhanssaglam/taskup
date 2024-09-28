@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:task_management/feature/auth/register/view_model/register_state.dart';
-import 'package:task_management/feature/home/view/home_view.dart';
+import 'package:task_management/product/init/navigation/app_navigation.dart';
 import 'package:task_management/product/service/exceptions/firebase_exceptions.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
@@ -31,10 +31,11 @@ class RegisterViewModel extends _$RegisterViewModel {
       final isAuthenticated =
           ref.watch(ProductProviderItems.appStateProvider).account.isNotEmpty;
       if (isAuthenticated) {
-        await Navigator.pushReplacement(
-          context,
-          MaterialPageRoute<void>(builder: (context) => const HomeView()),
-        );
+        await ref
+            .read(
+              ProductProviderItems.navigationService,
+            )
+            .navigateReplacementTo(AppRoutes.home);
       }
     } on SignUpWithEmailAndPasswordFailure catch (e) {
       state = state.copyWith(

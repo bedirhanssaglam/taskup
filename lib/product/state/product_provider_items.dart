@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_management/feature/auth/login/view_model/login_view_model.dart';
 import 'package:task_management/feature/auth/register/view_model/register_view_model.dart';
+import 'package:task_management/product/init/navigation/navigation_service.dart';
 import 'package:task_management/product/service/auth/auth_service.dart';
 import 'package:task_management/product/service/base/firebase_service.dart';
 import 'package:task_management/product/service/task/task_service.dart';
@@ -10,6 +11,10 @@ import 'package:task_management/product/state/app_view_model.dart';
 class ProductProviderItems {
   static final authServiceProvider = Provider<AuthService>((ref) {
     return AuthService();
+  });
+
+  static final navigationService = Provider<NavigationService>((ref) {
+    return NavigationService();
   });
 
   static final appStateProvider =

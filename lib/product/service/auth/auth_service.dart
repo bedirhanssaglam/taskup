@@ -7,7 +7,7 @@ import 'package:task_management/product/service/exceptions/firebase_exceptions.d
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 
 /// Repository which manages user authentication.
-final class AuthService {
+class AuthService {
   AuthService({
     CacheClient? cache,
     FirebaseAuth? firebaseAuth,
