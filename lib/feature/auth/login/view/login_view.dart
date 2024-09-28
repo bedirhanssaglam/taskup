@@ -3,7 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
 import 'package:task_management/product/components/button/app_button.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
+import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
+import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/utility/constants/app_constants.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
@@ -32,7 +35,7 @@ final class LoginView extends StatelessWidget {
               WidgetSizes.spacingXxl7.verticalSpace,
               AppButton(
                 onPressed: () {},
-                text: 'Login',
+                text: LocaleKeys.login_loginText,
               ),
               WidgetSizes.spacingL.verticalSpace,
               const _NoAccountWidget(),

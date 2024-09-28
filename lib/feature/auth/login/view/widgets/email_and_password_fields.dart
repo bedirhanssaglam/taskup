@@ -7,16 +7,14 @@ final class _EmailAndPasswordFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppTextField(
-          hintText: 'enter your email',
-          title: 'Email',
-          controller: TextEditingController(),
+        const AppTextField(
+          hintText: AppConstants.emailHint,
+          title: LocaleKeys.login_email,
         ),
         WidgetSizes.spacingM.verticalSpace,
-        AppTextField(
-          hintText: '************',
-          title: 'Password',
-          controller: TextEditingController(),
+        const AppTextField(
+          hintText: AppConstants.passwordHint,
+          title: LocaleKeys.login_password,
         ),
       ],
     );

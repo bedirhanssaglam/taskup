@@ -1,5 +1,11 @@
 {
-    "hello": "Hello",    
+    "login": {
+        "email": "Email",
+        "password": "Password",
+        "loginText": "Login",
+        "dontHaveAnAccount": "Don't have an account?",
+        "registerText": "Register"        
+    }, 
     "error": {
         "failedToUsers": "Failed to load users.",
         "unknownException": "An unknown exception occurred.",

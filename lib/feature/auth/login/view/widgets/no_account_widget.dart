@@ -8,12 +8,12 @@ final class _NoAccountWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          "Don't have an account?",
+        LocaleText(
+          LocaleKeys.login_dontHaveAnAccount,
           style: context.textTheme.bodyMedium,
         ),
         AppTextButton(
-          text: 'Register',
+          text: LocaleKeys.login_registerText,
           onPressed: () {},
         ),
       ],

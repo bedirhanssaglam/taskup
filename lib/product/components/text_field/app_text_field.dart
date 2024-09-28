@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
-import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 
 final class AppTextField extends StatelessWidget {
   const AppTextField({
-    required this.hintText,
-    required this.controller,
+    this.controller,
+    this.hintText,
     super.key,
     this.obscureText = false,
     this.suffixIcon,
@@ -18,9 +18,9 @@ final class AppTextField extends StatelessWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
   });
 
-  final String hintText;
+  final String? hintText;
   final bool obscureText;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final Widget? suffixIcon;
   final TextInputAction? textInputAction;
   final TextInputType? keyboardType;
@@ -37,7 +37,7 @@ final class AppTextField extends StatelessWidget {
         if (title != null)
           Padding(
             padding: const AppPadding.smallBottom(),
-            child: Text(
+            child: LocaleText(
               title!,
               style: context.textTheme.bodyLarge,
             ),
@@ -71,7 +71,7 @@ final class AppTextField extends StatelessWidget {
             ),
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
-            hintText: hintText.locale,
+            hintText: hintText,
             hintStyle: context.textTheme.bodyMedium?.copyWith(
               color: context.colorScheme.outline,
             ),

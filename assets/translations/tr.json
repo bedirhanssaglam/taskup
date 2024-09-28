@@ -1,5 +1,11 @@
 {
-    "hello": "Merhaba",
+    "login": {
+        "email": "Email",
+        "password": "Parola",
+        "loginText": "Giriş yap",
+        "dontHaveAnAccount": "Henüz bir hesabınız yok mu?",
+        "registerText": "Kayıt ol"
+    },
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "unknownException": "Bilinmeyen bir hata oluştu.",
