@@ -19,7 +19,6 @@ dependencies:
   logger: ^2.0.2 
   firebase_ui_firestore: ^1.6.4
   equatable: ^2.0.5
-  flow_builder: ^0.0.9
   riverpod_annotation: ^2.3.5
 
   # Utility & Widget 

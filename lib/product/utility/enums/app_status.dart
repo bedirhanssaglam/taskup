@@ -1,4 +1,6 @@
 enum AppStatus {
   authenticated,
-  unauthenticated,
+  unauthenticated;
+
+  bool get isAuthenticated => this == authenticated;
 }

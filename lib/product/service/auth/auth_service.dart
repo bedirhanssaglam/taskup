@@ -7,7 +7,7 @@ import 'package:task_management/product/service/exceptions/firebase_exceptions.d
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 
 /// Repository which manages user authentication.
-final class AuthService {
+class AuthService {
   AuthService({
     CacheClient? cache,
     FirebaseAuth? firebaseAuth,
@@ -26,7 +26,7 @@ final class AuthService {
   ///
   /// Emits [User.empty] if the user is not authenticated.
   Stream<Account> get account {
-    return _firebaseAuth.authStateChanges().map((firebaseUser) {
+    return _firebaseAuth.authStateChanges().map((User? firebaseUser) {
       final user =
           firebaseUser == null ? Account.empty : firebaseUser.toAccount;
       _cache.write(key: userCacheKey, value: user);
@@ -105,6 +105,9 @@ final class AuthService {
 
 extension on User {
   /// Maps a [User] into a [Account].
-  Account get toAccount =>
-      Account(uid: uid, email: email, fullName: displayName);
+  Account get toAccount => Account(
+        uid: uid,
+        email: email,
+        fullName: displayName,
+      );
 }
