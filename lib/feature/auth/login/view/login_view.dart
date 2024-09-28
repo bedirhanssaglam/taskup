@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/feature/auth/register/view/register_view.dart';
 import 'package:task_management/product/components/button/app_button.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
