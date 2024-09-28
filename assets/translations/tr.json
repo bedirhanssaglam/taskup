@@ -6,6 +6,15 @@
         "dontHaveAnAccount": "Henüz bir hesabınız yok mu?",
         "registerText": "Kayıt ol"
     },
+    "register": {
+        "title": "Haydi sizin için bir hesap oluşturalım!",
+        "name": "Ad",
+        "enterYourName": "adınızı giriniz",
+        "enterYourSurname": "soyadınızı giriniz",
+        "surname": "Soyad",
+        "passwordAgain": "Parola (Tekrar)",
+        "alreadyHaveAnAccount": "Zaten bir hesabınız var mı?"
+    },
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "unknownException": "Bilinmeyen bir hata oluştu.",

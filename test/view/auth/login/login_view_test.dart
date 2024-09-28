@@ -8,6 +8,8 @@ import 'package:task_management/product/utility/constants/app_constants.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:widget/widget.dart';
 
+import '../../../finder_match_extensions.dart';
+
 void main() {
   group('LoginView Tests', () {
     testWidgets('should display email and password text fields', (
@@ -17,9 +19,9 @@ void main() {
       await tester.pumpWidget(const _LoginTestView());
 
       // Assert
-      expect(find.byType(AppTextField), findsNWidgets(2));
-      expect(find.text(AppConstants.emailHint), findsOneWidget);
-      expect(find.text(AppConstants.passwordHint), findsOneWidget);
+      find.byType(AppTextField).times(2);
+      find.text(AppConstants.emailHint).once();
+      find.text(AppConstants.passwordHint).once();
     });
 
     testWidgets('should display login button', (WidgetTester tester) async {
@@ -27,8 +29,8 @@ void main() {
       await tester.pumpWidget(const _LoginTestView());
 
       // Assert
-      expect(find.byType(AppButton), findsOneWidget);
-      expect(find.text(LocaleKeys.login_loginText.locale), findsOneWidget);
+      find.byType(AppButton).once();
+      find.text(LocaleKeys.login_loginText.locale).once();
     });
 
     testWidgets('should display "No Account" text and register button', (
@@ -38,11 +40,8 @@ void main() {
       await tester.pumpWidget(const _LoginTestView());
 
       // Assert
-      expect(
-        find.text(LocaleKeys.login_dontHaveAnAccount.locale),
-        findsOneWidget,
-      );
-      expect(find.text(LocaleKeys.login_registerText.locale), findsOneWidget);
+      find.text(LocaleKeys.login_dontHaveAnAccount.locale).once();
+      find.text(LocaleKeys.login_registerText.locale).once();
     });
   });
 }

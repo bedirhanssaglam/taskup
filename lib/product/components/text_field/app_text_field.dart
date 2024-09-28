@@ -10,7 +10,7 @@ final class AppTextField extends StatelessWidget {
     super.key,
     this.obscureText = false,
     this.suffixIcon,
-    this.textInputAction,
+    this.textInputAction = TextInputAction.next,
     this.keyboardType,
     this.validator,
     this.prefixIcon,

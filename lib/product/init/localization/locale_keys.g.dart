@@ -7,6 +7,14 @@ abstract class LocaleKeys {
   static const login_dontHaveAnAccount = 'login.dontHaveAnAccount';
   static const login_registerText = 'login.registerText';
   static const login = 'login';
+  static const register_title = 'register.title';
+  static const register_name = 'register.name';
+  static const register_enterYourName = 'register.enterYourName';
+  static const register_enterYourSurname = 'register.enterYourSurname';
+  static const register_surname = 'register.surname';
+  static const register_passwordAgain = 'register.passwordAgain';
+  static const register_alreadyHaveAnAccount = 'register.alreadyHaveAnAccount';
+  static const register = 'register';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_unknownException = 'error.unknownException';
   static const error_userDisabled = 'error.userDisabled';
