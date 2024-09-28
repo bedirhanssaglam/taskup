@@ -38,4 +38,6 @@ final class AppPadding extends EdgeInsets {
         );
 
   const AppPadding.mediumBottom() : super.only(bottom: WidgetSizes.spacingL);
+
+  const AppPadding.smallBottom() : super.only(bottom: WidgetSizes.spacingXxs);
 }
