@@ -35,7 +35,7 @@ class RegisterViewModel extends _$RegisterViewModel {
             .read(
               ProductProviderItems.navigationService,
             )
-            .navigateReplacementTo(AppRoutes.home);
+            .navigateReplacementTo(AppRoutes.main);
       }
     } on SignUpWithEmailAndPasswordFailure catch (e) {
       state = state.copyWith(

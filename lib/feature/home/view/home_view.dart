@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gen/gen.dart';
 import 'package:task_management/feature/home/view/mixin/home_view_mixin.dart';
-import 'package:task_management/feature/home/view_model/home_view_model.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/utility/extensions/context_extensions.dart';
+import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/paddings/app_paddings.dart';
 
 final class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -17,34 +19,21 @@ class _HomeViewState extends ConsumerState<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          homeState.when(
-            data: (HomeState data) {
-              final tasks = data.tasks;
-
-              return ListView.builder(
-                shrinkWrap: true,
-                itemCount: tasks?.length,
-                itemBuilder: (context, index) => Text(
-                  tasks?[index].title ?? '',
-                ),
-              );
-            },
-            error: (error, _) => Text(error.toString()),
-            loading: () => const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
-          ),
-          IconButton(
-            onPressed: () =>
-                ref.watch(ProductProviderItems.authServiceProvider).logOut(),
-            icon: const Icon(
-              Icons.abc,
-              color: Colors.red,
-            ),
-          ),
-        ],
+      appBar: AppBar(
+        title: Text(
+          'Hello Bedirhan!',
+          style: context.textTheme.titleLarge,
+        ),
+        centerTitle: false,
+        automaticallyImplyLeading: false,
+      ),
+      body: Padding(
+        padding: const AppPadding.normalHorizontal(),
+        child: Column(
+          children: [
+            Assets.icons.appIcon.show(),
+          ],
+        ),
       ),
     );
   }

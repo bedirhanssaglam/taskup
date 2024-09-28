@@ -22,7 +22,7 @@ class _AppState extends ConsumerState<App> with AppProviderMixin {
       onGenerateRoute: AppRoutes.generateRoute,
       navigatorKey: NavigationService().navigatorKey,
       initialRoute:
-          appState.status.isAuthenticated ? AppRoutes.home : AppRoutes.login,
+          appState.status.isAuthenticated ? AppRoutes.main : AppRoutes.login,
       theme: LightThemeManager().themeData,
       darkTheme: DarkThemeManager().themeData,
       localizationsDelegates: context.localizationDelegates,

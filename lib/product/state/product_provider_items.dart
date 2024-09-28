@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_management/feature/auth/login/view_model/login_view_model.dart';
 import 'package:task_management/feature/auth/register/view_model/register_view_model.dart';
+import 'package:task_management/feature/main/view_model/main_view_model.dart';
 import 'package:task_management/product/init/navigation/navigation_service.dart';
 import 'package:task_management/product/service/auth/auth_service.dart';
 import 'package:task_management/product/service/base/firebase_service.dart';
@@ -44,5 +45,9 @@ class ProductProviderItems {
   static final taskServiceProvider = Provider<TaskService>((ref) {
     final firebaseService = ref.watch(firebaseServiceProvider);
     return TaskService(firestoreService: firebaseService);
+  });
+
+  static final mainViewModel = StateNotifierProvider<MainViewModel, int>((ref) {
+    return MainViewModel();
   });
 }
