@@ -18,8 +18,24 @@ class $AssetIconsGen {
   /// File path: asset/icons/app_icon.svg
   SvgGenImage get appIcon => const SvgGenImage('asset/icons/app_icon.svg');
 
+  /// File path: asset/icons/calendar.svg
+  SvgGenImage get calendar => const SvgGenImage('asset/icons/calendar.svg');
+
+  /// File path: asset/icons/empty_task.svg
+  SvgGenImage get emptyTask => const SvgGenImage('asset/icons/empty_task.svg');
+
+  /// File path: asset/icons/home_view.svg
+  SvgGenImage get homeView => const SvgGenImage('asset/icons/home_view.svg');
+
+  /// File path: asset/icons/task.svg
+  SvgGenImage get task => const SvgGenImage('asset/icons/task.svg');
+
+  /// File path: asset/icons/user.svg
+  SvgGenImage get user => const SvgGenImage('asset/icons/user.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [appIcon];
+  List<SvgGenImage> get values =>
+      [appIcon, calendar, emptyTask, homeView, task, user];
 }
 
 class Assets {

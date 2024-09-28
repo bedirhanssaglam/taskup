@@ -29,11 +29,26 @@ class _HomeViewState extends ConsumerState<HomeView> with HomeViewMixin {
       ),
       body: Padding(
         padding: const AppPadding.normalHorizontal(),
-        child: Column(
-          children: [
-            Assets.icons.appIcon.show(),
-          ],
+        child: Center(
+          child: Column(
+            children: [
+              Assets.icons.emptyTask.show(),
+              Text(
+                'What do you want to do today?',
+                style: context.textTheme.titleLarge,
+              ),
+              Text(
+                'Tap + to add your tasks',
+                style: context.textTheme.bodyMedium,
+              ),
+            ],
+          ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: context.colorScheme.primary,
+        child: const Icon(Icons.add),
       ),
     );
   }
