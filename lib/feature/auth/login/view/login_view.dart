@@ -16,6 +16,8 @@ import 'package:task_management/product/utility/extensions/controller_extensions
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
+import 'package:task_management/product/utility/validators/email_validator.dart';
+import 'package:task_management/product/utility/validators/password_validator.dart';
 
 part './mixin/login_view_mixin.dart';
 part './widgets/email_and_password_fields.dart';
@@ -37,26 +39,29 @@ class _LoginViewState extends ConsumerState<LoginView> with _LoginViewMixin {
       body: SingleChildScrollView(
         child: Padding(
           padding: const AppPadding.normalHorizontal(),
-          child: Column(
-            children: [
-              const _LoginHeader(),
-              WidgetSizes.spacingXxl8.verticalSpace,
-              _EmailAndPasswordFields(emailController, passwordController),
-              WidgetSizes.spacingXxl7.verticalSpace,
-              if (loginState.status.isLoading)
-                const CircularProgressIndicator.adaptive()
-              else
-                AppButton(
-                  onPressed: login,
-                  text: LocaleKeys.login_loginText,
-                ),
-              if (loginState.status.isError) ...[
-                WidgetSizes.spacingM.verticalSpace,
-                _LoginError(errorMessage: loginState.errorMessage!),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                const _LoginHeader(),
+                WidgetSizes.spacingXxl8.verticalSpace,
+                _EmailAndPasswordFields(emailController, passwordController),
+                WidgetSizes.spacingXxl7.verticalSpace,
+                if (loginState.status.isLoading)
+                  const CircularProgressIndicator.adaptive()
+                else
+                  AppButton(
+                    onPressed: checkFormStateAndLogin,
+                    text: LocaleKeys.login_loginText,
+                  ),
+                if (loginState.status.isError) ...[
+                  WidgetSizes.spacingM.verticalSpace,
+                  _LoginError(errorMessage: loginState.errorMessage!),
+                ],
+                WidgetSizes.spacingL.verticalSpace,
+                const _NoAccountWidget(),
               ],
-              WidgetSizes.spacingL.verticalSpace,
-              const _NoAccountWidget(),
-            ],
+            ),
           ),
         ),
       ),

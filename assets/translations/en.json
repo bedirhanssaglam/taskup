@@ -24,7 +24,15 @@
         "hello": "Hello",
         "whatDoYouWantToDoToday": "What do you want to do today?",
         "tapPlusButton": "Tap + to add your tasks"
-    },     
+    },   
+    "validators": {
+        "normal": "This field cannot be left blank.",
+        "invalidFormat": "Invalid format",
+        "confirmPassword": "Enter your password again.",
+        "notMatch": "Passwords do not match.",
+        "email": "Enter your e-mail address.",
+        "password": "Enter password."
+    },
     "error": {
         "failedToUsers": "Failed to load users.",
         "unknownException": "An unknown exception occurred.",

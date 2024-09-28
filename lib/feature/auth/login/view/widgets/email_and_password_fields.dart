@@ -15,6 +15,7 @@ final class _EmailAndPasswordFields extends StatelessWidget {
           hintText: AppConstants.emailHint,
           title: LocaleKeys.login_email,
           keyboardType: TextInputType.emailAddress,
+          validator: EmailValidator().validate,
         ),
         WidgetSizes.spacingM.verticalSpace,
         AppTextField(
@@ -23,6 +24,7 @@ final class _EmailAndPasswordFields extends StatelessWidget {
           title: LocaleKeys.login_password,
           obscureText: true,
           textInputAction: TextInputAction.done,
+          validator: PasswordValidator().validate,
         ),
       ],
     );

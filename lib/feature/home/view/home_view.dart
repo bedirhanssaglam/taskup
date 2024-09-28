@@ -4,6 +4,7 @@ import 'package:gen/gen.dart';
 import 'package:task_management/feature/home/view/mixin/home_view_mixin.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/state/product_provider_items.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
@@ -28,6 +29,13 @@ class _HomeViewState extends ConsumerState<HomeView> with HomeViewMixin {
           style: context.textTheme.titleLarge,
         ),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed:
+                ref.read(ProductProviderItems.authServiceProvider).logOut,
+            icon: const Icon(Icons.logout),
+          ),
+        ],
       ),
       body: const Padding(
         padding: AppPadding.normalHorizontal(),
