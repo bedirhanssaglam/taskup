@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:task_management/feature/auth/register/view/register_view.dart';
 import 'package:task_management/product/components/button/app_button.dart';
@@ -86,9 +87,11 @@ final class _RegisterTestView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppResponsive(
-      child: MaterialApp(
-        home: RegisterView(),
+    return const ProviderScope(
+      child: AppResponsive(
+        child: MaterialApp(
+          home: RegisterView(),
+        ),
       ),
     );
   }
