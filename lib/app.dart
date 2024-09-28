@@ -38,9 +38,9 @@ class _AppState extends ConsumerState<App> with AppProviderMixin {
     List<Page<dynamic>> pages,
   ) {
     switch (state) {
-      case AppStatus.authenticated:
-        return [LoginView.view()];
       case AppStatus.unauthenticated:
+        return [LoginView.view()];
+      case AppStatus.authenticated:
         return [HomeView.view()];
     }
   }
