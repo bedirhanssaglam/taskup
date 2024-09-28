@@ -14,11 +14,7 @@ final class _NoAccountWidget extends StatelessWidget {
         ),
         AppTextButton(
           text: LocaleKeys.login_registerText,
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute<void>(
-              builder: (context) => const RegisterView(),
-            ),
-          ),
+          onPressed: () => NavigationService().navigateTo(AppRoutes.register),
         ),
       ],
     );
