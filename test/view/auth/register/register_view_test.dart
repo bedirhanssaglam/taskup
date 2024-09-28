@@ -7,7 +7,7 @@ import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:widget/widget.dart';
 
-import '../../../finder_match_extension.dart';
+import '../../../finder_match_extensions.dart';
 
 void main() {
   group('RegisterView Widget Tests', () {
