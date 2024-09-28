@@ -27,11 +27,12 @@
     },   
     "validators": {
         "normal": "This field cannot be left blank.",
-        "invalidFormat": "Invalid format",
+        "invalidEmailFormat": "Invalid format",
         "confirmPassword": "Enter your password again.",
         "notMatch": "Passwords do not match.",
         "email": "Enter your e-mail address.",
-        "password": "Enter password."
+        "password": "Enter your password.",
+        "passwordLength": "Password must be at least {} characters long"
     },
     "error": {
         "failedToUsers": "Failed to load users.",
