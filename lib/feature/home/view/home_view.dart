@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_management/feature/home/view/mixin/home_view_mixin.dart';
 import 'package:task_management/feature/home/view_model/home_view_model.dart';
+import 'package:task_management/product/state/product_provider_items.dart';
 
 final class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -33,6 +34,14 @@ class _HomeViewState extends ConsumerState<HomeView> with HomeViewMixin {
             error: (error, _) => Text(error.toString()),
             loading: () => const Center(
               child: CircularProgressIndicator.adaptive(),
+            ),
+          ),
+          IconButton(
+            onPressed: () =>
+                ref.watch(ProductProviderItems.authServiceProvider).logOut(),
+            icon: const Icon(
+              Icons.abc,
+              color: Colors.red,
             ),
           ),
         ],
