@@ -27,7 +27,7 @@
     },   
     "validators": {
         "normal": "This field cannot be left blank.",
-        "invalidEmailFormat": "Invalid format",
+        "invalidEmailFormat": "Invalid email format",
         "confirmPassword": "Enter your password again.",
         "notMatch": "Passwords do not match.",
         "email": "Enter your e-mail address.",

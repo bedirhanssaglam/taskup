@@ -16,6 +16,10 @@ import 'package:task_management/product/utility/extensions/icon_extensions.dart'
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
+import 'package:task_management/product/utility/validators/confirm_password_validator.dart';
+import 'package:task_management/product/utility/validators/email_validator.dart';
+import 'package:task_management/product/utility/validators/normal_validator.dart';
+import 'package:task_management/product/utility/validators/password_validator.dart';
 
 part './mixin/register_view_mixin.dart';
 part './widgets/have_account_widget.dart';
@@ -37,54 +41,65 @@ class _RegisterViewState extends ConsumerState<RegisterView>
       body: SingleChildScrollView(
         child: Padding(
           padding: const AppPadding.normalHorizontal(),
-          child: Column(
-            children: [
-              const _RegisterHeader(),
-              AppTextField(
-                hintText: LocaleKeys.register_enterYourName.locale,
-                title: LocaleKeys.register_name.locale,
-                controller: firstNameController,
-              ),
-              WidgetSizes.spacingM.verticalSpace,
-              AppTextField(
-                hintText: LocaleKeys.register_enterYourSurname.locale,
-                title: LocaleKeys.register_surname,
-                controller: lastNameController,
-              ),
-              WidgetSizes.spacingM.verticalSpace,
-              AppTextField(
-                hintText: AppConstants.emailHint,
-                title: LocaleKeys.login_email,
-                keyboardType: TextInputType.emailAddress,
-                controller: emailController,
-              ),
-              WidgetSizes.spacingM.verticalSpace,
-              AppTextField(
-                hintText: AppConstants.passwordHint,
-                title: LocaleKeys.login_password,
-                controller: passwordController,
-              ),
-              WidgetSizes.spacingM.verticalSpace,
-              const AppTextField(
-                hintText: AppConstants.passwordHint,
-                title: LocaleKeys.register_passwordAgain,
-                textInputAction: TextInputAction.done,
-              ),
-              WidgetSizes.spacingXxl3.verticalSpace,
-              if (registerState.status.isLoading)
-                const CircularProgressIndicator.adaptive()
-              else
-                AppButton(
-                  onPressed: () => register(context),
-                  text: LocaleKeys.login_registerText,
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                const _RegisterHeader(),
+                AppTextField(
+                  hintText: LocaleKeys.register_enterYourName.locale,
+                  title: LocaleKeys.register_name.locale,
+                  controller: firstNameController,
+                  validator: NormalValidator().validate,
                 ),
-              if (registerState.status.isError) ...[
-                _RegisterError(errorMessage: registerState.errorMessage!),
+                WidgetSizes.spacingM.verticalSpace,
+                AppTextField(
+                  hintText: LocaleKeys.register_enterYourSurname.locale,
+                  title: LocaleKeys.register_surname,
+                  controller: lastNameController,
+                  validator: NormalValidator().validate,
+                ),
+                WidgetSizes.spacingM.verticalSpace,
+                AppTextField(
+                  hintText: AppConstants.emailHint,
+                  title: LocaleKeys.login_email,
+                  keyboardType: TextInputType.emailAddress,
+                  controller: emailController,
+                  validator: EmailValidator().validate,
+                ),
+                WidgetSizes.spacingM.verticalSpace,
+                AppTextField(
+                  hintText: AppConstants.passwordHint,
+                  title: LocaleKeys.login_password,
+                  controller: passwordController,
+                  validator: PasswordValidator().validate,
+                ),
+                WidgetSizes.spacingM.verticalSpace,
+                AppTextField(
+                  hintText: AppConstants.passwordHint,
+                  title: LocaleKeys.register_passwordAgain,
+                  textInputAction: TextInputAction.done,
+                  validator: ConfirmPasswordValidator(
+                    firstValue: passwordController.trimmedText,
+                    secondValue: confirmPasswordController.trimmedText,
+                  ).validate,
+                ),
+                WidgetSizes.spacingXxl3.verticalSpace,
+                if (registerState.status.isLoading)
+                  const CircularProgressIndicator.adaptive()
+                else
+                  AppButton(
+                    onPressed: () => register(context),
+                    text: LocaleKeys.login_registerText,
+                  ),
+                if (registerState.status.isError) ...[
+                  _RegisterError(errorMessage: registerState.errorMessage!),
+                ],
+                WidgetSizes.spacingS.verticalSpace,
+                const _HaveAccountWidget(),
+                WidgetSizes.spacingL.verticalSpace,
               ],
-              WidgetSizes.spacingS.verticalSpace,
-              const _HaveAccountWidget(),
-              WidgetSizes.spacingL.verticalSpace,
-            ],
+            ),
           ),
         ),
       ),

@@ -26,13 +26,13 @@
         "tapPlusButton": "Görevlerinizi eklemek için + butonuna dokunun"
     },
     "validators": {
-        "normal": "This field cannot be left blank.",
-        "invalidEmailFormat": "Invalid email format",
-        "confirmPassword": "Enter your password again.",
-        "notMatch": "Passwords do not match.",
-        "email": "Enter your e-mail address.",
-        "password": "Enter your password.",
-        "passwordLength": "Password must be at least {} characters long"
+        "normal": "Bu alan boş bırakılamaz.",
+        "invalidEmailFormat": "Geçersiz e-mail formatı",
+        "confirmPassword": "Parolanızı tekrar girin.",
+        "notMatch": "Parolalar eşleşmiyor.",
+        "email": "Email adresinizi girin.",
+        "password": "Parolanızı girin.",
+        "passwordLength": "Parola en az {} karakter uzunluğunda olmalıdır"
     },    
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
