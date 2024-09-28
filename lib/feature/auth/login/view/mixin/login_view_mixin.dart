@@ -7,15 +7,16 @@ mixin _LoginViewMixin on ConsumerState<LoginView> {
 
   LoginState get loginState => ref.watch(loginViewModelProvider);
 
-  Future<void> login() async {
-    final email = emailController.trimmedText;
-    final password = passwordController.trimmedText;
-
-    await ref.read(loginViewModelProvider.notifier).login(
-          email: email,
-          password: password,
-        );
+  Future<void> checkFormStateAndLogin() async {
+    if (_isFormStateValidate()) {
+      await ref.read(loginViewModelProvider.notifier).login(
+            email: emailController.trimmedText,
+            password: passwordController.trimmedText,
+          );
+    }
   }
+
+  bool _isFormStateValidate() => formKey.currentState?.validate() ?? false;
 
   @override
   void dispose() {

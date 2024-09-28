@@ -14,7 +14,26 @@
         "surname": "Last name",
         "passwordAgain": "Confirm Password",
         "alreadyHaveAnAccount": "Already have an account?"
-    },    
+    },   
+    "bottomNavBar": {
+        "home": "Home",
+        "calendar": "Calendar",
+        "profile": "Profile"
+    },
+    "home": {
+        "hello": "Hello",
+        "whatDoYouWantToDoToday": "What do you want to do today?",
+        "tapPlusButton": "Tap + to add your tasks"
+    },   
+    "validators": {
+        "normal": "This field cannot be left blank.",
+        "invalidEmailFormat": "Invalid email format",
+        "confirmPassword": "Enter your password again.",
+        "notMatch": "Passwords do not match.",
+        "email": "Enter your e-mail address.",
+        "password": "Enter your password.",
+        "passwordLength": "Password must be at least {} characters long"
+    },
     "error": {
         "failedToUsers": "Failed to load users.",
         "unknownException": "An unknown exception occurred.",
