@@ -26,8 +26,6 @@ part './widgets/no_account_widget.dart';
 final class LoginView extends ConsumerStatefulWidget {
   const LoginView({super.key});
 
-  static Page<void> view() => const MaterialPage<void>(child: LoginView());
-
   @override
   ConsumerState<LoginView> createState() => _LoginViewState();
 }

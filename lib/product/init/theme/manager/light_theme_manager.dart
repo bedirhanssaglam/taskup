@@ -7,7 +7,6 @@ final class LightThemeManager implements CustomTheme {
   @override
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
-        fontFamily: 'Open Sans',
         colorScheme: CustomColorScheme.lightColorScheme,
         appBarTheme: const AppBarTheme(
           centerTitle: false,

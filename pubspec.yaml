@@ -55,14 +55,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/fonts/
     - assets/translations/
-
-  fonts:
-    - family: Satoshi
-      fonts:
-        - asset: assets/fonts/OpenSans-Bold.ttf
-        - asset: assets/fonts/OpenSans-Medium.ttf
-        - asset: assets/fonts/OpenSans-Regular.ttf
-        - asset: assets/fonts/OpenSans-Light.ttf
-          style: normal

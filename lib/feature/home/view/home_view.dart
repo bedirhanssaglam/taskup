@@ -9,8 +9,6 @@ import 'package:task_management/product/utility/paddings/app_paddings.dart';
 final class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
-  static Page<void> view() => const MaterialPage<void>(child: HomeView());
-
   @override
   ConsumerState<HomeView> createState() => _HomeViewState();
 }
@@ -31,6 +29,7 @@ class _HomeViewState extends ConsumerState<HomeView> with HomeViewMixin {
         padding: const AppPadding.normalHorizontal(),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Assets.icons.emptyTask.show(),
               Text(

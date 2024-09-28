@@ -7,7 +7,6 @@ final class DarkThemeManager implements CustomTheme {
   @override
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
-        fontFamily: 'Open Sans',
         colorScheme: CustomColorScheme.darkColorScheme,
         iconTheme: const IconThemeData(color: Colors.white),
         appBarTheme: const AppBarTheme(
