@@ -1,4 +1,5 @@
-{
+{   
+    "cancelText": "Cancel",
     "login": {
         "email": "Email",
         "password": "Password",
@@ -33,6 +34,14 @@
         "email": "Enter your e-mail address.",
         "password": "Enter your password.",
         "passwordLength": "Password must be at least {} characters long"
+    },
+    "addTask": {
+       "addTaskText": "Add Task",
+       "title": "Title",
+       "description": "Description",
+       "chooseTime": "Choose time",
+       "save": "Save",
+       "taskPriority": "Task Priority"
     },
     "error": {
         "failedToUsers": "Failed to load users.",

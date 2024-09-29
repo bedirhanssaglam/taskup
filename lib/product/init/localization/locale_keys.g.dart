@@ -1,6 +1,7 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
 abstract class LocaleKeys {
+  static const cancelText = 'cancelText';
   static const login_email = 'login.email';
   static const login_password = 'login.password';
   static const login_loginText = 'login.loginText';
@@ -31,6 +32,13 @@ abstract class LocaleKeys {
   static const validators_password = 'validators.password';
   static const validators_passwordLength = 'validators.passwordLength';
   static const validators = 'validators';
+  static const addTask_addTaskText = 'addTask.addTaskText';
+  static const addTask_title = 'addTask.title';
+  static const addTask_description = 'addTask.description';
+  static const addTask_chooseTime = 'addTask.chooseTime';
+  static const addTask_save = 'addTask.save';
+  static const addTask_taskPriority = 'addTask.taskPriority';
+  static const addTask = 'addTask';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_unknownException = 'error.unknownException';
   static const error_userDisabled = 'error.userDisabled';

@@ -24,18 +24,40 @@ class $AssetIconsGen {
   /// File path: asset/icons/empty_task.svg
   SvgGenImage get emptyTask => const SvgGenImage('asset/icons/empty_task.svg');
 
+  /// File path: asset/icons/flag.svg
+  SvgGenImage get flag => const SvgGenImage('asset/icons/flag.svg');
+
   /// File path: asset/icons/home_view.svg
   SvgGenImage get homeView => const SvgGenImage('asset/icons/home_view.svg');
 
+  /// File path: asset/icons/send.svg
+  SvgGenImage get send => const SvgGenImage('asset/icons/send.svg');
+
+  /// File path: asset/icons/tag.svg
+  SvgGenImage get tag => const SvgGenImage('asset/icons/tag.svg');
+
   /// File path: asset/icons/task.svg
   SvgGenImage get task => const SvgGenImage('asset/icons/task.svg');
+
+  /// File path: asset/icons/timer.svg
+  SvgGenImage get timer => const SvgGenImage('asset/icons/timer.svg');
 
   /// File path: asset/icons/user.svg
   SvgGenImage get user => const SvgGenImage('asset/icons/user.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [appIcon, calendar, emptyTask, homeView, task, user];
+  List<SvgGenImage> get values => [
+        appIcon,
+        calendar,
+        emptyTask,
+        flag,
+        homeView,
+        send,
+        tag,
+        task,
+        timer,
+        user
+      ];
 }
 
 class Assets {
