@@ -1,10 +1,9 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
@@ -17,19 +16,22 @@ import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
 import 'package:widget/widget.dart';
 
-final class AddTaskBottomSheet extends StatelessWidget {
-  const AddTaskBottomSheet({
-    super.key,
-  });
+final class AddTaskBottomSheet extends StatefulWidget {
+  const AddTaskBottomSheet({super.key});
 
-  static Future<void> show(
-    BuildContext context,
-  ) async {
+  static Future<void> show(BuildContext context) async {
     await BottomSheetBase.show<void>(
       context: context,
       builder: (context) => const AddTaskBottomSheet(),
     );
   }
+
+  @override
+  State<AddTaskBottomSheet> createState() => _AddTaskBottomSheetState();
+}
+
+class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
+  int? _selectedPriority;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,9 @@ final class AddTaskBottomSheet extends StatelessWidget {
                           ),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _showPriorityDialog(context);
+                          },
                           icon: Assets.icons.tag.colored(
                             context.colorScheme.onBackground,
                           ),
@@ -127,5 +131,83 @@ final class AddTaskBottomSheet extends StatelessWidget {
       selectedTime,
     );
     log('Selected date and time: $finalDateTime');
+  }
+
+  Future<void> _showPriorityDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Task Priority'),
+          backgroundColor: context.colorScheme.background,
+          content: SizedBox(
+            width: double.maxFinite,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Divider(),
+                GridView.builder(
+                  shrinkWrap: true,
+                  padding: const AppPadding.mediumAll(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                  ),
+                  itemCount: 9,
+                  itemBuilder: (BuildContext context, int index) {
+                    final priority = index + 1;
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _selectedPriority = priority;
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: _selectedPriority == priority
+                              ? context.colorScheme.primary
+                              : context.colorScheme.background,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Assets.icons.flag.colored(
+                                _selectedPriority == priority
+                                    ? context.colorScheme.background
+                                    : context.colorScheme.primary,
+                              ),
+                              8.verticalSpace,
+                              Text(
+                                '$priority',
+                                style: TextStyle(
+                                  color: _selectedPriority == priority
+                                      ? context.colorScheme.background
+                                      : context.colorScheme.primary,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            AppTextButton(
+              text: LocaleKeys.addTask_save,
+              onPressed: Navigator.of(context).pop,
+            ),
+          ],
+        );
+      },
+    );
   }
 }
