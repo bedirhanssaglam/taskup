@@ -20,6 +20,8 @@ dependencies:
   firebase_ui_firestore: ^1.6.4
   equatable: ^2.0.5
   riverpod_annotation: ^2.3.5
+  speech_to_text: ^6.2.0
+  flutter_tts: ^3.3.0
 
   # Utility & Widget 
   cupertino_icons: ^1.0.6

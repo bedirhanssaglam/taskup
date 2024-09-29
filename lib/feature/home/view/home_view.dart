@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gen/gen.dart';
 import 'package:task_management/feature/home/view/mixin/home_view_mixin.dart';
-import 'package:task_management/feature/home/view/widgets/add_task_sheet.dart';
+import 'package:task_management/product/components/bottom_sheet/add_task/add_task_sheet.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
