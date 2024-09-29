@@ -109,6 +109,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                           onDateTimeSelected: (DateTime dateTime) {},
                         ),
                         IconButton(
+                          key: const Key('tag'),
                           onPressed: () async {
                             final selectedCategory =
                                 await showCategoryDialog(context);
