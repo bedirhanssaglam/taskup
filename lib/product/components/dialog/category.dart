@@ -61,4 +61,43 @@ final class Category {
       icon: Assets.icons.house,
     ),
   ];
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'color': _getColorString(color),
+      'icon': icon.path,
+    };
+  }
+
+  // ignore: prefer_constructors_over_static_methods
+  static Category fromFirestore(Map<String, dynamic> data) {
+    return Category(
+      name: data['name'] as String,
+      color: _getColorFromString(data['color'] as String),
+      icon: SvgGenImage(data['icon'] as String),
+    );
+  }
+
+  String _getColorString(Color color) {
+    return '#${color.value.toRadixString(16).substring(2, 8).toUpperCase()}';
+  }
+
+  static Color _getColorFromString(String colorString) {
+    if (colorString.startsWith('#')) {
+      // ignore_for_file: parameter_assignments
+
+      colorString = colorString.substring(1);
+    }
+
+    if (colorString.length != 6) {
+      throw const FormatException('Color string must be in #RRGGBB format');
+    }
+
+    final r = int.parse(colorString.substring(0, 2), radix: 16);
+    final g = int.parse(colorString.substring(2, 4), radix: 16);
+    final b = int.parse(colorString.substring(4, 6), radix: 16);
+
+    return Color.fromARGB(255, r, g, b);
+  }
 }

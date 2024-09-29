@@ -6,7 +6,7 @@ import 'package:task_management/product/base/model/note.dart';
 import 'package:task_management/product/service/task/task_service.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
-final class _MocTaskService extends Mock implements TaskService {
+final class _MockTaskService extends Mock implements TaskService {
   @override
   Future<List<Task>> getAllTasks() {
     return Future.value([
@@ -21,7 +21,7 @@ void main() {
     final container = ProviderContainer(
       overrides: [
         ProductProviderItems.taskServiceProvider.overrideWithValue(
-          _MocTaskService(),
+          _MockTaskService(),
         ),
       ],
     );

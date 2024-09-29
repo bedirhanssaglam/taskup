@@ -10,4 +10,8 @@ class TaskService {
   Future<List<Task>> getAllTasks() {
     return firestoreService.getList(CollectionPaths.tasks, Task());
   }
+
+  Future<void> addTask(Task task) {
+    return firestoreService.add(CollectionPaths.tasks, Task());
+  }
 }

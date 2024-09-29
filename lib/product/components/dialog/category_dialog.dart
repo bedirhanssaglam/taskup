@@ -40,7 +40,7 @@ final class CategoryDialog extends StatelessWidget {
           itemBuilder: (context, index) {
             final category = Category.categories[index];
             return InkWell(
-              onTap: Navigator.of(context).pop,
+              onTap: () => Navigator.of(context).pop(category),
               child: Column(
                 children: [
                   Container(

@@ -1,10 +1,22 @@
 part of 'add_task_sheet.dart';
 
-mixin _AddTaskMixin on State<AddTaskBottomSheet> {
+mixin _AddTaskMixin on ConsumerState<AddTaskBottomSheet> {
+  final TextEditingController titleController = TextEditingController();
+
   final ValueNotifier<String> descriptionNotifier = ValueNotifier<String>('');
   final ValueNotifier<int?> priorityNotifier = ValueNotifier<int?>(null);
   final SpeechRecognitionService speechService = SpeechRecognitionService();
   final TextEditingController descriptionController = TextEditingController();
+  Category? selectedCategory;
+  DateTime? selectedDateTime;
+
+  AddTaskState get addTaskState => ref.watch(addTaskViewModelProvider);
+
+  Future<void> addTask(Task task) async {
+    await ref.read(addTaskViewModelProvider.notifier).addTask(
+          task: task,
+        );
+  }
 
   @override
   void initState() {

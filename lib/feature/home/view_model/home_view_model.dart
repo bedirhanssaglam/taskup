@@ -17,7 +17,17 @@ class HomeViewModel extends _$HomeViewModel {
       final tasks = await ref
           .read(ProductProviderItems.taskServiceProvider)
           .getAllTasks();
-      return HomeState(tasks: tasks);
+      return HomeState(
+        tasks: tasks.map((task) {
+          return Task(
+            title: task.title,
+            description: task.description,
+            date: task.date,
+            category: task.category,
+            priority: task.priority,
+          );
+        }).toList(),
+      );
     });
   }
 }

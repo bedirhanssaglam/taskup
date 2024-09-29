@@ -50,4 +50,21 @@ class MockFirebaseService extends _i1.Mock implements _i2.FirebaseService {
         ),
         returnValue: _i3.Future<List<T>>.value(<T>[]),
       ) as _i3.Future<List<T>>);
+
+  @override
+  _i3.Future<void> add<T extends _i4.BaseFirebaseModel<T>>(
+    _i5.CollectionPaths? collectionPath,
+    T? model,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #add,
+          [
+            collectionPath,
+            model,
+          ],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
 }

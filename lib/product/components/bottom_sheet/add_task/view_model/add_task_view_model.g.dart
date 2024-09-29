@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_view_model.dart';
+part of 'add_task_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeViewModelHash() => r'52732b90f7516d0c98d7381185cf7052a900d095';
+String _$addTaskViewModelHash() => r'b3639929cfc159b6e89d45afb9a8576902376b07';
 
-/// See also [HomeViewModel].
-@ProviderFor(HomeViewModel)
-final homeViewModelProvider =
-    AutoDisposeNotifierProvider<HomeViewModel, AsyncValue<HomeState>>.internal(
-  HomeViewModel.new,
-  name: r'homeViewModelProvider',
+/// See also [AddTaskViewModel].
+@ProviderFor(AddTaskViewModel)
+final addTaskViewModelProvider =
+    AutoDisposeNotifierProvider<AddTaskViewModel, AddTaskState>.internal(
+  AddTaskViewModel.new,
+  name: r'addTaskViewModelProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$homeViewModelHash,
+      : _$addTaskViewModelHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$HomeViewModel = AutoDisposeNotifier<AsyncValue<HomeState>>;
+typedef _$AddTaskViewModel = AutoDisposeNotifier<AddTaskState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
