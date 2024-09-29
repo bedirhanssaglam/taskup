@@ -42,7 +42,20 @@
         "chooseTime": "Saat seç",
         "save": "Kaydet",
         "taskPriority": "Görev Önceliği"
-    },       
+    },  
+    "category": {
+        "title": "Kategori Seç",
+        "grocery": "Market",
+        "work": "İş",
+        "sport": "Spor",
+        "design": "Tasarım",
+        "university": "Üniversite",
+        "social": "Sosyal",
+        "music": "Müzik",
+        "health": "Sağlık",
+        "movie": "Film",
+        "house": "Ev"
+    },         
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "unknownException": "Bilinmeyen bir hata oluştu.",

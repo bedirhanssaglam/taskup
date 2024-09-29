@@ -43,6 +43,19 @@
        "save": "Save",
        "taskPriority": "Task Priority"
     },
+    "category": {
+        "title": "Choose Category",
+        "grocery": "Grocery",
+        "work": "Work",
+        "sport": "Sport",
+        "design": "Design",
+        "university": "University",
+        "social": "Social",
+        "music": "Music",
+        "health": "Health",
+        "movie": "Movie",
+        "house": "House"
+    },
     "error": {
         "failedToUsers": "Failed to load users.",
         "unknownException": "An unknown exception occurred.",
