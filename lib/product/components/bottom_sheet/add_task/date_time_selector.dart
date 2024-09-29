@@ -1,13 +1,9 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:flutter/material.dart';
-import 'package:gen/gen.dart';
-import 'package:task_management/product/utility/date_time/date_time_picker.dart';
-import 'package:task_management/product/utility/extensions/context_extensions.dart';
-import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+part of 'add_task_sheet.dart';
 
-class DateTimeSelector extends StatelessWidget {
-  const DateTimeSelector({required this.onDateTimeSelected, super.key});
+final class _DateTimeSelector extends StatelessWidget {
+  const _DateTimeSelector({required this.onDateTimeSelected});
   final void Function(DateTime) onDateTimeSelected;
 
   @override

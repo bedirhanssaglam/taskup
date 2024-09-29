@@ -1,18 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:gen/gen.dart';
-import 'package:task_management/product/components/button/app_text_button.dart';
-import 'package:task_management/product/components/text/locale_text.dart';
-import 'package:task_management/product/init/localization/locale_keys.g.dart';
-import 'package:task_management/product/utility/extensions/context_extensions.dart';
-import 'package:task_management/product/utility/extensions/icon_extensions.dart';
-import 'package:task_management/product/utility/paddings/app_paddings.dart';
+part of 'add_task_sheet.dart';
 
-class PriorityDialog extends StatelessWidget {
-  const PriorityDialog({
+final class _PriorityDialog extends StatelessWidget {
+  const _PriorityDialog({
     required this.selectedPriority,
     required this.onPrioritySelected,
-    super.key,
   });
+
   final int? selectedPriority;
   final void Function(int) onPrioritySelected;
 
@@ -58,7 +51,7 @@ class PriorityDialog extends StatelessWidget {
                           color: selectedPriority == priority
                               ? context.colorScheme.primary
                               : context.colorScheme.background,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: AppBorderRadius.circularSmall(),
                         ),
                         child: Center(
                           child: Column(
@@ -71,11 +64,10 @@ class PriorityDialog extends StatelessWidget {
                               ),
                               Text(
                                 '$priority',
-                                style: TextStyle(
+                                style: context.textTheme.bodyLarge?.copyWith(
                                   color: selectedPriority == priority
                                       ? context.colorScheme.background
                                       : context.colorScheme.primary,
-                                  fontSize: 20,
                                 ),
                               ),
                             ],

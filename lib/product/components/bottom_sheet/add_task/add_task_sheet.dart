@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
-import 'package:task_management/product/components/bottom_sheet/add_task/date_time_selector.dart';
-import 'package:task_management/product/components/bottom_sheet/add_task/priority_dialog.dart';
+import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/service/speech_recognation/speech_recognation_service.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
+import 'package:task_management/product/utility/date_time/date_time_picker.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
 import 'package:widget/widget.dart';
+
+part 'add_task_mixin.dart';
+part 'date_time_selector.dart';
+part 'priority_dialog.dart';
 
 final class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
@@ -86,7 +90,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                         ) {
                           descriptionNotifier.value = result;
                         }),
-                        icon: const Icon(Icons.mic_none),
+                        icon: Icon(
+                          Icons.mic_none,
+                          color: context.colorScheme.primary,
+                        ),
                       ),
                     );
                   },
@@ -96,7 +103,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                   children: [
                     Row(
                       children: [
-                        DateTimeSelector(
+                        _DateTimeSelector(
                           onDateTimeSelected: (DateTime dateTime) {},
                         ),
                         IconButton(
@@ -108,7 +115,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                         ValueListenableBuilder<int?>(
                           valueListenable: priorityNotifier,
                           builder: (context, selectedPriority, child) {
-                            return PriorityDialog(
+                            return _PriorityDialog(
                               selectedPriority: selectedPriority,
                               onPrioritySelected: (priority) {
                                 priorityNotifier.value = priority;
@@ -132,27 +139,5 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
         ),
       ),
     );
-  }
-}
-
-mixin _AddTaskMixin on State<AddTaskBottomSheet> {
-  final ValueNotifier<String> descriptionNotifier = ValueNotifier<String>('');
-  final ValueNotifier<int?> priorityNotifier = ValueNotifier<int?>(null);
-  final SpeechRecognitionService speechService = SpeechRecognitionService();
-  final TextEditingController descriptionController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    descriptionController.text = descriptionNotifier.value;
-    descriptionNotifier.addListener(() {
-      descriptionController.text = descriptionNotifier.value;
-    });
-  }
-
-  @override
-  void dispose() {
-    descriptionController.dispose();
-    super.dispose();
   }
 }
