@@ -18,6 +18,8 @@ mixin _AddTaskMixin on State<AddTaskBottomSheet> {
   @override
   void dispose() {
     descriptionController.dispose();
+    descriptionNotifier.dispose();
+    priorityNotifier.dispose();
     super.dispose();
   }
 }

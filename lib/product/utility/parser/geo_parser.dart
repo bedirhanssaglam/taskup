@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class GeoParser {
   const GeoParser._();
 
-  // JSON'dan GeoPoint oluşturma
   static GeoPoint fromJsonGeoPoint(Map<String, dynamic> geoPoint) {
     return GeoPoint(
       geoPoint['latitude'] as double,
@@ -11,7 +10,6 @@ class GeoParser {
     );
   }
 
-  // GeoPoint'i JSON'a dönüştürme
   static Map<String, dynamic> toJsonGeoPoint(GeoPoint geoPoint) {
     return {
       'latitude': geoPoint.latitude,

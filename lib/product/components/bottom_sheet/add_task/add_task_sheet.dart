@@ -87,7 +87,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                         );
                       },
                       suffixIcon: IconButton(
-                        onPressed: () => speechService.toggleListening((
+                        onPressed: () => speechService.listenVoice((
                           String result,
                         ) {
                           descriptionNotifier.value = result;
