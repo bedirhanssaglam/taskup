@@ -40,7 +40,8 @@
         "title": "Başlık",
         "description": "Açıklama",
         "chooseTime": "Saat seç",
-        "save": "Kaydet"
+        "save": "Kaydet",
+        "taskPriority": "Görev Önceliği"
     },       
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",

@@ -40,7 +40,8 @@
        "title": "Title",
        "description": "Description",
        "chooseTime": "Choose time",
-       "save": "Save"
+       "save": "Save",
+       "taskPriority": "Task Priority"
     },
     "error": {
         "failedToUsers": "Failed to load users.",

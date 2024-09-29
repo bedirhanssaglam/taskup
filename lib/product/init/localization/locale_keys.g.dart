@@ -37,6 +37,7 @@ abstract class LocaleKeys {
   static const addTask_description = 'addTask.description';
   static const addTask_chooseTime = 'addTask.chooseTime';
   static const addTask_save = 'addTask.save';
+  static const addTask_taskPriority = 'addTask.taskPriority';
   static const addTask = 'addTask';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_unknownException = 'error.unknownException';

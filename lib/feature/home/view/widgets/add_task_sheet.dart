@@ -138,7 +138,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Task Priority'),
+          title: LocaleText(LocaleKeys.addTask_taskPriority),
           backgroundColor: context.colorScheme.background,
           content: SizedBox(
             width: double.maxFinite,
@@ -150,11 +150,11 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                   shrinkWrap: true,
                   padding: const AppPadding.mediumAll(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
+                    crossAxisCount: 4,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                   ),
-                  itemCount: 9,
+                  itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     final priority = index + 1;
                     return GestureDetector(
@@ -180,7 +180,6 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                                     ? context.colorScheme.background
                                     : context.colorScheme.primary,
                               ),
-                              8.verticalSpace,
                               Text(
                                 '$priority',
                                 style: TextStyle(
