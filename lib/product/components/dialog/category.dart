@@ -70,6 +70,7 @@ final class Category {
     };
   }
 
+  // ignore: prefer_constructors_over_static_methods
   static Category fromFirestore(Map<String, dynamic> data) {
     return Category(
       name: data['name'] as String,
@@ -83,22 +84,20 @@ final class Category {
   }
 
   static Color _getColorFromString(String colorString) {
-    // Öncelikle '#' karakterini kontrol edin ve kaldırın
     if (colorString.startsWith('#')) {
+      // ignore_for_file: parameter_assignments
+
       colorString = colorString.substring(1);
     }
 
-    // Eğer colorString 6 karakterden fazla değilse, hatayı ele alabilirsiniz.
     if (colorString.length != 6) {
       throw const FormatException('Color string must be in #RRGGBB format');
     }
 
-    // Renk bileşenlerini al
     final r = int.parse(colorString.substring(0, 2), radix: 16);
     final g = int.parse(colorString.substring(2, 4), radix: 16);
     final b = int.parse(colorString.substring(4, 6), radix: 16);
 
-    // Renk nesnesini oluştur
-    return Color.fromARGB(255, r, g, b); // A'yı 255 (tam görünür) yapıyoruz
+    return Color.fromARGB(255, r, g, b);
   }
 }
