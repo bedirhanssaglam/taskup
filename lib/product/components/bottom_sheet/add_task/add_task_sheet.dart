@@ -37,12 +37,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
     with _AddTaskMixin {
   @override
   Widget build(BuildContext context) {
-    final keyboardPadding = MediaQuery.of(context).viewInsets.bottom;
-
     return Material(
       borderRadius: const AppBorderRadius.onlyTop(),
       child: Padding(
-        padding: EdgeInsets.only(bottom: keyboardPadding),
+        padding: EdgeInsets.only(bottom: context.keyboardPadding),
         child: Container(
           height: .45.sh,
           width: 1.sw,

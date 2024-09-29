@@ -10,4 +10,6 @@ extension ContextExtensions on BuildContext {
 
   double get screenHeight => size.height;
   double get screenWidth => size.width;
+
+  double get keyboardPadding => MediaQuery.of(this).viewInsets.bottom;
 }
