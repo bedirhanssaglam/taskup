@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
@@ -111,11 +113,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                             final selectedCategory =
                                 await showCategoryDialog(context);
                             if (selectedCategory != null) {
-                              // Seçilen kategori ile yapılacak işlemler
-                              print(
+                              log(
                                 'Selected Category: ${selectedCategory.name}',
                               );
-                              // Burada seçilen kategoriyi kullanabilirsiniz
                             }
                           },
                           icon: Assets.icons.tag.colored(

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_management/product/components/dialog/category.dart';
+import 'package:task_management/product/components/text/locale_text.dart';
+import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 
 final class CategoryDialog extends StatelessWidget {
@@ -18,8 +21,8 @@ final class CategoryDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Center(
-            child: Text(
-              'Choose Category',
+            child: LocaleText(
+              LocaleKeys.category_title,
               style: context.textTheme.titleMedium,
             ),
           ),
@@ -58,7 +61,7 @@ final class CategoryDialog extends StatelessWidget {
                     child: category.icon.show(),
                   ),
                   Text(
-                    category.name,
+                    category.name.locale,
                     style: context.textTheme.bodyMedium,
                     textAlign: TextAlign.center,
                   ),
