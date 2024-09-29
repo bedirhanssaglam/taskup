@@ -1,18 +1,40 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:task_management/product/base/model/base_firebase_model.dart';
+import 'package:task_management/product/components/dialog/category.dart';
 
 @immutable
 final class Task extends BaseFirebaseModel<Task> {
-  Task({this.id, this.title});
+  Task({
+    this.id,
+    this.title,
+    this.description,
+    this.date,
+    this.category,
+    this.priority,
+    this.createdAt,
+  });
 
   final String? id;
   final String? title;
+  final String? description;
+  final Timestamp? date;
+  final Timestamp? createdAt;
+  final Category? category;
+  final String? priority;
 
   @override
   Task fromFirestore(Map<String, dynamic> data, String documentId) {
     return Task(
       id: documentId,
       title: data['title'] as String?,
+      description: data['description'] as String?,
+      date: data['date'] as Timestamp?,
+      createdAt: data['createdAt'] as Timestamp?,
+      category: Category.fromFirestore(
+        data['category'] as Map<String, dynamic>,
+      ),
+      priority: data['priority'] as String?,
     );
   }
 
@@ -28,4 +50,16 @@ final class Task extends BaseFirebaseModel<Task> {
 
   @override
   String toString() => 'Task(title: $title)';
+
+  @override
+  Map<String, dynamic> toFirestore() {
+    return {
+      'title': title,
+      'description': description,
+      'date': date,
+      'createdAt': createdAt,
+      'category': category?.toJson(),
+      'priority': priority,
+    };
+  }
 }

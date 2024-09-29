@@ -27,4 +27,11 @@ class FirebaseService extends IFirebaseService {
         .cast<T>()
         .toList();
   }
+
+  Future<void> add<T extends BaseFirebaseModel<T>>(
+    CollectionPaths collectionPath,
+    T model,
+  ) async {
+    await collectionPath.collection.add(model.toFirestore());
+  }
 }

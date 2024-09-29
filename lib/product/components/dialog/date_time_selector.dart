@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-part of 'add_task_sheet.dart';
+part of '../bottom_sheet/add_task/view/add_task_sheet.dart';
 
 final class _DateTimeSelector extends StatelessWidget {
   const _DateTimeSelector({required this.onDateTimeSelected});

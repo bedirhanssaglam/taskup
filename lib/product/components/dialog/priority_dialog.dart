@@ -1,4 +1,4 @@
-part of 'add_task_sheet.dart';
+part of '../bottom_sheet/add_task/view/add_task_sheet.dart';
 
 final class _PriorityDialog extends StatelessWidget {
   const _PriorityDialog({

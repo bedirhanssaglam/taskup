@@ -61,4 +61,44 @@ final class Category {
       icon: Assets.icons.house,
     ),
   ];
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'color': _getColorString(color),
+      'icon': icon.path,
+    };
+  }
+
+  static Category fromFirestore(Map<String, dynamic> data) {
+    return Category(
+      name: data['name'] as String,
+      color: _getColorFromString(data['color'] as String),
+      icon: SvgGenImage(data['icon'] as String),
+    );
+  }
+
+  String _getColorString(Color color) {
+    return '#${color.value.toRadixString(16).substring(2, 8).toUpperCase()}';
+  }
+
+  static Color _getColorFromString(String colorString) {
+    // Öncelikle '#' karakterini kontrol edin ve kaldırın
+    if (colorString.startsWith('#')) {
+      colorString = colorString.substring(1);
+    }
+
+    // Eğer colorString 6 karakterden fazla değilse, hatayı ele alabilirsiniz.
+    if (colorString.length != 6) {
+      throw const FormatException('Color string must be in #RRGGBB format');
+    }
+
+    // Renk bileşenlerini al
+    final r = int.parse(colorString.substring(0, 2), radix: 16);
+    final g = int.parse(colorString.substring(2, 4), radix: 16);
+    final b = int.parse(colorString.substring(4, 6), radix: 16);
+
+    // Renk nesnesini oluştur
+    return Color.fromARGB(255, r, g, b); // A'yı 255 (tam görünür) yapıyoruz
+  }
 }
