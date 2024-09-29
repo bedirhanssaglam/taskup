@@ -10,9 +10,7 @@ import 'package:task_management/product/utility/extensions/string_extensions.dar
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 
 final class CategoryDialog extends StatelessWidget {
-  const CategoryDialog({
-    super.key,
-  });
+  const CategoryDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +48,11 @@ final class CategoryDialog extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: category.color,
                       borderRadius: AppBorderRadius.circularSmall(),
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
-                          color: Colors.black26,
+                          color: context.colorScheme.onBackground,
                           blurRadius: 4,
-                          offset: Offset(2, 2),
+                          offset: const Offset(2, 2),
                         ),
                       ],
                     ),
