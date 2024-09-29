@@ -32,7 +32,8 @@ class _HomeViewState extends ConsumerState<HomeView> with HomeViewMixin {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            onPressed: ref.read(ProductProviderItems.authServiceProvider).logOut,
+            onPressed:
+                ref.read(ProductProviderItems.authServiceProvider).logOut,
             icon: const Icon(Icons.logout),
           ),
         ],
