@@ -10,4 +10,10 @@ final class AppBorderRadius extends BorderRadius {
   AppBorderRadius.circularMedium() : super.circular(WidgetSizes.spacingS);
 
   AppBorderRadius.circularLarge() : super.circular(WidgetSizes.spacingXxl2);
+
+  const AppBorderRadius.onlyTop()
+      : super.only(
+          topRight: const Radius.circular(WidgetSizes.spacingXxl2),
+          topLeft: const Radius.circular(WidgetSizes.spacingXxl2),
+        );
 }

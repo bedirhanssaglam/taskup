@@ -16,6 +16,8 @@ final class AppTextField extends StatelessWidget {
     this.prefixIcon,
     this.title,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    this.maxLines = 1,
+    this.autofocus = false,
   });
 
   final String? hintText;
@@ -28,6 +30,8 @@ final class AppTextField extends StatelessWidget {
   final BorderRadius borderRadius;
   final Widget? prefixIcon;
   final String? title;
+  final int maxLines;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +48,12 @@ final class AppTextField extends StatelessWidget {
           ),
         TextFormField(
           controller: controller,
+          autofocus: autofocus,
           obscureText: obscureText,
           textInputAction: textInputAction,
           keyboardType: keyboardType,
           style: context.textTheme.bodyMedium,
+          maxLines: maxLines,
           cursorColor: context.colorScheme.primary,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(

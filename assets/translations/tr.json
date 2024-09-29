@@ -1,4 +1,5 @@
 {
+    "cancelText": "İptal",
     "login": {
         "email": "Email",
         "password": "Parola",
@@ -33,7 +34,14 @@
         "email": "Email adresinizi girin.",
         "password": "Parolanızı girin.",
         "passwordLength": "Parola en az {} karakter uzunluğunda olmalıdır"
-    },    
+    }, 
+    "addTask": {
+        "addTaskText": "Görev Ekle",
+        "title": "Başlık",
+        "description": "Açıklama",
+        "chooseTime": "Saat seç",
+        "save": "Kaydet"
+    },       
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "unknownException": "Bilinmeyen bir hata oluştu.",
