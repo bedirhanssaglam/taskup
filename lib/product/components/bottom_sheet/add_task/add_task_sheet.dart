@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
+import 'package:task_management/product/components/dialog/category.dart';
+import 'package:task_management/product/components/dialog/category_dialog.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
@@ -105,7 +107,17 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                           onDateTimeSelected: (DateTime dateTime) {},
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            final selectedCategory =
+                                await showCategoryDialog(context);
+                            if (selectedCategory != null) {
+                              // Seçilen kategori ile yapılacak işlemler
+                              print(
+                                'Selected Category: ${selectedCategory.name}',
+                              );
+                              // Burada seçilen kategoriyi kullanabilirsiniz
+                            }
+                          },
                           icon: Assets.icons.tag.colored(
                             context.colorScheme.onBackground,
                           ),
@@ -136,6 +148,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
           ),
         ),
       ),
+    );
+  }
+
+  Future<Category?> showCategoryDialog(BuildContext context) async {
+    return showDialog<Category>(
+      context: context,
+      builder: (BuildContext context) {
+        return const CategoryDialog();
+      },
     );
   }
 }

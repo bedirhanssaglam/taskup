@@ -21,17 +21,41 @@ class $AssetIconsGen {
   /// File path: asset/icons/calendar.svg
   SvgGenImage get calendar => const SvgGenImage('asset/icons/calendar.svg');
 
+  /// File path: asset/icons/design.svg
+  SvgGenImage get design => const SvgGenImage('asset/icons/design.svg');
+
   /// File path: asset/icons/empty_task.svg
   SvgGenImage get emptyTask => const SvgGenImage('asset/icons/empty_task.svg');
 
   /// File path: asset/icons/flag.svg
   SvgGenImage get flag => const SvgGenImage('asset/icons/flag.svg');
 
+  /// File path: asset/icons/grocery.svg
+  SvgGenImage get grocery => const SvgGenImage('asset/icons/grocery.svg');
+
+  /// File path: asset/icons/health.svg
+  SvgGenImage get health => const SvgGenImage('asset/icons/health.svg');
+
   /// File path: asset/icons/home_view.svg
   SvgGenImage get homeView => const SvgGenImage('asset/icons/home_view.svg');
 
+  /// File path: asset/icons/house.svg
+  SvgGenImage get house => const SvgGenImage('asset/icons/house.svg');
+
+  /// File path: asset/icons/movie.svg
+  SvgGenImage get movie => const SvgGenImage('asset/icons/movie.svg');
+
+  /// File path: asset/icons/music.svg
+  SvgGenImage get music => const SvgGenImage('asset/icons/music.svg');
+
   /// File path: asset/icons/send.svg
   SvgGenImage get send => const SvgGenImage('asset/icons/send.svg');
+
+  /// File path: asset/icons/social.svg
+  SvgGenImage get social => const SvgGenImage('asset/icons/social.svg');
+
+  /// File path: asset/icons/sport.svg
+  SvgGenImage get sport => const SvgGenImage('asset/icons/sport.svg');
 
   /// File path: asset/icons/tag.svg
   SvgGenImage get tag => const SvgGenImage('asset/icons/tag.svg');
@@ -42,21 +66,37 @@ class $AssetIconsGen {
   /// File path: asset/icons/timer.svg
   SvgGenImage get timer => const SvgGenImage('asset/icons/timer.svg');
 
+  /// File path: asset/icons/university.svg
+  SvgGenImage get university => const SvgGenImage('asset/icons/university.svg');
+
   /// File path: asset/icons/user.svg
   SvgGenImage get user => const SvgGenImage('asset/icons/user.svg');
+
+  /// File path: asset/icons/work.svg
+  SvgGenImage get work => const SvgGenImage('asset/icons/work.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
         appIcon,
         calendar,
+        design,
         emptyTask,
         flag,
+        grocery,
+        health,
         homeView,
+        house,
+        movie,
+        music,
         send,
+        social,
+        sport,
         tag,
         task,
         timer,
-        user
+        university,
+        user,
+        work
       ];
 }
 
