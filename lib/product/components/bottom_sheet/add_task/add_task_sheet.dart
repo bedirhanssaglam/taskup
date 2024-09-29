@@ -70,7 +70,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet>
                       textInputAction: TextInputAction.done,
                       controller: descriptionController,
                       onChanged: (value) {
+                        final cursorPosition =
+                            descriptionController.selection.baseOffset;
+
                         descriptionNotifier.value = value;
+
+                        descriptionController.selection =
+                            TextSelection.fromPosition(
+                          TextPosition(offset: cursorPosition),
+                        );
                       },
                       suffixIcon: IconButton(
                         onPressed: () => speechService.toggleListening((
