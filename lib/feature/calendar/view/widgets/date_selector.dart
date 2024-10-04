@@ -1,4 +1,11 @@
-part of '../calendar_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_management/product/components/tap_area/tap_area.dart';
+import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
+import 'package:task_management/product/utility/extensions/context_extensions.dart';
+import 'package:task_management/product/utility/extensions/date_time_extensions.dart';
+import 'package:task_management/product/utility/paddings/app_paddings.dart';
+import 'package:task_management/product/utility/size/widget_sizes.dart';
 
 class DateSelector extends StatelessWidget {
   const DateSelector({
