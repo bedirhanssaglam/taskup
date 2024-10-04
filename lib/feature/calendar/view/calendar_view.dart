@@ -20,6 +20,8 @@ class CalendarView extends ConsumerStatefulWidget {
 
 class _CalendarViewState extends ConsumerState<CalendarView>
     with _CalendarViewMixin {
+  // ValueNotifier to hold the selected date
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +32,23 @@ class _CalendarViewState extends ConsumerState<CalendarView>
       body: calendarState.when(
         data: (CalendarState state) => Column(
           children: [
-            DateSelector(
-              currentDate: selectedDate,
-              onDateSelected: (date) => setState(() => selectedDate = date),
+            ValueListenableBuilder<DateTime>(
+              valueListenable: selectedDate,
+              builder: (context, value, _) {
+                return DateSelector(
+                  currentDate: value,
+                  onDateSelected: (date) => selectedDate.value = date,
+                );
+              },
             ),
             Expanded(
-              child: CalendarTaskList(
-                tasks: _filterTasksByDate(state.tasks!, selectedDate),
+              child: ValueListenableBuilder<DateTime>(
+                valueListenable: selectedDate,
+                builder: (context, value, _) {
+                  return CalendarTaskList(
+                    tasks: _filterTasksByDate(state.tasks!, value),
+                  );
+                },
               ),
             ),
           ],
@@ -47,11 +59,5 @@ class _CalendarViewState extends ConsumerState<CalendarView>
         error: (error, _) => Center(child: Text(error.toString())),
       ),
     );
-  }
-
-  List<Task> _filterTasksByDate(List<Task> tasks, DateTime date) {
-    return tasks
-        .where((Task task) => task.date?.toDate().isSameDate(date) ?? false)
-        .toList();
   }
 }

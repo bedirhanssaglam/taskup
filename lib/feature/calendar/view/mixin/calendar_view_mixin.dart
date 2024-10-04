@@ -1,7 +1,8 @@
 part of '../calendar_view.dart';
 
 mixin _CalendarViewMixin on ConsumerState<CalendarView> {
-  DateTime selectedDate = DateTime.now();
+  final ValueNotifier<DateTime> selectedDate =
+      ValueNotifier<DateTime>(DateTime.now());
 
   @override
   void initState() {
@@ -15,4 +16,16 @@ mixin _CalendarViewMixin on ConsumerState<CalendarView> {
 
   AsyncValue<CalendarState> get calendarState =>
       ref.watch(calendarViewModelProvider);
+
+  List<Task> _filterTasksByDate(List<Task> tasks, DateTime date) {
+    return tasks
+        .where((Task task) => task.date?.toDate().isSameDate(date) ?? false)
+        .toList();
+  }
+
+  @override
+  void dispose() {
+    selectedDate.dispose();
+    super.dispose();
+  }
 }
