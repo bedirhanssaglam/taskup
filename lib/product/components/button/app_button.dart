@@ -32,12 +32,11 @@ final class AppButton extends StatelessWidget {
                 ),
               ),
             )
-          : CupertinoButton(
+          : CupertinoButton.filled(
               onPressed: onPressed,
-              color: context.colorScheme.primary,
               child: Text(
                 text.locale,
-                style: context.textTheme.bodyLarge?.copyWith(
+                style: context.textTheme.bodySmall?.copyWith(
                   color: context.colorScheme.background,
                 ),
               ),

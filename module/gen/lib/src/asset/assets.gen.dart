@@ -66,6 +66,9 @@ class $AssetIconsGen {
   /// File path: asset/icons/timer.svg
   SvgGenImage get timer => const SvgGenImage('asset/icons/timer.svg');
 
+  /// File path: asset/icons/trash.svg
+  SvgGenImage get trash => const SvgGenImage('asset/icons/trash.svg');
+
   /// File path: asset/icons/university.svg
   SvgGenImage get university => const SvgGenImage('asset/icons/university.svg');
 
@@ -94,6 +97,7 @@ class $AssetIconsGen {
         tag,
         task,
         timer,
+        trash,
         university,
         user,
         work

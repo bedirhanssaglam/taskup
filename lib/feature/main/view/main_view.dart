@@ -14,20 +14,23 @@ final class MainView extends ConsumerWidget {
     final pageIndex = ref.watch(ProductProviderItems.mainViewModel);
     final pageController =
         ref.read(ProductProviderItems.mainViewModel.notifier).pageController;
-    return Scaffold(
-      body: PageView(
-        controller: pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: const [
-          HomeView(),
-          CalendarView(),
-          ProfileView(),
-        ],
-      ),
-      bottomNavigationBar: AppBottomNavBar(
-        onItemTapped:
-            ref.read(ProductProviderItems.mainViewModel.notifier).changePage,
-        pageIndex: pageIndex,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: PageView(
+          controller: pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: const [
+            HomeView(),
+            CalendarView(),
+            ProfileView(),
+          ],
+        ),
+        bottomNavigationBar: AppBottomNavBar(
+          onItemTapped:
+              ref.read(ProductProviderItems.mainViewModel.notifier).changePage,
+          pageIndex: pageIndex,
+        ),
       ),
     );
   }

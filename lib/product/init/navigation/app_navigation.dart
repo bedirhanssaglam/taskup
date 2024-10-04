@@ -17,6 +17,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const RegisterView());
       case main:
         return MaterialPageRoute(builder: (context) => const MainView());
+
       default:
         throw Exception('Route not found: ${settings.name}');
     }

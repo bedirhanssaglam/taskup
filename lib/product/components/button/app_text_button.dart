@@ -2,8 +2,8 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
-import 'package:task_management/product/utility/extensions/string_extensions.dart';
 
 final class AppTextButton extends StatelessWidget {
   const AppTextButton({required this.text, required this.onPressed, super.key});
@@ -16,13 +16,13 @@ final class AppTextButton extends StatelessWidget {
     return Platform.isAndroid
         ? TextButton(
             onPressed: onPressed,
-            child: Text(text.locale),
+            child: LocaleText(text),
           )
         : CupertinoButton(
             onPressed: onPressed,
-            child: Text(
-              text.locale,
-              style: context.textTheme.bodyMedium?.copyWith(
+            child: LocaleText(
+              text,
+              style: context.textTheme.bodyLarge?.copyWith(
                 color: context.colorScheme.primary,
               ),
             ),

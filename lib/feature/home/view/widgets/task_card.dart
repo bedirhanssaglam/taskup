@@ -1,59 +1,18 @@
-part of '../home_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gen/gen.dart';
+import 'package:task_management/product/base/model/note.dart';
+import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
+import 'package:task_management/product/utility/extensions/context_extensions.dart';
+import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/extensions/timestamp_extensions.dart';
+import 'package:task_management/product/utility/paddings/app_paddings.dart';
+import 'package:task_management/product/utility/size/widget_sizes.dart';
 
-final class TaskList extends StatelessWidget {
-  const TaskList({required this.tasks, super.key});
-
-  final List<Task>? tasks;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _groupTasksByDate.length,
-      padding: const AppPadding.smallHorizontal(),
-      itemBuilder: (context, index) {
-        final group = _groupTasksByDate.keys.elementAt(index);
-        final tasksInGroup = _groupTasksByDate[group]!;
-
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const AppPadding.mediumAll(),
-              child: Text(
-                group,
-                style: context.textTheme.titleMedium?.copyWith(
-                  color: context.colorScheme.primary,
-                ),
-              ),
-            ),
-            ...tasksInGroup.map((Task task) {
-              return _TaskCard(task: task);
-            }),
-          ],
-        );
-      },
-    );
-  }
-
-  Map<String, List<Task>> get _groupTasksByDate {
-    final grouped = <String, List<Task>>{};
-
-    for (final task in tasks!) {
-      final key = task.getTaskGroupKey;
-      if (grouped.containsKey(key)) {
-        grouped[key]!.add(task);
-      } else {
-        grouped[key] = [task];
-      }
-    }
-
-    return grouped;
-  }
-}
-
-final class _TaskCard extends StatelessWidget {
-  const _TaskCard({
+final class TaskCard extends StatelessWidget {
+  const TaskCard({
     required this.task,
+    super.key,
   });
 
   final Task task;

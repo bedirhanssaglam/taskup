@@ -56,6 +56,9 @@
         "movie": "Movie",
         "house": "House"
     },
+    "calendar": {
+        "thereAreNoTaskForTheSelectedDate": "There are no tasks for the selected date."
+    },
     "error": {
         "failedToUsers": "Failed to load users.",
         "unknownException": "An unknown exception occurred.",
