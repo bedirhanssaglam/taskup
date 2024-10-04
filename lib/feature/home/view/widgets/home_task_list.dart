@@ -1,18 +1,23 @@
 part of '../home_view.dart';
 
 final class _HomeTaskList extends StatelessWidget {
-  const _HomeTaskList({required this.tasks});
+  const _HomeTaskList({required this.tasks, required this.filterCriteria});
 
   final List<Task>? tasks;
+  final FilterCriteria filterCriteria;
 
   @override
   Widget build(BuildContext context) {
+    final sortedTasks = TaskFilterHelper.sortTasks(tasks, filterCriteria);
+    final groupedTasks =
+        TaskFilterHelper.groupTasks(sortedTasks, filterCriteria);
+
     return ListView.builder(
-      itemCount: _groupTasksByDate.length,
+      itemCount: groupedTasks.length,
       padding: const AppPadding.smallHorizontal(),
       itemBuilder: (context, index) {
-        final group = _groupTasksByDate.keys.elementAt(index);
-        final tasksInGroup = _groupTasksByDate[group]!;
+        final group = groupedTasks.keys.elementAt(index);
+        final tasksInGroup = groupedTasks[group];
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,27 +31,13 @@ final class _HomeTaskList extends StatelessWidget {
                 ),
               ),
             ),
-            ...tasksInGroup.map((Task task) {
-              return TaskCard(task: task);
-            }),
+            if (tasksInGroup != null)
+              ...tasksInGroup.map(
+                (Task task) => TaskCard(task: task),
+              ),
           ],
         );
       },
     );
-  }
-
-  Map<String, List<Task>> get _groupTasksByDate {
-    final grouped = <String, List<Task>>{};
-
-    for (final task in tasks!) {
-      final key = task.getTaskGroupKey;
-      if (grouped.containsKey(key)) {
-        grouped[key]!.add(task);
-      } else {
-        grouped[key] = [task];
-      }
-    }
-
-    return grouped;
   }
 }

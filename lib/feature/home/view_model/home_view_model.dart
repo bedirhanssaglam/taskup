@@ -1,5 +1,5 @@
-import 'package:equatable/equatable.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:task_management/feature/home/view_model/home_state.dart';
 import 'package:task_management/product/base/model/note.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
@@ -30,22 +30,4 @@ class HomeViewModel extends _$HomeViewModel {
       );
     });
   }
-}
-
-final class HomeState extends Equatable {
-  const HomeState({
-    this.tasks = const [],
-  });
-  final List<Task>? tasks;
-
-  HomeState copyWith({
-    List<Task>? tasks,
-  }) {
-    return HomeState(
-      tasks: tasks ?? this.tasks,
-    );
-  }
-
-  @override
-  List<Object?> get props => [tasks];
 }

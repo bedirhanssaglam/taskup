@@ -58,7 +58,14 @@
     },  
     "calendar": {
         "thereAreNoTaskForTheSelectedDate": "Seçilen tarihe ait görev yok."
-    },           
+    },  
+    "filter": {
+        "filterOptions": "Filtre Seçenekleri",
+        "dateAsc": "Tarih Artan",
+        "dateDesc": "Tarih Azalan",
+        "priorityAsc": "Öncelik Artan",
+        "priorityDesc": "Öncelik Azalan"
+    },             
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "unknownException": "Bilinmeyen bir hata oluştu.",

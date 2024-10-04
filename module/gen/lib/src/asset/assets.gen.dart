@@ -27,6 +27,9 @@ class $AssetIconsGen {
   /// File path: asset/icons/empty_task.svg
   SvgGenImage get emptyTask => const SvgGenImage('asset/icons/empty_task.svg');
 
+  /// File path: asset/icons/filter.svg
+  SvgGenImage get filter => const SvgGenImage('asset/icons/filter.svg');
+
   /// File path: asset/icons/flag.svg
   SvgGenImage get flag => const SvgGenImage('asset/icons/flag.svg');
 
@@ -84,6 +87,7 @@ class $AssetIconsGen {
         calendar,
         design,
         emptyTask,
+        filter,
         flag,
         grocery,
         health,
