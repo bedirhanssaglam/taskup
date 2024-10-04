@@ -1,7 +1,7 @@
 part of '../home_view.dart';
 
 final class _HomeTaskList extends StatelessWidget {
-  const _HomeTaskList({required this.tasks, super.key});
+  const _HomeTaskList({required this.tasks});
 
   final List<Task>? tasks;
 
