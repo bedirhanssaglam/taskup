@@ -54,6 +54,12 @@ abstract class LocaleKeys {
   static const calendar_thereAreNoTaskForTheSelectedDate =
       'calendar.thereAreNoTaskForTheSelectedDate';
   static const calendar = 'calendar';
+  static const filter_filterOptions = 'filter.filterOptions';
+  static const filter_dateAsc = 'filter.dateAsc';
+  static const filter_dateDesc = 'filter.dateDesc';
+  static const filter_priorityAsc = 'filter.priorityAsc';
+  static const filter_priorityDesc = 'filter.priorityDesc';
+  static const filter = 'filter';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_unknownException = 'error.unknownException';
   static const error_userDisabled = 'error.userDisabled';

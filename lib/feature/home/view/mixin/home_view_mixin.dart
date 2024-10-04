@@ -1,8 +1,9 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:task_management/feature/home/view/home_view.dart';
-import 'package:task_management/feature/home/view_model/home_view_model.dart';
+part of '../home_view.dart';
 
-mixin HomeViewMixin on ConsumerState<HomeView> {
+mixin _HomeViewMixin on ConsumerState<HomeView> {
+  AsyncValue<List<Task>> get tasksAsyncValue =>
+      ref.watch(ProductProviderItems.tasksProvider);
+
   @override
   void initState() {
     super.initState();
@@ -13,5 +14,15 @@ mixin HomeViewMixin on ConsumerState<HomeView> {
     await ref.read(homeViewModelProvider.notifier).fetchTasks();
   }
 
-  AsyncValue<HomeState> get homeState => ref.watch(homeViewModelProvider);
+  Future<void> showFilterBottomSheet() async {
+    final newCriteria = await FilterBottomSheet.show(
+      context,
+      ref.read(ProductProviderItems.filterCriteriaProvider),
+    );
+    if (newCriteria != null) {
+      ref
+          .read(ProductProviderItems.filterCriteriaProvider.notifier)
+          .updateFilterCriteria(newCriteria);
+    }
+  }
 }

@@ -59,6 +59,13 @@
     "calendar": {
         "thereAreNoTaskForTheSelectedDate": "There are no tasks for the selected date."
     },
+    "filter": {
+        "filterOptions": "Filter Options",
+        "dateAsc": "Date Asc",
+        "dateDesc": "Date Desc",
+        "priorityAsc": "Priority Asc",
+        "priorityDesc": "Priority Desc"
+    },
     "error": {
         "failedToUsers": "Failed to load users.",
         "unknownException": "An unknown exception occurred.",
