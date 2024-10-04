@@ -1,5 +1,5 @@
+import 'package:task_management/product/constants/regexp_constants.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
-import 'package:task_management/product/utility/constants/regexp_constants.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:validify/validify.dart';
 

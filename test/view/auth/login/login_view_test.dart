@@ -4,8 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:task_management/feature/auth/login/view/login_view.dart';
 import 'package:task_management/product/components/button/app_button.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
+import 'package:task_management/product/constants/app_constants.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
-import 'package:task_management/product/utility/constants/app_constants.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:widget/widget.dart';
 

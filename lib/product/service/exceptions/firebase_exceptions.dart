@@ -1,5 +1,5 @@
+import 'package:task_management/product/constants/exception_constants.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
-import 'package:task_management/product/utility/constants/exception_constants.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 
 /// Thrown during the sign up process if a failure occurs.
