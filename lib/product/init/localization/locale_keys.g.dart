@@ -51,6 +51,9 @@ abstract class LocaleKeys {
   static const category_movie = 'category.movie';
   static const category_house = 'category.house';
   static const category = 'category';
+  static const calendar_thereAreNoTaskForTheSelectedDate =
+      'calendar.thereAreNoTaskForTheSelectedDate';
+  static const calendar = 'calendar';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_unknownException = 'error.unknownException';
   static const error_userDisabled = 'error.userDisabled';

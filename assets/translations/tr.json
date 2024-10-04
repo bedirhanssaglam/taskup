@@ -55,7 +55,10 @@
         "health": "Sağlık",
         "movie": "Film",
         "house": "Ev"
-    },         
+    },  
+    "calendar": {
+        "thereAreNoTaskForTheSelectedDate": "Seçilen tarihe ait görev yok."
+    },           
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "unknownException": "Bilinmeyen bir hata oluştu.",

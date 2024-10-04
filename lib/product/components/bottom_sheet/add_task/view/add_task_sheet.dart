@@ -49,7 +49,7 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet>
       child: Padding(
         padding: EdgeInsets.only(bottom: context.keyboardPadding),
         child: Container(
-          height: .45.sh,
+          height: 350.w,
           width: 1.sw,
           padding: const AppPadding.largeAll(),
           decoration: BoxDecoration(
