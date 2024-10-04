@@ -18,6 +18,7 @@ class DateSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// TODO: Kapsam genişletilecek.
     final dates = List<DateTime>.generate(
       30,
       (index) => DateTime.now().add(Duration(days: index)),
@@ -33,7 +34,7 @@ class DateSelector extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 80.h,
+          height: 90.w,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: dates.length,
