@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:task_management/feature/home/view_model/home_state.dart';
-import 'package:task_management/product/base/model/note.dart';
+import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
 part 'home_view_model.g.dart';

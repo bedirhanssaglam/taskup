@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:task_management/product/base/model/note.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_status.dart';
+import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 

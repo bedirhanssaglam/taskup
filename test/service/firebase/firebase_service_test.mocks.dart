@@ -6,8 +6,7 @@
 import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:task_management/product/base/model/base_firebase_model.dart'
-    as _i4;
+import 'package:task_management/product/models/base_firebase_model.dart' as _i4;
 import 'package:task_management/product/service/base/firebase_service.dart'
     as _i2;
 import 'package:task_management/product/utility/enums/collection_paths.dart'

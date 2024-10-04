@@ -4,9 +4,9 @@ import 'package:task_management/feature/calendar/view/widgets/calendar_task_list
 import 'package:task_management/feature/calendar/view/widgets/date_selector.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_state.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_view_model.dart';
-import 'package:task_management/product/base/model/note.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/utility/extensions/date_time_extensions.dart';
 
 part './mixin/calendar_view_mixin.dart';

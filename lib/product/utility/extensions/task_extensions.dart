@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:task_management/product/base/model/note.dart';
+import 'package:task_management/product/models/task.dart';
 
 extension TaskExtensions on Task {
   String get getTaskGroupKey {

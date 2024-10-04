@@ -1,5 +1,5 @@
-import 'package:task_management/product/base/model/note.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/utility/extensions/task_extensions.dart';
 
 enum FilterCriteria {

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:task_management/product/base/model/base_firebase_model.dart';
+import 'package:task_management/product/models/base_firebase_model.dart';
 import 'package:task_management/product/service/base/interface_firebase_service.dart';
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 

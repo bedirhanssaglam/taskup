@@ -1,4 +1,4 @@
-import 'package:task_management/product/base/model/note.dart';
+import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/service/base/firebase_service.dart';
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 

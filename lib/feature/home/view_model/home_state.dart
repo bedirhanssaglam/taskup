@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:task_management/product/base/model/note.dart';
+import 'package:task_management/product/models/task.dart';
 
 final class HomeState extends Equatable {
   const HomeState({

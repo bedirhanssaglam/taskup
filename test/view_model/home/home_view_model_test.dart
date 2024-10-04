@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:task_management/feature/home/view_model/home_view_model.dart';
-import 'package:task_management/product/base/model/note.dart';
+import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/service/task/task_service.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
