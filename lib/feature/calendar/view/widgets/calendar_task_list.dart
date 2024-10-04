@@ -8,7 +8,19 @@ class _CalendarTaskList extends StatelessWidget {
   Widget build(BuildContext context) {
     if (tasks.isEmpty) {
       return Center(
-        child: LocaleText(LocaleKeys.calendar_thereAreNoTaskForTheSelectedDate),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            LocaleText(
+              LocaleKeys.calendar_thereAreNoTaskForTheSelectedDate,
+              style: context.textTheme.bodyLarge,
+            ),
+            AppTextButton(
+              text: LocaleKeys.addTask_addTaskText,
+              onPressed: () => AddTaskBottomSheet.show(context),
+            ),
+          ],
+        ),
       );
     }
 
