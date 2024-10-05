@@ -21,7 +21,7 @@ void main() {
 
     test('getAllTasks returns list of tasks', () async {
       // Arrange
-      final mockTasks = <Task>[];
+      final mockTasks = <Task>[Task(id: '1')];
       when(
         mockFirebaseService.getList<Task>(
           CollectionPaths.tasks,
@@ -34,6 +34,18 @@ void main() {
 
       // Assert
       expect(result, mockTasks);
+    });
+
+    test('deleteTask calls the delete method on FirebaseService', () async {
+      // Arrange
+      const documentId = '1';
+
+      // Act
+      await taskService.deleteTask(documentId);
+
+      // Assert
+      verify(mockFirebaseService.delete(CollectionPaths.tasks, documentId))
+          .called(1);
     });
   });
 }
