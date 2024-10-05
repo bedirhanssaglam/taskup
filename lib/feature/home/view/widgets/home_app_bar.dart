@@ -7,7 +7,7 @@ final class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.onLogoutTapped,
   });
 
-  final String? userFullName;
+  final String userFullName;
   final VoidCallback onFilterTapped;
   final VoidCallback onLogoutTapped;
 
@@ -15,7 +15,7 @@ final class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        LocaleKeys.hello.localeArgs([userFullName ?? '']),
+        LocaleKeys.hello.localeArgs([userFullName]),
         style: context.textTheme.titleLarge,
       ),
       automaticallyImplyLeading: false,
