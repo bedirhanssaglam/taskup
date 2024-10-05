@@ -76,3 +76,12 @@ final class LogInWithEmailAndPasswordFailure implements Exception {
 
 /// Thrown during the logout process if a failure occurs.
 final class LogOutFailure implements Exception {}
+
+final class NoUserFailure implements Exception {
+  const NoUserFailure([
+    this.message = LocaleKeys.error_userNotFound,
+  ]);
+
+  /// The associated error message.
+  final String message;
+}

@@ -68,6 +68,7 @@
     },
     "error": {
         "failedToUsers": "Failed to load users.",
+        "userNotFound": "User not found.",        
         "unknownException": "An unknown exception occurred.",
         "userDisabled": "This user has been disabled. Please contact support for help.",
         "invalidEmail": "Email is not valid or badly formatted.",
