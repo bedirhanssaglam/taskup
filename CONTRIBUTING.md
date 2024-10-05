@@ -56,7 +56,9 @@ Once you've made your changes and tested them, submit a pull request. Please pro
 All contributions will be reviewed.
 
 🎉 Appreciation for Improvements
-Even minor improvements are valuable! Whether it's a refactor, renaming a variable for better clarity, or optimizing a function, these changes contribute significantly to the overall health of the project. We appreciate your attention to detail and commitment to enhancing taskup!
+Even minor improvements are valuable! Whether it's a refactor, renaming a variable for better clarity, or optimizing a function, these changes contribute significantly to the overall health of the project. We appreciate your attention to detail and commitment to enhancing TaskUp!
+
+Feel free to change any code that doesn't make sense to you. If you find that a part of the code is difficult to understand or follow, you're encouraged to improve it—because if you don't understand it, the code likely isn't written clearly enough. Clarity in code is crucial for maintainability and collaboration, so your changes will help everyone.
 
 📫 Questions and Support
 If you have any questions about contributing, feel free to reach out via GitHub issues or contact me directly.
