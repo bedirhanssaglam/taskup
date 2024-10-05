@@ -1,6 +1,6 @@
 # Contributing to taskup
 
-Thank you for considering contributing to TaskUp! Your involvement is crucial to the growth and improvement of this project. Below are some guidelines to help you make meaningful contributions.
+Thank you for considering contributing to taskup! Your involvement is crucial to the growth and improvement of this project. Below are some guidelines to help you make meaningful contributions.
 
 ## 🌟 Why Contribute?
 
@@ -25,20 +25,31 @@ Clone your forked repository to your local machine:
 git clone https://github.com/bedirhansaglam/taskup.git
 ```
 
-### 3. **Create a New Branch**
-Create a new branch for your feature or bug fix:
-
-```bash
-git checkout -b feature/your-feature-name
-```
+### 3. **Install Firebase Files**
+Make sure to configure Firebase for the project by adding the required Firebase configuration files (`google-services.json` for Android and `GoogleService-Info.plist` for iOS) to the appropriate directories. You can find the necessary files by setting up Firebase for your application in the Firebase console.
 
 ### 4. **Write Tests**
 Tests are essential for maintaining the quality and reliability of the application. Before you submit your changes:
 
-Write unit tests for any new features or functions you introduce.
-Ensure existing tests still pass after your changes.
+- Write unit tests for any new features or functions you - introduce.
+- Ensure that existing tests still pass after your changes.
+- Run all tests using the following command:
 
-### 5. **Submit a Pull Request**
+```bash
+flutter test
+```
+
+### 5. **Check Code Style**
+Before submitting your changes, ensure your code follows the project's style guidelines by running:
+
+```bash
+dart format .
+```
+
+### 6. **Avoid Side Effects**
+Ensure that the changes you introduce do not cause any unintended side effects in the application. Do not add comments to your code, as the philosophy here is that code should be self-explanatory. If you feel a comment is necessary, it's a sign that the code may need to be improved for clarity.
+
+### 7. **Submit a Pull Request**
 Once you've made your changes and tested them, submit a pull request. Please provide a clear description of your changes and reference any relevant issues.
 
 🤝 Code Reviews
