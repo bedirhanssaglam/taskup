@@ -1,8 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/feature/home/view_model/home_view_model.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_status.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_view_model.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
@@ -151,6 +154,8 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet>
                                 createdAt: Timestamp.now(),
                               );
                               await addTask(task);
+
+                              Navigator.of(context).pop();
                             },
                             icon: Assets.icons.send.colored(
                               context.colorScheme.primary,
