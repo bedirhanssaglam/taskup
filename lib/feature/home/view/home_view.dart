@@ -23,6 +23,7 @@ import 'package:task_management/product/utility/task_filter_helper.dart';
 part './mixin/home_view_mixin.dart';
 part './widgets/add_task_button.dart';
 part './widgets/empty_task_widget.dart';
+part './widgets/home_app_bar.dart';
 part './widgets/home_list_shimmer.dart';
 part './widgets/home_task_list.dart';
 
@@ -37,23 +38,11 @@ class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Hello Bedirhan!',
-          style: context.textTheme.titleLarge,
-        ),
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: showFilterBottomSheet,
-            icon: Assets.icons.filter.colored(context.colorScheme.primary),
-          ),
-          IconButton(
-            onPressed:
-                ref.read(ProductProviderItems.authServiceProvider).logOut,
-            icon: const Icon(Icons.logout),
-          ),
-        ],
+      appBar: _HomeAppBar(
+        userFullName: userFullName,
+        onFilterTapped: showFilterBottomSheet,
+        onLogoutTapped: () =>
+            ref.read(ProductProviderItems.authServiceProvider).logOut,
       ),
       body: Column(
         children: [

@@ -31,7 +31,7 @@ final class DateTimePicker {
   }
 
   static Future<TimeOfDay?> pickTime(BuildContext context) async {
-    TimeOfDay? selectedTime;
+    TimeOfDay? selectedTime = TimeOfDay.now();
 
     if (Platform.isIOS) {
       selectedTime = await _pickTimeCupertino(context);
@@ -42,11 +42,11 @@ final class DateTimePicker {
       );
     }
 
-    return selectedTime;
+    return selectedTime ?? TimeOfDay.now();
   }
 
   static Future<DateTime?> _pickDateCupertino(BuildContext context) async {
-    DateTime? selectedDate;
+    var selectedDate = DateTime.now();
 
     await BottomSheetBase.show<void>(
       context: context,
@@ -61,7 +61,7 @@ final class DateTimePicker {
   }
 
   static Future<TimeOfDay?> _pickTimeCupertino(BuildContext context) async {
-    DateTime? selectedDateTime;
+    var selectedDateTime = DateTime.now();
 
     await BottomSheetBase.show<void>(
       context: context,
@@ -72,9 +72,7 @@ final class DateTimePicker {
       ),
     );
 
-    if (selectedDateTime == null) return null;
-
-    return TimeOfDay.fromDateTime(selectedDateTime!);
+    return TimeOfDay.fromDateTime(selectedDateTime);
   }
 
   static DateTime combineDateAndTime(DateTime date, TimeOfDay time) {

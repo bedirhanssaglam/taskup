@@ -1,4 +1,5 @@
 {   
+    "hello": "Hello {}!",
     "cancelText": "Cancel",
     "login": {
         "email": "Email",

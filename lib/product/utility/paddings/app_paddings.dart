@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
 
-/// Project general padding items
 final class AppPadding extends EdgeInsets {
   const AppPadding() : super.all(WidgetSizes.zero);
 
