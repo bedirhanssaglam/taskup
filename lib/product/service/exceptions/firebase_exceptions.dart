@@ -77,3 +77,5 @@ final class NoUserFailure implements Exception {
 
   final String message;
 }
+
+final class DocumentNotFoundException implements Exception {}

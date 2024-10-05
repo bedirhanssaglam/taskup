@@ -23,6 +23,12 @@ mixin _CalendarViewMixin on ConsumerState<CalendarView> {
         .toList();
   }
 
+  Future<void> deleteTask(String? documentId) async {
+    if (documentId == null) return;
+    final calendarViewModel = ref.read(calendarViewModelProvider.notifier);
+    await calendarViewModel.deleteTask(documentId);
+  }
+
   @override
   void dispose() {
     selectedDate.dispose();

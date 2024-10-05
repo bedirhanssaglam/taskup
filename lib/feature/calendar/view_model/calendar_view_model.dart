@@ -20,6 +20,7 @@ class CalendarViewModel extends _$CalendarViewModel {
       return CalendarState(
         tasks: tasks.map((task) {
           return Task(
+            id: task.id,
             title: task.title,
             description: task.description,
             date: task.date,
@@ -29,5 +30,11 @@ class CalendarViewModel extends _$CalendarViewModel {
         }).toList(),
       );
     });
+  }
+
+  Future<void> deleteTask(String documentId) async {
+    await ref
+        .read(ProductProviderItems.taskServiceProvider)
+        .deleteTask(documentId);
   }
 }

@@ -53,4 +53,19 @@ class FirebaseService extends IFirebaseService {
       RequestKeys.uid.reference: currentUserId,
     });
   }
+
+  Future<void> delete(
+    CollectionPaths collectionPath,
+    String documentId,
+  ) async {
+    final currentUserId = _auth.currentUser?.uid;
+    if (currentUserId == null) throw const NoUserFailure();
+
+    final documentRef = collectionPath.collection.doc(documentId);
+
+    final docSnapshot = await documentRef.get();
+    if (!docSnapshot.exists) throw DocumentNotFoundException();
+
+    await documentRef.delete();
+  }
 }

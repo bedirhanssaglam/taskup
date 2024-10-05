@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +8,6 @@ import 'package:task_management/feature/home/view_model/home_state.dart';
 import 'package:task_management/feature/home/view_model/home_view_model.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view/add_task_sheet.dart';
 import 'package:task_management/product/components/bottom_sheet/filter/view/filter_bottom_sheet.dart';
-import 'package:task_management/product/components/loading/app_loading.dart';
 import 'package:task_management/product/components/shimmer/shimmer_effect.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
@@ -59,11 +59,12 @@ class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
                     return _HomeTaskList(
                       tasks: state.tasks,
                       filterCriteria: filterCriteria,
+                      onDelete: deleteTask,
                     );
                   },
                 );
               },
-              loading: AppLoading.new,
+              loading: _HomeListShimmer.new,
               error: (error, stack) => Center(
                 child: Text(error.toString().locale),
               ),

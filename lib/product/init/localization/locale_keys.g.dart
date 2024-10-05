@@ -61,6 +61,11 @@ abstract class LocaleKeys {
   static const filter_priorityAsc = 'filter.priorityAsc';
   static const filter_priorityDesc = 'filter.priorityDesc';
   static const filter = 'filter';
+  static const dialog_deleteTask_title = 'dialog.deleteTask.title';
+  static const dialog_deleteTask_content = 'dialog.deleteTask.content';
+  static const dialog_deleteTask_delete = 'dialog.deleteTask.delete';
+  static const dialog_deleteTask = 'dialog.deleteTask';
+  static const dialog = 'dialog';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_userNotFound = 'error.userNotFound';
   static const error_unknownException = 'error.unknownException';

@@ -12,7 +12,8 @@ mixin _HomeViewMixin on ConsumerState<HomeView> {
   }
 
   Future<void> _init() async {
-    await ref.read(homeViewModelProvider.notifier).fetchTasks();
+    final homeViewModel = ref.read(homeViewModelProvider.notifier);
+    await homeViewModel.fetchTasks();
   }
 
   Future<void> showFilterBottomSheet() async {
@@ -25,5 +26,12 @@ mixin _HomeViewMixin on ConsumerState<HomeView> {
           .read(ProductProviderItems.filterCriteriaProvider.notifier)
           .updateFilterCriteria(newCriteria);
     }
+  }
+
+  Future<void> deleteTask(String? documentId) async {
+    if (documentId == null) return;
+    final homeViewModel = ref.read(homeViewModelProvider.notifier);
+    await homeViewModel.deleteTask(documentId);
+    await homeViewModel.fetchTasks();
   }
 }

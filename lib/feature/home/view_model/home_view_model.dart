@@ -20,6 +20,7 @@ class HomeViewModel extends _$HomeViewModel {
       return HomeState(
         tasks: tasks.map((task) {
           return Task(
+            id: task.id,
             title: task.title,
             description: task.description,
             date: task.date,
@@ -29,5 +30,11 @@ class HomeViewModel extends _$HomeViewModel {
         }).toList(),
       );
     });
+  }
+
+  Future<void> deleteTask(String documentId) async {
+    await ref
+        .read(ProductProviderItems.taskServiceProvider)
+        .deleteTask(documentId);
   }
 }
