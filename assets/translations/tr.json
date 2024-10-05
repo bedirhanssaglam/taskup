@@ -68,6 +68,7 @@
     },             
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
+        "userNotFound": "Kullanıcı bulunamadı.",
         "unknownException": "Bilinmeyen bir hata oluştu.",
         "userDisabled": "Bu kullanıcı devre dışı bırakıldı. Yardım için lütfen destekle iletişime geçin.",
         "invalidEmail": "Geçersiz email.",

@@ -5,18 +5,21 @@ final class _EmptyTaskWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Assets.icons.emptyTask.show(),
-        LocaleText(
-          LocaleKeys.home_whatDoYouWantToDoToday,
-          style: context.textTheme.titleLarge,
-        ),
-        LocaleText(
-          LocaleKeys.home_tapPlusButton,
-          style: context.textTheme.bodyMedium,
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Assets.icons.emptyTask.show(),
+          LocaleText(
+            LocaleKeys.home_whatDoYouWantToDoToday,
+            style: context.textTheme.titleLarge,
+          ),
+          LocaleText(
+            LocaleKeys.home_tapPlusButton,
+            style: context.textTheme.bodyMedium,
+          ),
+        ],
+      ),
     );
   }
 }

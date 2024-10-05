@@ -1,8 +1,7 @@
 part of '../home_view.dart';
 
 mixin _HomeViewMixin on ConsumerState<HomeView> {
-  AsyncValue<List<Task>> get tasksAsyncValue =>
-      ref.watch(ProductProviderItems.tasksProvider);
+  AsyncValue<HomeState> get homeState => ref.watch(homeViewModelProvider);
 
   @override
   void initState() {

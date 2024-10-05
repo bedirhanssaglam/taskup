@@ -13,6 +13,7 @@ final class Task extends BaseFirebaseModel<Task> {
     this.category,
     this.priority,
     this.createdAt,
+    this.uid,
   });
 
   final String? id;
@@ -22,6 +23,7 @@ final class Task extends BaseFirebaseModel<Task> {
   final Timestamp? createdAt;
   final Category? category;
   final String? priority;
+  final String? uid;
 
   @override
   Task fromFirestore(Map<String, dynamic> data, String documentId) {
@@ -35,6 +37,7 @@ final class Task extends BaseFirebaseModel<Task> {
         data['category'] as Map<String, dynamic>,
       ),
       priority: data['priority'] as String?,
+      uid: data['uid'] as String?,
     );
   }
 
@@ -60,6 +63,7 @@ final class Task extends BaseFirebaseModel<Task> {
       'createdAt': createdAt,
       'category': category?.toJson(),
       'priority': priority,
+      'uid': uid,
     };
   }
 }

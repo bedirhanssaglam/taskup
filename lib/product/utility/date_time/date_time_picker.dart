@@ -72,6 +72,8 @@ final class DateTimePicker {
       ),
     );
 
+    if (selectedDateTime == null) return null;
+
     return TimeOfDay.fromDateTime(selectedDateTime!);
   }
 

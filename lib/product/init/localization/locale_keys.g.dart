@@ -61,6 +61,7 @@ abstract class LocaleKeys {
   static const filter_priorityDesc = 'filter.priorityDesc';
   static const filter = 'filter';
   static const error_failedToUsers = 'error.failedToUsers';
+  static const error_userNotFound = 'error.userNotFound';
   static const error_unknownException = 'error.unknownException';
   static const error_userDisabled = 'error.userDisabled';
   static const error_invalidEmail = 'error.invalidEmail';

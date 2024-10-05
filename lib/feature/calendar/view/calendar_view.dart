@@ -4,6 +4,7 @@ import 'package:task_management/feature/calendar/view/widgets/calendar_task_list
 import 'package:task_management/feature/calendar/view/widgets/date_selector.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_state.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_view_model.dart';
+import 'package:task_management/product/components/loading/app_loading.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/task.dart';
@@ -53,9 +54,7 @@ class _CalendarViewState extends ConsumerState<CalendarView>
             ),
           ],
         ),
-        loading: () => const Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
+        loading: AppLoading.new,
         error: (error, _) => Center(child: Text(error.toString())),
       ),
     );
