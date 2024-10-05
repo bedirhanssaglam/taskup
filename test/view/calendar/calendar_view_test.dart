@@ -5,8 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:gen/gen.dart';
 import 'package:task_management/feature/calendar/view/widgets/calendar_task_list.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
-import 'package:task_management/product/components/dialog/category.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/models/category.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:widget/widget.dart';
 
