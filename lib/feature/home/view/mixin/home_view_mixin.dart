@@ -2,6 +2,8 @@ part of '../home_view.dart';
 
 mixin _HomeViewMixin on ConsumerState<HomeView> {
   AsyncValue<HomeState> get homeState => ref.watch(homeViewModelProvider);
+  String get userFullName =>
+      ref.read(ProductProviderItems.appStateProvider).account.fullName ?? '';
 
   @override
   void initState() {

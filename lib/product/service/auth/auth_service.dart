@@ -6,7 +6,6 @@ import 'package:gen/gen.dart';
 import 'package:task_management/product/service/exceptions/firebase_exceptions.dart';
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 
-/// Repository which manages user authentication.
 class AuthService {
   AuthService({
     CacheClient? cache,
@@ -17,14 +16,8 @@ class AuthService {
   final CacheClient _cache;
   final FirebaseAuth _firebaseAuth;
 
-  /// User cache key.
-  /// Should only be used for testing purposes.
   static const String userCacheKey = '__user_cache_key__';
 
-  /// Stream of [User] which will emit the current user when
-  /// the authentication state changes.
-  ///
-  /// Emits [User.empty] if the user is not authenticated.
   Stream<Account> get account {
     return _firebaseAuth.authStateChanges().map((User? firebaseUser) {
       final user =
@@ -34,15 +27,10 @@ class AuthService {
     });
   }
 
-  /// Returns the current cached user.
-  /// Defaults to [User.empty] if there is no cached user.
   Account get currentUser {
     return _cache.read<Account>(key: userCacheKey) ?? Account.empty;
   }
 
-  /// Creates a new user with the provided [email] and [password].
-  ///
-  /// Throws a [SignUpWithEmailAndPasswordFailure] if an exception occurs.
   Future<void> signUp({
     required String email,
     required String password,
@@ -54,6 +42,9 @@ class AuthService {
         email: email,
         password: password,
       );
+
+      await userCredential.user!
+          .updateProfile(displayName: '$firstName $lastName');
 
       final account = Account(
         uid: userCredential.user!.uid,
@@ -71,9 +62,6 @@ class AuthService {
     }
   }
 
-  /// Signs in with the provided [email] and [password].
-  ///
-  /// Throws a [LogInWithEmailAndPasswordFailure] if an exception occurs.
   Future<void> logInWithEmailAndPassword({
     required String email,
     required String password,
@@ -90,10 +78,6 @@ class AuthService {
     }
   }
 
-  /// Signs out the current user which will emit
-  /// [Account.empty] from the [account] Stream.
-  ///
-  /// Throws a [LogOutFailure] if an exception occurs.
   Future<void> logOut() async {
     try {
       await _firebaseAuth.signOut();
@@ -104,7 +88,6 @@ class AuthService {
 }
 
 extension on User {
-  /// Maps a [User] into a [Account].
   Account get toAccount => Account(
         uid: uid,
         email: email,

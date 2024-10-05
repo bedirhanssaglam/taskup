@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-/// Project custom colors
 final class CustomColorScheme {
   const CustomColorScheme._();
 
-  /// Light color scheme set for a travel app
   static const ColorScheme lightColorScheme = ColorScheme.light(
     primary: Color(0xFF0077B6),
     primaryContainer: Color(0xFF00B4D8),
@@ -29,7 +27,6 @@ final class CustomColorScheme {
     scrim: Color(0xFF000000),
   );
 
-  /// Dark color scheme set for a travel app
   static const ColorScheme darkColorScheme = ColorScheme.dark(
     primary: Color(0xFF00B4D8),
     primaryContainer: Color(0xFF0077B6),

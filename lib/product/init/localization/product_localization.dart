@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task_management/product/utility/enums/locale_enums.dart';
 
 @immutable
-
-/// Product localization manager
 final class ProductLocalization extends EasyLocalization {
-  /// ProductLocalization need to [child] for a wrap locale item
   ProductLocalization({
     required super.child,
     super.key,
@@ -23,7 +20,6 @@ final class ProductLocalization extends EasyLocalization {
 
   static const String _translationPath = 'assets/translations';
 
-  /// Change project language by using [Locales]
   static Future<void> updateLanguage(
     BuildContext context, {
     required Locales value,

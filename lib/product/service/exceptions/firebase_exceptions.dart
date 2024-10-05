@@ -2,14 +2,11 @@ import 'package:task_management/product/constants/exception_constants.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 
-/// Thrown during the sign up process if a failure occurs.
 final class SignUpWithEmailAndPasswordFailure implements Exception {
   const SignUpWithEmailAndPasswordFailure([
     this.message = LocaleKeys.error_unknownException,
   ]);
 
-  /// Create an authentication message
-  /// from a firebase authentication exception code.
   factory SignUpWithEmailAndPasswordFailure.fromCode(String code) {
     switch (code) {
       case ExceptionConstants.invalidEmail:
@@ -37,11 +34,9 @@ final class SignUpWithEmailAndPasswordFailure implements Exception {
     }
   }
 
-  /// The associated error message.
   final String message;
 }
 
-/// Thrown during the login process if a failure occurs.
 final class LogInWithEmailAndPasswordFailure implements Exception {
   const LogInWithEmailAndPasswordFailure([
     this.message = LocaleKeys.error_unknownException,
@@ -70,11 +65,9 @@ final class LogInWithEmailAndPasswordFailure implements Exception {
     }
   }
 
-  /// The associated error message.
   final String message;
 }
 
-/// Thrown during the logout process if a failure occurs.
 final class LogOutFailure implements Exception {}
 
 final class NoUserFailure implements Exception {
@@ -82,6 +75,5 @@ final class NoUserFailure implements Exception {
     this.message = LocaleKeys.error_userNotFound,
   ]);
 
-  /// The associated error message.
   final String message;
 }

@@ -1,4 +1,5 @@
-{
+{   
+    "hello": "Merhaba {}!",
     "cancelText": "İptal",
     "login": {
         "email": "Email",
