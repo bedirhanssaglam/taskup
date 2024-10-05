@@ -1,10 +1,15 @@
 part of '../home_view.dart';
 
 final class _HomeTaskList extends StatelessWidget {
-  const _HomeTaskList({required this.tasks, required this.filterCriteria});
+  const _HomeTaskList({
+    required this.tasks,
+    required this.filterCriteria,
+    required this.onDelete,
+  });
 
   final List<Task>? tasks;
   final FilterCriteria filterCriteria;
+  final AsyncValueSetter<String?> onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,10 @@ final class _HomeTaskList extends StatelessWidget {
             ),
             if (tasksInGroup != null)
               ...tasksInGroup.map(
-                (Task task) => TaskCard(task: task),
+                (Task task) => TaskCard(
+                  task: task,
+                  onDelete: onDelete,
+                ),
               ),
           ],
         );

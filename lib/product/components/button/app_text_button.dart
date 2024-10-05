@@ -6,9 +6,15 @@ import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 
 final class AppTextButton extends StatelessWidget {
-  const AppTextButton({required this.text, required this.onPressed, super.key});
+  const AppTextButton({
+    required this.text,
+    required this.onPressed,
+    super.key,
+    this.textColor,
+  });
 
   final String text;
+  final Color? textColor;
   final VoidCallback? onPressed;
 
   @override
@@ -23,7 +29,7 @@ final class AppTextButton extends StatelessWidget {
             child: LocaleText(
               text,
               style: context.textTheme.bodyLarge?.copyWith(
-                color: context.colorScheme.primary,
+                color: textColor ?? context.colorScheme.primary,
               ),
             ),
           );

@@ -21,8 +21,6 @@ class CalendarView extends ConsumerStatefulWidget {
 
 class _CalendarViewState extends ConsumerState<CalendarView>
     with _CalendarViewMixin {
-  // ValueNotifier to hold the selected date
-  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +46,7 @@ class _CalendarViewState extends ConsumerState<CalendarView>
                 builder: (context, value, _) {
                   return CalendarTaskList(
                     tasks: _filterTasksByDate(state.tasks!, value),
+                    onDelete: deleteTask,
                   );
                 },
               ),

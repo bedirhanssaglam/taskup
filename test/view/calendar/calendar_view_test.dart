@@ -38,6 +38,7 @@ void main() {
                       title: 'title',
                     ),
                   ],
+                  onDelete: (value) async {},
                 ),
               ),
             ),
@@ -52,11 +53,14 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        const ProviderScope(
+        ProviderScope(
           child: AppResponsive(
             child: MaterialApp(
               home: Scaffold(
-                body: CalendarTaskList(tasks: []),
+                body: CalendarTaskList(
+                  tasks: const [],
+                  onDelete: (value) async {},
+                ),
               ),
             ),
           ),

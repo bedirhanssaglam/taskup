@@ -14,4 +14,8 @@ class TaskService {
   Future<void> addTask(Task task) {
     return firestoreService.add(CollectionPaths.tasks, Task());
   }
+
+  Future<void> deleteTask(String documentId) {
+    return firestoreService.delete(CollectionPaths.tasks, documentId);
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show AsyncValueSetter;
 import 'package:flutter/material.dart';
 import 'package:task_management/feature/home/view/widgets/task_card.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view/add_task_sheet.dart';
@@ -8,9 +9,15 @@ import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 
-class CalendarTaskList extends StatelessWidget {
-  const CalendarTaskList({required this.tasks, super.key});
+final class CalendarTaskList extends StatelessWidget {
+  const CalendarTaskList({
+    required this.tasks,
+    required this.onDelete,
+    super.key,
+  });
+
   final List<Task> tasks;
+  final AsyncValueSetter<String?> onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +43,10 @@ class CalendarTaskList extends StatelessWidget {
       itemCount: tasks.length,
       padding: const AppPadding.mediumAll(),
       itemBuilder: (context, index) {
-        return TaskCard(task: tasks[index]);
+        return TaskCard(
+          task: tasks[index],
+          onDelete: onDelete,
+        );
       },
     );
   }
