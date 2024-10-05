@@ -61,7 +61,7 @@ Even minor improvements are valuable! Whether it's a refactor, renaming a variab
 Feel free to change any code that doesn't make sense to you. If you find that a part of the code is difficult to understand or follow, you're encouraged to improve it—because if you don't understand it, the code likely isn't written clearly enough. Clarity in code is crucial for maintainability and collaboration, so your changes will help everyone.
 
 ##### Why We Avoid Comments
-As Uncle Bob explains in 'Clean Code' by Robert C. Martin (Chapter 4: Comments, p. 54):
+As Uncle Bob explains in 'Clean Code' (Chapter 4: Comments, p. 54):
 
 > "The proper use of comments is to compensate for our failure to express ourselves in code. Note that I used the word failure. I meant it. Comments are always failures. We must have them because we cannot always figure out how to express ourselves without them, but their use is not a cause for celebration.
 >
