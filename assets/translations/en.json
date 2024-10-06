@@ -67,6 +67,10 @@
         "priorityAsc": "Priority Asc",
         "priorityDesc": "Priority Desc"
     },
+    "task": {
+        "edit": "Edit",
+        "share": "Share"
+    },    
     "dialog": {
         "deleteTask": {
             "title": "Delete Task",
