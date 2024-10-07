@@ -66,7 +66,26 @@
         "dateDesc": "Tarih Azalan",
         "priorityAsc": "Öncelik Artan",
         "priorityDesc": "Öncelik Azalan"
-    },   
+    },  
+    "task": {
+        "edit": "Düzenle",
+        "share": "Paylaş",
+        "markAsDone": "Yapıldı olarak işaretle"
+    },
+    "months": {
+        "jan": "OCA",
+        "feb": "ŞUB",
+        "mar": "MAR",
+        "apr": "NİS",
+        "may": "MAY",
+        "jun": "HAZ",
+        "jul": "TEM",
+        "aug": "AĞU",
+        "sep": "EYL",
+        "oct": "EKİ",
+        "nov": "KAS",
+        "dec": "ARA"
+    },
     "dialog": {
         "deleteTask": {
             "title": "Görevi Sil",

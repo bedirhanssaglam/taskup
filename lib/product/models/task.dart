@@ -14,6 +14,7 @@ final class Task extends BaseFirebaseModel<Task> {
     this.priority,
     this.createdAt,
     this.uid,
+    this.isCompleted,
   });
 
   final String? id;
@@ -24,6 +25,7 @@ final class Task extends BaseFirebaseModel<Task> {
   final Category? category;
   final String? priority;
   final String? uid;
+  final bool? isCompleted;
 
   @override
   Task fromFirestore(Map<String, dynamic> data, String documentId) {
@@ -38,6 +40,7 @@ final class Task extends BaseFirebaseModel<Task> {
       ),
       priority: data['priority'] as String?,
       uid: data['uid'] as String?,
+      isCompleted: data['isCompleted'] as bool?,
     );
   }
 
@@ -64,6 +67,7 @@ final class Task extends BaseFirebaseModel<Task> {
       'category': category?.toJson(),
       'priority': priority,
       'uid': uid,
+      'isCompleted': isCompleted,
     };
   }
 }

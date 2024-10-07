@@ -67,6 +67,11 @@
         "priorityAsc": "Priority Asc",
         "priorityDesc": "Priority Desc"
     },
+    "task": {
+        "edit": "Edit",
+        "share": "Share",
+        "markAsDone": "Mark as done"
+    },    
     "dialog": {
         "deleteTask": {
             "title": "Delete Task",
@@ -74,6 +79,20 @@
             "delete": "Delete"
         }
     },
+    "months": {
+        "jan": "JAN",
+        "feb": "FEB",
+        "mar": "MAR",
+        "apr": "APR",
+        "may": "MAY",
+        "jun": "JUN",
+        "jul": "JUL",
+        "aug": "AUG",
+        "sep": "SEP",
+        "oct": "OCT",
+        "nov": "NOV",
+        "dec": "DEC"
+    },    
     "error": {
         "failedToUsers": "Failed to load users.",
         "userNotFound": "User not found.",        
