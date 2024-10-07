@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/feature/home/view/widgets/calendar_icon.dart';
 import 'package:task_management/product/components/dialog/delete_task_dialog.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
@@ -51,18 +52,10 @@ final class TaskCard extends StatelessWidget {
               CupertinoContextMenuAction(
                 onPressed: () {
                   Navigator.pop(context);
-                  // _setTaskReminder(task);
-                },
-                trailingIcon: Icons.alarm,
-                child: LocaleText('Hatırlatıcı ekle'),
-              ),
-              CupertinoContextMenuAction(
-                onPressed: () {
-                  Navigator.pop(context);
                   // _markTaskAsComplete();
                 },
                 trailingIcon: Icons.assignment_turned_in,
-                child: const Text('Yapıldı olarak işaretle'),
+                child: LocaleText(LocaleKeys.task_markAsDone),
               ),
               CupertinoContextMenuAction(
                 onPressed: () {

@@ -69,7 +69,22 @@
     },  
     "task": {
         "edit": "Düzenle",
-        "share": "Paylaş"
+        "share": "Paylaş",
+        "markAsDone": "Yapıldı olarak işaretle"
+    },
+    "months": {
+        "jan": "OCA",
+        "feb": "ŞUB",
+        "mar": "MAR",
+        "apr": "NİS",
+        "may": "MAY",
+        "jun": "HAZ",
+        "jul": "TEM",
+        "aug": "AĞU",
+        "sep": "EYL",
+        "oct": "EKİ",
+        "nov": "KAS",
+        "dec": "ARA"
     },
     "dialog": {
         "deleteTask": {

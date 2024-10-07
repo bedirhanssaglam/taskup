@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 extension ContextExtensions on BuildContext {
@@ -12,4 +13,8 @@ extension ContextExtensions on BuildContext {
   double get screenWidth => size.width;
 
   double get keyboardPadding => MediaQuery.of(this).viewInsets.bottom;
+
+  String monthShortName(DateTime date) => DateFormat.MMM(
+        locale.toString(),
+      ).format(date);
 }

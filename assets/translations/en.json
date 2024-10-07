@@ -69,7 +69,8 @@
     },
     "task": {
         "edit": "Edit",
-        "share": "Share"
+        "share": "Share",
+        "markAsDone": "Mark as done"
     },    
     "dialog": {
         "deleteTask": {
@@ -78,6 +79,20 @@
             "delete": "Delete"
         }
     },
+    "months": {
+        "jan": "JAN",
+        "feb": "FEB",
+        "mar": "MAR",
+        "apr": "APR",
+        "may": "MAY",
+        "jun": "JUN",
+        "jul": "JUL",
+        "aug": "AUG",
+        "sep": "SEP",
+        "oct": "OCT",
+        "nov": "NOV",
+        "dec": "DEC"
+    },    
     "error": {
         "failedToUsers": "Failed to load users.",
         "userNotFound": "User not found.",        

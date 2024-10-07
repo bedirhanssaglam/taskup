@@ -7,6 +7,7 @@ import 'package:task_management/product/state/product_provider_items.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
+import 'package:task_management/product/utility/size/widget_sizes.dart';
 import 'package:task_management/product/utility/task_filter_helper.dart';
 import 'package:widget/widget.dart';
 
@@ -48,44 +49,60 @@ class _FilterBottomSheetState extends ConsumerState<FilterBottomSheet>
           color: context.colorScheme.background,
           borderRadius: const AppBorderRadius.onlyTop(),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              LocaleText(
-                LocaleKeys.filter_filterOptions,
-                style: context.textTheme.titleLarge,
-              ),
-              const SizedBox(height: 16),
-              ValueListenableBuilder<FilterCriteria>(
-                valueListenable: filterCriteriaNotifier,
-                builder: (context, value, child) {
-                  return Column(
-                    children: FilterCriteria.values.map(
-                      (FilterCriteria criteria) {
-                        return RadioListTile<FilterCriteria>(
-                          title: LocaleText(criteria.reference),
-                          value: criteria,
-                          groupValue: value,
-                          onChanged: (FilterCriteria? newValue) {
-                            if (newValue != null) {
-                              ref
-                                  .read(
-                                    ProductProviderItems
-                                        .filterCriteriaProvider.notifier,
-                                  )
-                                  .updateFilterCriteria(newValue);
-                              Navigator.pop(context, newValue);
-                            }
-                          },
+        child: Column(
+          children: [
+            const _DraggableLine(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    LocaleText(
+                      LocaleKeys.filter_filterOptions,
+                      style: context.textTheme.titleLarge,
+                    ),
+                    WidgetSizes.spacingM.verticalSpace,
+                    ValueListenableBuilder<FilterCriteria>(
+                      valueListenable: filterCriteriaNotifier,
+                      builder: (context, value, child) {
+                        return Column(
+                          children: FilterCriteria.values.map(
+                            (FilterCriteria criteria) {
+                              return RadioListTile<FilterCriteria>(
+                                title: LocaleText(criteria.reference),
+                                value: criteria,
+                                groupValue: value,
+                                onChanged: changeFilter,
+                              );
+                            },
+                          ).toList(),
                         );
                       },
-                    ).toList(),
-                  );
-                },
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+final class _DraggableLine extends StatelessWidget {
+  const _DraggableLine();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 40.w,
+        height: 5.h,
+        margin: EdgeInsets.only(bottom: 12.h),
+        decoration: BoxDecoration(
+          color: Colors.grey.shade300,
+          borderRadius: AppBorderRadius.circularSmall(),
         ),
       ),
     );

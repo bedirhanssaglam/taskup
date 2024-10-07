@@ -33,60 +33,105 @@ final class _TaskCardItem extends StatelessWidget {
         builder: (context, constraints) {
           return ConstrainedBox(
             constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-            child: Card(
-              elevation: 0,
-              color: context.colorScheme.onPrimary,
-              shape: RoundedRectangleBorder(
-                borderRadius: AppBorderRadius.circularMedium(),
-              ),
-              child: IntrinsicWidth(
-                stepWidth: 1.sw,
-                child: ListTile(
-                  onTap: () {
-                    /// TODO: Show details
-                  },
+            child: Stack(
+              children: [
+                Card(
+                  elevation: 0,
+                  color: context.colorScheme.onPrimary,
                   shape: RoundedRectangleBorder(
                     borderRadius: AppBorderRadius.circularMedium(),
                   ),
-                  title: Text(
-                    task.title ?? '',
-                    style: context.textTheme.titleLarge,
-                  ),
-                  subtitle: Text(task.date?.convertDate ?? ''),
-                  leading: Container(
-                    padding: const AppPadding.smallAll(),
-                    decoration: BoxDecoration(
-                      color: task.category!.color,
-                      borderRadius: AppBorderRadius.circularSmall(),
-                    ),
-                    child: task.category!.icon.show(),
-                  ),
-                  trailing: Container(
-                    padding: const AppPadding.smallAll(),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: context.colorScheme.primary),
-                      borderRadius: AppBorderRadius.circularSmall(),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Assets.icons.flag.colored(
-                          context.colorScheme.primary,
-                          height: 20.h,
-                        ),
-                        WidgetSizes.spacingXxs.horizontalSpace,
-                        Text(
-                          task.priority ?? '',
-                          style: context.textTheme.bodyLarge,
-                        ),
-                      ],
+                  child: IntrinsicWidth(
+                    stepWidth: 1.sw,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CalendarIcon(date: task.date!.toDate()),
+                          WidgetSizes.spacingXxl.horizontalSpace,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: .6.sw,
+                                child: Text(
+                                  task.title ?? '',
+                                  style: context.textTheme.titleLarge,
+                                ),
+                              ),
+                              4.verticalSpace,
+                              Text(
+                                task.date?.convertDate ?? '',
+                                style: context.textTheme.bodyMedium,
+                              ),
+                              WidgetSizes.spacingXxs.verticalSpace,
+                              Container(
+                                padding: const AppPadding.smallAll(),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: context.colorScheme.primary),
+                                  borderRadius: AppBorderRadius.circularSmall(),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Assets.icons.flag.colored(
+                                      context.colorScheme.primary,
+                                      height: 20.h,
+                                    ),
+                                    WidgetSizes.spacingXxs.horizontalSpace,
+                                    Text(
+                                      task.priority ?? '',
+                                      style: context.textTheme.bodyLarge,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
+                Positioned(
+                  top: 12.h,
+                  right: 12.h,
+                  child: const Icon(
+                    CupertinoIcons.check_mark_circled_solid,
+                    color: CupertinoColors.systemGreen,
+                  ),
+                ),
+                _CategoryCard(task: task),
+              ],
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+final class _CategoryCard extends StatelessWidget {
+  const _CategoryCard({
+    required this.task,
+  });
+
+  final Task task;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: 12.h,
+      right: 12.h,
+      child: Container(
+        padding: const AppPadding.smallAll(),
+        decoration: BoxDecoration(
+          color: task.category!.color,
+          borderRadius: AppBorderRadius.circularSmall(),
+        ),
+        child: task.category!.icon.show(),
       ),
     );
   }
