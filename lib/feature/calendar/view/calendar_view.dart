@@ -8,6 +8,7 @@ import 'package:task_management/product/components/loading/app_loading.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/task.dart';
+import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/utility/extensions/date_time_extensions.dart';
 
 part './mixin/calendar_view_mixin.dart';
@@ -47,6 +48,7 @@ class _CalendarViewState extends ConsumerState<CalendarView>
                   return CalendarTaskList(
                     tasks: _filterTasksByDate(state.tasks!, value),
                     onDelete: deleteTask,
+                    onMarkAsDone: (task) => updateTask(updateTaskData: task),
                   );
                 },
               ),

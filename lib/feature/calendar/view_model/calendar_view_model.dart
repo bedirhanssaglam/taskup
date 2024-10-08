@@ -1,6 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_state.dart';
 import 'package:task_management/product/models/task.dart';
+import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
 part 'calendar_view_model.g.dart';
@@ -26,6 +27,7 @@ class CalendarViewModel extends _$CalendarViewModel {
             date: task.date,
             category: task.category,
             priority: task.priority,
+            isCompleted: task.isCompleted,
           );
         }).toList(),
       );
@@ -36,5 +38,13 @@ class CalendarViewModel extends _$CalendarViewModel {
     await ref
         .read(ProductProviderItems.taskServiceProvider)
         .deleteTask(documentId);
+  }
+
+  Future<void> updateTaskStatus({
+    required UpdateTaskData updateTaskData,
+  }) async {
+    await ref.read(ProductProviderItems.taskServiceProvider).updateTaskStatus(
+          updateTaskData: updateTaskData,
+        );
   }
 }

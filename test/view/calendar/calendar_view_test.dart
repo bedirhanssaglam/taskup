@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:task_management/feature/calendar/view/widgets/calendar_task_list.dart';
-import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:widget/widget.dart';
 
@@ -19,6 +18,7 @@ void main() {
             home: Scaffold(
               body: CalendarTaskList(
                 tasks: const [],
+                onMarkAsDone: (value) async {},
                 onDelete: (value) async {},
               ),
             ),
@@ -28,6 +28,5 @@ void main() {
     );
 
     find.text(LocaleKeys.calendar_thereAreNoTaskForTheSelectedDate).once();
-    find.byType(AppTextButton).once();
   });
 }

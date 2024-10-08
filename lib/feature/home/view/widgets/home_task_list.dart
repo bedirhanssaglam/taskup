@@ -5,11 +5,13 @@ final class _HomeTaskList extends StatelessWidget {
     required this.tasks,
     required this.filterCriteria,
     required this.onDelete,
+    required this.onMarkAsDone,
   });
 
   final List<Task>? tasks;
   final FilterCriteria filterCriteria;
   final AsyncValueSetter<String?> onDelete;
+  final AsyncValueSetter<UpdateTaskData> onMarkAsDone;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ final class _HomeTaskList extends StatelessWidget {
                 (Task task) => TaskCard(
                   task: task,
                   onDelete: onDelete,
+                  onMarkAsDone: onMarkAsDone,
                 ),
               ),
           ],
