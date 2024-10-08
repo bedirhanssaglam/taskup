@@ -34,4 +34,12 @@ mixin _HomeViewMixin on ConsumerState<HomeView> {
     await homeViewModel.deleteTask(documentId);
     await homeViewModel.fetchTasks();
   }
+
+  Future<void> updateTask({required UpdateTaskData updateTaskData}) async {
+    final homeViewModel = ref.read(homeViewModelProvider.notifier);
+    await homeViewModel.updateTaskStatus(
+      updateTaskData: updateTaskData,
+    );
+    await homeViewModel.fetchTasks();
+  }
 }

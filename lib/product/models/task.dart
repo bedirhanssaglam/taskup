@@ -70,4 +70,7 @@ final class Task extends BaseFirebaseModel<Task> {
       'isCompleted': isCompleted,
     };
   }
+
+  @override
+  String get documentId => id!;
 }

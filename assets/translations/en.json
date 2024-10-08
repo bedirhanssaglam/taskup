@@ -70,7 +70,8 @@
     "task": {
         "edit": "Edit",
         "share": "Share",
-        "markAsDone": "Mark as done"
+        "markAsDone": "Mark as done",
+        "markAsToDo": "Mark as to do"
     },    
     "dialog": {
         "deleteTask": {

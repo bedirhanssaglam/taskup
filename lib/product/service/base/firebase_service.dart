@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:task_management/product/models/base_firebase_model.dart';
+import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/service/base/interface_firebase_service.dart';
 import 'package:task_management/product/service/exceptions/firebase_exceptions.dart';
 import 'package:task_management/product/utility/enums/collection_paths.dart';
@@ -67,5 +68,23 @@ class FirebaseService extends IFirebaseService {
     if (!docSnapshot.exists) throw DocumentNotFoundException();
 
     await documentRef.delete();
+  }
+
+  Future<void> updateTaskStatus(
+    CollectionPaths collectionPath, {
+    required UpdateTaskData updateTaskData,
+  }) async {
+    final currentUserId = _auth.currentUser?.uid;
+    if (currentUserId == null) throw const NoUserFailure();
+
+    final documentRef =
+        collectionPath.collection.doc(updateTaskData.documentId);
+
+    final docSnapshot = await documentRef.get();
+    if (!docSnapshot.exists) throw DocumentNotFoundException();
+
+    await documentRef.update({
+      RequestKeys.isCompleted.reference: updateTaskData.isCompleted,
+    });
   }
 }

@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
-import 'package:task_management/feature/home/view/widgets/task_card.dart';
 import 'package:task_management/feature/home/view_model/home_state.dart';
 import 'package:task_management/feature/home/view_model/home_view_model.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view/add_task_sheet.dart';
 import 'package:task_management/product/components/bottom_sheet/filter/view/filter_bottom_sheet.dart';
 import 'package:task_management/product/components/shimmer/shimmer_effect.dart';
+import 'package:task_management/product/components/task/task_card.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/task.dart';
+import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
@@ -60,6 +61,7 @@ class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
                       tasks: state.tasks,
                       filterCriteria: filterCriteria,
                       onDelete: deleteTask,
+                      onMarkAsDone: (task) => updateTask(updateTaskData: task),
                     );
                   },
                 );

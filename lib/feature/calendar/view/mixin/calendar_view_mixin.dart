@@ -29,6 +29,14 @@ mixin _CalendarViewMixin on ConsumerState<CalendarView> {
     await calendarViewModel.deleteTask(documentId);
   }
 
+  Future<void> updateTask({required UpdateTaskData updateTaskData}) async {
+    final calendarViewModel = ref.read(calendarViewModelProvider.notifier);
+    await calendarViewModel.updateTaskStatus(
+      updateTaskData: updateTaskData,
+    );
+    await calendarViewModel.fetchTasks();
+  }
+
   @override
   void dispose() {
     selectedDate.dispose();

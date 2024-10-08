@@ -1,5 +1,6 @@
 enum RequestKeys {
-  uid('uid');
+  uid('uid'),
+  isCompleted('isCompleted');
 
   const RequestKeys(this.reference);
   final String reference;

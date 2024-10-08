@@ -70,7 +70,8 @@
     "task": {
         "edit": "Düzenle",
         "share": "Paylaş",
-        "markAsDone": "Yapıldı olarak işaretle"
+        "markAsDone": "Yapıldı olarak işaretle",
+        "markAsToDo": "Yapılacak olarak işaretle"
     },
     "months": {
         "jan": "OCA",

@@ -150,6 +150,7 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet>
                                   color: selectedCategory!.color,
                                   icon: selectedCategory!.icon,
                                 ),
+                                isCompleted: false,
                                 priority: priorityNotifier.value.toString(),
                                 createdAt: Timestamp.now(),
                               );
