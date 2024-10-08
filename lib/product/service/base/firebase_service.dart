@@ -42,6 +42,7 @@ class FirebaseService extends IFirebaseService {
         .toList();
   }
 
+  @override
   Future<void> add<T extends BaseFirebaseModel<T>>(
     CollectionPaths collectionPath,
     T model,
@@ -55,6 +56,7 @@ class FirebaseService extends IFirebaseService {
     });
   }
 
+  @override
   Future<void> delete(
     CollectionPaths collectionPath,
     String documentId,
@@ -70,6 +72,7 @@ class FirebaseService extends IFirebaseService {
     await documentRef.delete();
   }
 
+  @override
   Future<void> updateTaskStatus(
     CollectionPaths collectionPath, {
     required UpdateTaskData updateTaskData,
