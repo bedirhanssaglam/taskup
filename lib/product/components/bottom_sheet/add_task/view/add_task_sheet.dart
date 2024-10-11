@@ -10,6 +10,7 @@ import 'package:task_management/product/components/bottom_sheet/add_task/view_mo
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_view_model.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/components/dialog/category_dialog.dart';
+import 'package:task_management/product/components/tap_area/tap_area.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';

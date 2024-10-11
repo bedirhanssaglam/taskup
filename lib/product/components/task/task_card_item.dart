@@ -4,10 +4,12 @@ final class _TaskCardItem extends StatelessWidget {
   const _TaskCardItem({
     required this.task,
     required this.onDelete,
+    required this.onMarkAsDone,
   });
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
+  final VoidCallback onMarkAsDone;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ final class _TaskCardItem extends StatelessWidget {
                   top: 3.h,
                   right: 3.w,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: onMarkAsDone,
                     icon: Icon(
                       CupertinoIcons.check_mark_circled_solid,
                       color: (task.isCompleted ?? false)

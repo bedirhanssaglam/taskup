@@ -41,7 +41,7 @@ final class _PriorityDialog extends StatelessWidget {
                   itemCount: 9,
                   itemBuilder: (BuildContext context, int index) {
                     final priority = index + 1;
-                    return GestureDetector(
+                    return TapArea(
                       onTap: () {
                         onPrioritySelected(priority);
                         Navigator.of(context).pop();

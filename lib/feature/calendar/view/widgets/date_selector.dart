@@ -79,7 +79,7 @@ class _DateTile extends StatelessWidget {
         children: [
           Text(
             date.formatDayOfWeek,
-            style: context.textTheme.bodyLarge?.copyWith(
+            style: context.textTheme.bodyMedium?.copyWith(
               color: isSelected
                   ? context.colorScheme.background
                   : context.colorScheme.onBackground,

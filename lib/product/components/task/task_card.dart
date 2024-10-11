@@ -54,12 +54,7 @@ final class TaskCard extends StatelessWidget {
               CupertinoContextMenuAction(
                 onPressed: () {
                   Navigator.pop(context);
-                  onMarkAsDone.call(
-                    UpdateTaskData(
-                      documentId: task.documentId,
-                      isCompleted: !(task.isCompleted ?? false),
-                    ),
-                  );
+                  _onMarkAsDone();
                 },
                 trailingIcon: task.isCompleted ?? false
                     ? Icons.assignment_outlined
@@ -80,8 +75,25 @@ final class TaskCard extends StatelessWidget {
                 child: LocaleText(LocaleKeys.dialog_deleteTask_delete),
               ),
             ],
-            child: _TaskCardItem(task: task, onDelete: onDelete),
+            child: _TaskCardItem(
+              task: task,
+              onDelete: onDelete,
+              onMarkAsDone: _onMarkAsDone,
+            ),
           )
-        : _TaskCardItem(task: task, onDelete: onDelete);
+        : _TaskCardItem(
+            task: task,
+            onDelete: onDelete,
+            onMarkAsDone: _onMarkAsDone,
+          );
+  }
+
+  void _onMarkAsDone() {
+    onMarkAsDone.call(
+      UpdateTaskData(
+        documentId: task.documentId,
+        isCompleted: !(task.isCompleted ?? false),
+      ),
+    );
   }
 }

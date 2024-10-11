@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_management/product/components/tap_area/tap_area.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/category.dart';
@@ -28,7 +29,7 @@ final class CategoryDialog extends StatelessWidget {
         ],
       ),
       content: SizedBox(
-        height: .45.sh,
+        height: .5.sh,
         width: double.maxFinite,
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -39,7 +40,7 @@ final class CategoryDialog extends StatelessWidget {
           itemCount: Category.categories.length,
           itemBuilder: (context, index) {
             final category = Category.categories[index];
-            return InkWell(
+            return TapArea(
               onTap: () => Navigator.of(context).pop(category),
               child: Column(
                 children: [
@@ -58,9 +59,10 @@ final class CategoryDialog extends StatelessWidget {
                     ),
                     child: category.icon.show(),
                   ),
+                  4.verticalSpace,
                   Text(
                     category.name.locale,
-                    style: context.textTheme.bodyMedium,
+                    style: context.textTheme.bodySmall,
                     textAlign: TextAlign.center,
                   ),
                 ],
