@@ -10,6 +10,7 @@ import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
 import 'package:task_management/product/constants/app_constants.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/utility/enums/obscure_text_mode.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/controller_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
@@ -22,7 +23,9 @@ import 'package:task_management/product/utility/validators/normal_validator.dart
 import 'package:task_management/product/utility/validators/password_validator.dart';
 
 part './mixin/register_view_mixin.dart';
+part './widgets/confirm_password_field.dart';
 part './widgets/have_account_widget.dart';
+part './widgets/password_field.dart';
 part './widgets/register_error.dart';
 part './widgets/register_header.dart';
 
@@ -68,22 +71,28 @@ class _RegisterViewState extends ConsumerState<RegisterView>
                   validator: EmailValidator().validate,
                 ),
                 WidgetSizes.spacingM.verticalSpace,
-                AppTextField(
-                  hintText: AppConstants.passwordHint,
-                  title: LocaleKeys.login_password,
-                  controller: passwordController,
-                  validator: PasswordValidator().validate,
+                ValueListenableBuilder<ObscureTextMode>(
+                  valueListenable: passwordObscureTextModeNotifier,
+                  builder: (context, passwordObscureTextMode, child) {
+                    return _PasswordField(
+                      passwordController: passwordController,
+                      passwordObscureTextMode: passwordObscureTextMode,
+                      onToggleObscureText: togglePasswordObscureTextMode,
+                    );
+                  },
                 ),
                 WidgetSizes.spacingM.verticalSpace,
-                AppTextField(
-                  controller: confirmPasswordController,
-                  hintText: AppConstants.passwordHint,
-                  title: LocaleKeys.register_passwordAgain,
-                  textInputAction: TextInputAction.done,
-                  validator: ConfirmPasswordValidator(
-                    firstValue: passwordController.trimmedText,
-                    secondValue: confirmPasswordController.trimmedText,
-                  ).validate,
+                ValueListenableBuilder<ObscureTextMode>(
+                  valueListenable: confirmPasswordObscureTextModeNotifier,
+                  builder: (context, confirmPasswordObscureTextMode, child) {
+                    return _ConfirmPasswordField(
+                      confirmPasswordController: confirmPasswordController,
+                      passwordController: passwordController,
+                      confirmPasswordObscureTextMode:
+                          confirmPasswordObscureTextMode,
+                      onToggleObscureText: toggleConfirmPasswordObscureTextMode,
+                    );
+                  },
                 ),
                 WidgetSizes.spacingXxl3.verticalSpace,
                 if (registerState.status.isLoading)

@@ -42,7 +42,7 @@ class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
       appBar: _HomeAppBar(
         userFullName: userFullName,
         onFilterTapped: showFilterBottomSheet,
-        onLogoutTapped: () =>
+        onLogoutTapped:
             ref.read(ProductProviderItems.authServiceProvider).logOut,
       ),
       body: Column(

@@ -1,10 +1,17 @@
 part of '../login_view.dart';
 
 final class _EmailAndPasswordFields extends StatelessWidget {
-  const _EmailAndPasswordFields(this.emailController, this.passwordController);
+  const _EmailAndPasswordFields({
+    required this.emailController,
+    required this.passwordController,
+    required this.obscureTextMode,
+    required this.onToggleObscureText,
+  });
 
   final TextEditingController emailController;
   final TextEditingController passwordController;
+  final ObscureTextMode obscureTextMode;
+  final VoidCallback onToggleObscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,15 @@ final class _EmailAndPasswordFields extends StatelessWidget {
           controller: passwordController,
           hintText: AppConstants.passwordHint,
           title: LocaleKeys.login_password,
-          obscureText: true,
+          suffixIcon: IconButton(
+            icon: Icon(
+              obscureTextMode.isObscured
+                  ? Icons.visibility
+                  : Icons.visibility_off,
+            ),
+            onPressed: onToggleObscureText,
+          ),
+          obscureText: obscureTextMode.isObscured,
           textInputAction: TextInputAction.done,
           validator: PasswordValidator().validate,
         ),

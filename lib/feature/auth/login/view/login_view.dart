@@ -11,6 +11,7 @@ import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
 import 'package:task_management/product/constants/app_constants.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/utility/enums/obscure_text_mode.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/controller_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
@@ -46,7 +47,17 @@ class _LoginViewState extends ConsumerState<LoginView> with _LoginViewMixin {
               children: [
                 const _LoginHeader(),
                 WidgetSizes.spacingXxl8.verticalSpace,
-                _EmailAndPasswordFields(emailController, passwordController),
+                ValueListenableBuilder<ObscureTextMode>(
+                  valueListenable: obscureTextModeNotifier,
+                  builder: (context, obscureTextMode, child) {
+                    return _EmailAndPasswordFields(
+                      emailController: emailController,
+                      passwordController: passwordController,
+                      obscureTextMode: obscureTextMode,
+                      onToggleObscureText: _toggleObscureTextMode,
+                    );
+                  },
+                ),
                 WidgetSizes.spacingXxl7.verticalSpace,
                 if (loginState.status.isLoading)
                   const CircularProgressIndicator.adaptive()

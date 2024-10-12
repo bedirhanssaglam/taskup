@@ -18,10 +18,23 @@ mixin _LoginViewMixin on ConsumerState<LoginView> {
 
   bool _isFormStateValidate() => formKey.currentState?.validate() ?? false;
 
+  final ValueNotifier<ObscureTextMode> obscureTextModeNotifier =
+      ValueNotifier<ObscureTextMode>(
+    ObscureTextMode.hide,
+  );
+
+  void _toggleObscureTextMode() {
+    obscureTextModeNotifier.value =
+        obscureTextModeNotifier.value == ObscureTextMode.hide
+            ? ObscureTextMode.show
+            : ObscureTextMode.hide;
+  }
+
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    obscureTextModeNotifier.dispose();
     super.dispose();
   }
 }
