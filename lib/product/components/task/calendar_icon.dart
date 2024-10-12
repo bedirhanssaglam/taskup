@@ -13,7 +13,7 @@ final class CalendarIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 53.w,
-      height: 53.h,
+      height: 53.w,
       padding: const EdgeInsets.all(1),
       decoration: BoxDecoration(
         color: CupertinoColors.systemRed.withOpacity(.6),
@@ -32,7 +32,7 @@ final class CalendarIcon extends StatelessWidget {
           ),
           WidgetSizes.spacingXSS.verticalSpace,
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 4),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
               color: context.colorScheme.background,
               borderRadius: const BorderRadius.only(

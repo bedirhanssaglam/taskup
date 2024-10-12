@@ -16,5 +16,5 @@ extension ContextExtensions on BuildContext {
 
   String monthShortName(DateTime date) => DateFormat.MMM(
         locale.toString(),
-      ).format(date);
+      ).format(date).toUpperCase();
 }
