@@ -64,6 +64,16 @@ final class _TaskCardItem extends StatelessWidget {
                     ),
                   ),
                 ),
+                Positioned(
+                  top: 35.h,
+                  right: 3.w,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.more_vert,
+                    ),
+                  ),
+                ),
                 CategoryCard(task: task),
               ],
             ),
