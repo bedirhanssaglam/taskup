@@ -7,8 +7,8 @@ import 'package:task_management/product/models/category.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
-import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
+import 'package:task_management/product/utility/size/widget_sizes.dart';
 
 final class CategoryDialog extends StatelessWidget {
   const CategoryDialog({super.key});
@@ -59,9 +59,9 @@ final class CategoryDialog extends StatelessWidget {
                     ),
                     child: category.icon.show(),
                   ),
-                  4.verticalSpace,
-                  Text(
-                    category.name.locale,
+                  WidgetSizes.spacingXxs.verticalSpace,
+                  LocaleText(
+                    category.name,
                     style: context.textTheme.bodySmall,
                     textAlign: TextAlign.center,
                   ),

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 @immutable
 abstract final class WidgetSizes {
-  const WidgetSizes._();
-
   static const double zero = 0;
 
   /// [spacingXSSs] is 1.5
@@ -69,11 +67,14 @@ abstract final class WidgetSizes {
   /// [spacingXxl9] is 72.0
   static const double spacingXxl9 = 72;
 
+  /// [spacingXxl9] is 90.0
+  static const double spacingXxl10 = 90;
+
   /// [spacingXxl12] is 100.0
   static const double spacingXxl12 = 100;
 
-  /// [spacingXxlL12] is 200.0
-  static const double spacingXxlL12 = 200;
+  /// [spacingXxlL12] is 120.0
+  static const double spacingXxlL12 = 120;
 
   /// [spacingXxlL13] is 250.0
   static const double spacingXxlL13 = 250;

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
+import 'package:task_management/product/utility/size/widget_sizes.dart';
 
 final class AppButton extends StatelessWidget {
   const AppButton({required this.onPressed, required this.text, super.key});
@@ -15,7 +16,7 @@ final class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 52.h,
+      height: WidgetSizes.spacingXxl7.h,
       width: double.infinity,
       child: Platform.isAndroid
           ? ElevatedButton(

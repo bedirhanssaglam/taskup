@@ -97,8 +97,8 @@ final class _DraggableLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 40.w,
-        height: 5.h,
+        width: WidgetSizes.spacingXxl4.w,
+        height: WidgetSizes.spacingXxs.h,
         margin: EdgeInsets.only(bottom: 12.h),
         decoration: BoxDecoration(
           color: Colors.grey.shade300,

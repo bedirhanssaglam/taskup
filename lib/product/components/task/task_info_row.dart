@@ -35,7 +35,7 @@ final class TaskInfoRow extends StatelessWidget {
                 style: context.textTheme.titleLarge,
               ),
             ),
-            4.verticalSpace,
+            WidgetSizes.spacingXxs.verticalSpace,
             Text(
               task.date?.convertDate ?? '',
               style: context.textTheme.bodyMedium,
@@ -54,7 +54,7 @@ final class TaskInfoRow extends StatelessWidget {
                 children: [
                   Assets.icons.flag.colored(
                     context.colorScheme.primary,
-                    height: 20.h,
+                    height: WidgetSizes.spacingL.h,
                   ),
                   WidgetSizes.spacingXxs.horizontalSpace,
                   Text(

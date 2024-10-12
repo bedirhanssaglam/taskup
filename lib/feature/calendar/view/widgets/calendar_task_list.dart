@@ -10,6 +10,7 @@ import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/lottie_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
+import 'package:task_management/product/utility/size/widget_sizes.dart';
 
 final class CalendarTaskList extends StatelessWidget {
   const CalendarTaskList({
@@ -31,8 +32,8 @@ final class CalendarTaskList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Assets.lottie.emptyCalendar.show(
-              height: 120.h,
-              width: 120.w,
+              height: WidgetSizes.spacingXxlL12.h,
+              width: WidgetSizes.spacingXxlL12.w,
             ),
             LocaleText(
               LocaleKeys.calendar_thereAreNoTaskForTheSelectedDate,

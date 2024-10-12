@@ -34,7 +34,7 @@ class DateSelector extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 90.w,
+          height: WidgetSizes.spacingXxl10.w,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: dates.length,
