@@ -11,27 +11,60 @@ class DateSelector extends StatelessWidget {
   const DateSelector({
     required this.currentDate,
     required this.onDateSelected,
+    required this.dates,
+    required this.onMonthChanged,
+    required this.isNextMonthAllowed,
+    required this.isPreviousMonthAllowed,
     super.key,
   });
   final DateTime currentDate;
   final ValueChanged<DateTime> onDateSelected;
+  final List<DateTime> dates;
+  final ValueChanged<DateTime> onMonthChanged;
+  final bool isNextMonthAllowed;
+  final bool isPreviousMonthAllowed;
 
   @override
   Widget build(BuildContext context) {
-    /// TODO: Kapsam genişletilecek.
-    final dates = List<DateTime>.generate(
-      30,
-      (index) => DateTime.now().add(Duration(days: index)),
-    );
-
     return Column(
       children: [
-        Padding(
-          padding: const AppPadding.smallAll(),
-          child: Text(
-            currentDate.formatMonthAndYear,
-            style: context.textTheme.headlineSmall,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Geri butonu sadece izin veriliyorsa aktif olacak
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: isPreviousMonthAllowed
+                  ? () {
+                      final previousMonth = DateTime(
+                        currentDate.year,
+                        currentDate.month - 1,
+                      );
+                      onMonthChanged(previousMonth);
+                    }
+                  : null, // Sınır dışında olduğunda buton devre dışı
+            ),
+            Padding(
+              padding: const AppPadding.smallAll(),
+              child: Text(
+                currentDate.formatMonthAndYear,
+                style: context.textTheme.headlineSmall,
+              ),
+            ),
+            // İleri butonu sadece izin veriliyorsa aktif olacak
+            IconButton(
+              icon: Icon(Icons.arrow_forward),
+              onPressed: isNextMonthAllowed
+                  ? () {
+                      final nextMonth = DateTime(
+                        currentDate.year,
+                        currentDate.month + 1,
+                      );
+                      onMonthChanged(nextMonth);
+                    }
+                  : null, // Sınır dışında olduğunda buton devre dışı
+            ),
+          ],
         ),
         SizedBox(
           height: WidgetSizes.spacingXxl10.w,
@@ -69,9 +102,7 @@ class _DateTile extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: AppBorderRadius.circularMedium(),
-        color: isSelected
-            ? context.colorScheme.primary
-            : context.colorScheme.outlineVariant,
+        color: isSelected ? context.colorScheme.primary : context.colorScheme.outlineVariant,
       ),
       padding: const AppPadding.mediumAll(),
       child: Column(
@@ -80,18 +111,14 @@ class _DateTile extends StatelessWidget {
           Text(
             date.formatDayOfWeek,
             style: context.textTheme.bodyMedium?.copyWith(
-              color: isSelected
-                  ? context.colorScheme.background
-                  : context.colorScheme.onBackground,
+              color: isSelected ? context.colorScheme.background : context.colorScheme.onBackground,
             ),
           ),
           WidgetSizes.spacingXSs.verticalSpace,
           Text(
             date.formatDayOfMonth,
             style: context.textTheme.bodyLarge?.copyWith(
-              color: isSelected
-                  ? context.colorScheme.background
-                  : context.colorScheme.onBackground,
+              color: isSelected ? context.colorScheme.background : context.colorScheme.onBackground,
             ),
           ),
         ],

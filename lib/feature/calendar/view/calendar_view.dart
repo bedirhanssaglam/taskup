@@ -20,8 +20,7 @@ class CalendarView extends ConsumerStatefulWidget {
   ConsumerState<CalendarView> createState() => _CalendarViewState();
 }
 
-class _CalendarViewState extends ConsumerState<CalendarView>
-    with _CalendarViewMixin {
+class _CalendarViewState extends ConsumerState<CalendarView> with _CalendarViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,10 +33,14 @@ class _CalendarViewState extends ConsumerState<CalendarView>
           children: [
             ValueListenableBuilder<DateTime>(
               valueListenable: selectedDate,
-              builder: (context, value, _) {
+              builder: (context, month, _) {
                 return DateSelector(
-                  currentDate: value,
+                  currentDate: selectedDate.value,
                   onDateSelected: (date) => selectedDate.value = date,
+                  dates: generateDateRange(month), // Tarih aralığı burada bugünden başlıyor
+                  onMonthChanged: onMonthChanged,
+                  isNextMonthAllowed: isNextMonthAllowed,
+                  isPreviousMonthAllowed: isPreviousMonthAllowed,
                 );
               },
             ),
