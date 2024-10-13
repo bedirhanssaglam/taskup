@@ -66,7 +66,7 @@ final class _TaskCardItem extends StatelessWidget {
                           ? Padding(
                               padding: const AppPadding.mediumAll(),
                               child: Assets.icons.timeout.colored(
-                                context.colorScheme.errorContainer,
+                                context.colorScheme.error,
                                 height: 20.h,
                               ),
                             )

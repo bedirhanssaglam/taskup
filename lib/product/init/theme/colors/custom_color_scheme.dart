@@ -32,6 +32,7 @@ final class CustomColorScheme {
     primaryContainer: Color(0xFF0077B6),
     secondary: Color(0xFFFFC300),
     secondaryContainer: Color(0xFFB58B00),
+    onPrimary: Color.fromARGB(255, 49, 50, 51),
     tertiary: Color(0xFF90BE6D),
     tertiaryContainer: Color(0xFF4B6B2F),
     errorContainer: Color(0xFFBA1B1B),
