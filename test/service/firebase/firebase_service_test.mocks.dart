@@ -7,6 +7,7 @@ import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:task_management/product/models/base_firebase_model.dart' as _i4;
+import 'package:task_management/product/models/update_task_data.dart' as _i6;
 import 'package:task_management/product/service/base/firebase_service.dart'
     as _i2;
 import 'package:task_management/product/utility/enums/collection_paths.dart'
@@ -79,6 +80,21 @@ class MockFirebaseService extends _i1.Mock implements _i2.FirebaseService {
             collectionPath,
             documentId,
           ],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
+
+  @override
+  _i3.Future<void> updateTaskStatus(
+    _i5.CollectionPaths? collectionPath, {
+    required _i6.UpdateTaskData? updateTaskData,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #updateTaskStatus,
+          [collectionPath],
+          {#updateTaskData: updateTaskData},
         ),
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),

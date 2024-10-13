@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'calendar_view_model.dart';
+part of 'dashboard_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$calendarViewModelHash() => r'4cae89d13b16641b2b83f77176ee48c174337e96';
+String _$dashboardViewModelHash() =>
+    r'fa02c0b2b6acfb885af003d5a67f4e04ef1a32d1';
 
-/// See also [CalendarViewModel].
-@ProviderFor(CalendarViewModel)
-final calendarViewModelProvider = AutoDisposeNotifierProvider<CalendarViewModel,
-    AsyncValue<CalendarState>>.internal(
-  CalendarViewModel.new,
-  name: r'calendarViewModelProvider',
+/// See also [DashboardViewModel].
+@ProviderFor(DashboardViewModel)
+final dashboardViewModelProvider = AutoDisposeNotifierProvider<
+    DashboardViewModel, AsyncValue<DashboardState>>.internal(
+  DashboardViewModel.new,
+  name: r'dashboardViewModelProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$calendarViewModelHash,
+      : _$dashboardViewModelHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$CalendarViewModel = AutoDisposeNotifier<AsyncValue<CalendarState>>;
+typedef _$DashboardViewModel = AutoDisposeNotifier<AsyncValue<DashboardState>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -23,7 +23,7 @@ final class CustomColorScheme {
     inversePrimary: Color(0xFF0096C7),
     shadow: Color(0xFF273036),
     surfaceTint: Color(0xFF0077B6),
-    outlineVariant: Color(0xFFB0C1D1),
+    outlineVariant: Color.fromARGB(255, 219, 224, 231),
     scrim: Color(0xFF000000),
   );
 
@@ -47,7 +47,7 @@ final class CustomColorScheme {
     inversePrimary: Color(0xFF0096C7),
     shadow: Color(0xFF000000),
     surfaceTint: Color(0xFF00B4D8),
-    outlineVariant: Color(0xFF494F59),
+    outlineVariant: Color.fromARGB(255, 78, 81, 85),
     scrim: Color(0xFF000000),
   );
 }

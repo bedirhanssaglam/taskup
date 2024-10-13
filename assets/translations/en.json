@@ -18,15 +18,28 @@
         "alreadyHaveAnAccount": "Already have an account?"
     },   
     "bottomNavBar": {
-        "home": "Home",
+        "dashboard": "Dashboard",
+        "tasks": "Tasks",
         "calendar": "Calendar",
         "profile": "Profile"
     },
-    "home": {
+    "tasks": {
         "hello": "Hello",
         "whatDoYouWantToDoToday": "What do you want to do today?",
-        "tapPlusButton": "Tap + to add your tasks"
+        "tapPlusButton": "Tap + to add your tasks",
+        "timeout": "Timeout"
     },   
+    "dashboard": {
+        "title": "Dashboard",
+        "projectSummary": "Project Summary",
+        "inProgress": "In Progress",
+        "thingsToDo": "Things to Do",
+        "pastDates": "Past Dates",
+        "completed": "Completed",
+        "projectStatistics": "Project Statistics",
+        "totalWorkingHour": "Total working hour",
+        "totalTaskActivity": "Total task activity"
+    },
     "validators": {
         "normal": "This field cannot be left blank.",
         "invalidEmailFormat": "Invalid email format",

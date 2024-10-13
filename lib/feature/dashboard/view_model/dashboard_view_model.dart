@@ -1,15 +1,14 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:task_management/feature/calendar/view_model/calendar_state.dart';
+import 'package:task_management/feature/dashboard/view_model/dashboard_state.dart';
 import 'package:task_management/product/models/task.dart';
-import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
-part 'calendar_view_model.g.dart';
+part 'dashboard_view_model.g.dart';
 
 @riverpod
-class CalendarViewModel extends _$CalendarViewModel {
+class DashboardViewModel extends _$DashboardViewModel {
   @override
-  AsyncValue<CalendarState> build() => const AsyncValue.data(CalendarState());
+  AsyncValue<DashboardState> build() => const AsyncValue.data(DashboardState());
 
   Future<void> fetchTasks() async {
     state = const AsyncValue.loading();
@@ -18,7 +17,7 @@ class CalendarViewModel extends _$CalendarViewModel {
       final tasks = await ref
           .read(ProductProviderItems.taskServiceProvider)
           .getAllTasks();
-      return CalendarState(
+      return DashboardState(
         tasks: tasks.map((task) {
           return Task(
             id: task.id,
@@ -33,19 +32,5 @@ class CalendarViewModel extends _$CalendarViewModel {
         }).toList(),
       );
     });
-  }
-
-  Future<void> deleteTask(String documentId) async {
-    await ref
-        .read(ProductProviderItems.taskServiceProvider)
-        .deleteTask(documentId);
-  }
-
-  Future<void> updateTaskStatus({
-    required UpdateTaskData updateTaskData,
-  }) async {
-    await ref.read(ProductProviderItems.taskServiceProvider).updateTaskStatus(
-          updateTaskData: updateTaskData,
-        );
   }
 }

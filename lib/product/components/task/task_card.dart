@@ -15,6 +15,7 @@ import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/extensions/task_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 
 part 'task_card_item.dart';

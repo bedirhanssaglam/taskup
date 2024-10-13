@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:task_management/feature/home/view_model/home_view_model.dart';
+import 'package:task_management/feature/tasks/view_model/task_view_model.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/service/task/task_service.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
@@ -17,7 +17,7 @@ final class _MockTaskService extends Mock implements TaskService {
 }
 
 void main() {
-  test('HomeViewModel fetches tasks', () async {
+  test('TaskViewModel fetches tasks', () async {
     final container = ProviderContainer(
       overrides: [
         ProductProviderItems.taskServiceProvider.overrideWithValue(
@@ -26,7 +26,7 @@ void main() {
       ],
     );
 
-    final viewModel = container.read(homeViewModelProvider.notifier);
+    final viewModel = container.read(taskViewModelProvider.notifier);
 
     await viewModel.fetchTasks();
     expect(

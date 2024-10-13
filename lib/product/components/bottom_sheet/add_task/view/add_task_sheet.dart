@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
-import 'package:task_management/feature/home/view_model/home_view_model.dart';
+import 'package:task_management/feature/tasks/view_model/task_view_model.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_status.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_view_model.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
@@ -154,6 +154,7 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet>
                                 isCompleted: false,
                                 priority: priorityNotifier.value.toString(),
                                 createdAt: Timestamp.now(),
+                                isDoing: false,
                               );
                               await addTask(task);
 
