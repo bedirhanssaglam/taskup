@@ -1,15 +1,15 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:task_management/feature/home/view_model/home_state.dart';
+import 'package:task_management/feature/tasks/view_model/task_state.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
 
-part 'home_view_model.g.dart';
+part 'task_view_model.g.dart';
 
 @riverpod
-class HomeViewModel extends _$HomeViewModel {
+class TaskViewModel extends _$TaskViewModel {
   @override
-  AsyncValue<HomeState> build() => const AsyncValue.data(HomeState());
+  AsyncValue<TaskState> build() => const AsyncValue.data(TaskState());
 
   Future<void> fetchTasks() async {
     state = const AsyncValue.loading();
@@ -18,7 +18,7 @@ class HomeViewModel extends _$HomeViewModel {
       final tasks = await ref
           .read(ProductProviderItems.taskServiceProvider)
           .getAllTasks();
-      return HomeState(
+      return TaskState(
         tasks: tasks.map((task) {
           return Task(
             id: task.id,
@@ -28,6 +28,7 @@ class HomeViewModel extends _$HomeViewModel {
             category: task.category,
             priority: task.priority,
             isCompleted: task.isCompleted,
+            isDoing: task.isDoing,
           );
         }).toList(),
       );

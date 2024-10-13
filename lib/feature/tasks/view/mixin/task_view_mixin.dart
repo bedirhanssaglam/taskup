@@ -1,9 +1,7 @@
-part of '../home_view.dart';
+part of '../tasks_view.dart';
 
-mixin _HomeViewMixin on ConsumerState<HomeView> {
-  AsyncValue<HomeState> get homeState => ref.watch(homeViewModelProvider);
-  String get userFullName =>
-      ref.read(ProductProviderItems.appStateProvider).account.fullName ?? '';
+mixin _TaskViewMixin on ConsumerState<TaskView> {
+  AsyncValue<TaskState> get taskState => ref.watch(taskViewModelProvider);
 
   @override
   void initState() {
@@ -12,7 +10,7 @@ mixin _HomeViewMixin on ConsumerState<HomeView> {
   }
 
   Future<void> _init() async {
-    final homeViewModel = ref.read(homeViewModelProvider.notifier);
+    final homeViewModel = ref.read(taskViewModelProvider.notifier);
     await homeViewModel.fetchTasks();
   }
 
@@ -30,13 +28,13 @@ mixin _HomeViewMixin on ConsumerState<HomeView> {
 
   Future<void> deleteTask(String? documentId) async {
     if (documentId == null) return;
-    final homeViewModel = ref.read(homeViewModelProvider.notifier);
+    final homeViewModel = ref.read(taskViewModelProvider.notifier);
     await homeViewModel.deleteTask(documentId);
     await homeViewModel.fetchTasks();
   }
 
   Future<void> updateTask({required UpdateTaskData updateTaskData}) async {
-    final homeViewModel = ref.read(homeViewModelProvider.notifier);
+    final homeViewModel = ref.read(taskViewModelProvider.notifier);
     await homeViewModel.updateTaskStatus(
       updateTaskData: updateTaskData,
     );

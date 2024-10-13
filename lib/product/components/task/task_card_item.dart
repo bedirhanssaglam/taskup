@@ -54,15 +54,31 @@ final class _TaskCardItem extends StatelessWidget {
                 Positioned(
                   top: 3.h,
                   right: 3.w,
-                  child: IconButton(
-                    onPressed: onMarkAsDone,
-                    icon: Icon(
-                      CupertinoIcons.check_mark_circled_solid,
-                      color: (task.isCompleted ?? false)
-                          ? CupertinoColors.systemGreen
-                          : CupertinoColors.lightBackgroundGray,
-                    ),
-                  ),
+                  child: !task.isTimeout && (task.isDoing ?? false)
+                      ? Padding(
+                          padding: const AppPadding.smallAll(),
+                          child: Assets.icons.progress.colored(
+                            const Color(0xFF6C63FF),
+                            height: 35.h,
+                          ),
+                        )
+                      : task.isTimeout
+                          ? Padding(
+                              padding: const AppPadding.mediumAll(),
+                              child: Assets.icons.timeout.colored(
+                                context.colorScheme.error,
+                                height: 20.h,
+                              ),
+                            )
+                          : IconButton(
+                              onPressed: onMarkAsDone,
+                              icon: Icon(
+                                CupertinoIcons.check_mark_circled_solid,
+                                color: (task.isCompleted ?? false)
+                                    ? CupertinoColors.systemGreen
+                                    : CupertinoColors.lightBackgroundGray,
+                              ),
+                            ),
                 ),
                 CategoryCard(task: task),
               ],

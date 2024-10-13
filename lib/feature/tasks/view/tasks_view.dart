@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
-import 'package:task_management/feature/home/view_model/home_state.dart';
-import 'package:task_management/feature/home/view_model/home_view_model.dart';
+import 'package:task_management/feature/tasks/view_model/task_state.dart';
+import 'package:task_management/feature/tasks/view_model/task_view_model.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view/add_task_sheet.dart';
 import 'package:task_management/product/components/bottom_sheet/filter/view/filter_bottom_sheet.dart';
 import 'package:task_management/product/components/shimmer/shimmer_effect.dart';
@@ -21,26 +21,25 @@ import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
 import 'package:task_management/product/utility/task_filter_helper.dart';
 
-part './mixin/home_view_mixin.dart';
+part './mixin/task_view_mixin.dart';
 part './widgets/add_task_button.dart';
 part './widgets/empty_task_widget.dart';
-part './widgets/home_app_bar.dart';
-part './widgets/home_list_shimmer.dart';
-part './widgets/home_task_list.dart';
+part './widgets/task_app_bar.dart';
+part './widgets/task_list.dart';
+part './widgets/task_list_shimmer.dart';
 
-final class HomeView extends ConsumerStatefulWidget {
-  const HomeView({super.key});
+final class TaskView extends ConsumerStatefulWidget {
+  const TaskView({super.key});
 
   @override
-  ConsumerState<HomeView> createState() => _HomeViewState();
+  ConsumerState<TaskView> createState() => _TaskViewState();
 }
 
-class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
+class _TaskViewState extends ConsumerState<TaskView> with _TaskViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _HomeAppBar(
-        userFullName: userFullName,
+      appBar: _TaskAppBar(
         onFilterTapped: showFilterBottomSheet,
         onLogoutTapped:
             ref.read(ProductProviderItems.authServiceProvider).logOut,
@@ -48,7 +47,7 @@ class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
       body: Column(
         children: [
           Expanded(
-            child: homeState.when(
+            child: taskState.when(
               data: (state) {
                 if (state.tasks?.isEmpty ?? true) {
                   return const _EmptyTaskWidget();
@@ -57,7 +56,7 @@ class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
                   builder: (context, ref, child) {
                     final filterCriteria =
                         ref.watch(ProductProviderItems.filterCriteriaProvider);
-                    return _HomeTaskList(
+                    return _TaskList(
                       tasks: state.tasks,
                       filterCriteria: filterCriteria,
                       onDelete: deleteTask,
@@ -66,7 +65,7 @@ class _HomeViewState extends ConsumerState<HomeView> with _HomeViewMixin {
                   },
                 );
               },
-              loading: _HomeListShimmer.new,
+              loading: _TaskListShimmer.new,
               error: (error, stack) => Center(
                 child: Text(error.toString().locale),
               ),

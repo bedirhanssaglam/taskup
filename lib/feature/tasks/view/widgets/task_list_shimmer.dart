@@ -1,7 +1,7 @@
-part of '../home_view.dart';
+part of '../tasks_view.dart';
 
-final class _HomeListShimmer extends StatelessWidget {
-  const _HomeListShimmer();
+final class _TaskListShimmer extends StatelessWidget {
+  const _TaskListShimmer();
 
   @override
   Widget build(BuildContext context) {

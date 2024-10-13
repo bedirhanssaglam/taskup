@@ -1,4 +1,4 @@
-part of '../home_view.dart';
+part of '../tasks_view.dart';
 
 final class _EmptyTaskWidget extends StatelessWidget {
   const _EmptyTaskWidget();
@@ -11,11 +11,11 @@ final class _EmptyTaskWidget extends StatelessWidget {
         children: [
           Assets.icons.emptyTask.show(),
           LocaleText(
-            LocaleKeys.home_whatDoYouWantToDoToday,
+            LocaleKeys.tasks_whatDoYouWantToDoToday,
             style: context.textTheme.titleLarge,
           ),
           LocaleText(
-            LocaleKeys.home_tapPlusButton,
+            LocaleKeys.tasks_tapPlusButton,
             style: context.textTheme.bodyMedium,
           ),
         ],

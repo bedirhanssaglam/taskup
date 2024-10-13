@@ -1,7 +1,7 @@
-part of '../home_view.dart';
+part of '../tasks_view.dart';
 
-final class _HomeTaskList extends StatelessWidget {
-  const _HomeTaskList({
+final class _TaskList extends StatelessWidget {
+  const _TaskList({
     required this.tasks,
     required this.filterCriteria,
     required this.onDelete,

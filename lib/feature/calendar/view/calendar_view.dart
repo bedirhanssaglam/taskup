@@ -9,11 +9,12 @@ import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
+import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/date_time_extensions.dart';
 
 part './mixin/calendar_view_mixin.dart';
 
-class CalendarView extends ConsumerStatefulWidget {
+final class CalendarView extends ConsumerStatefulWidget {
   const CalendarView({super.key});
 
   @override
@@ -26,8 +27,15 @@ class _CalendarViewState extends ConsumerState<CalendarView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: LocaleText(LocaleKeys.bottomNavBar_calendar),
+        elevation: 0,
         automaticallyImplyLeading: false,
+        centerTitle: false,
+        title: LocaleText(
+          LocaleKeys.bottomNavBar_calendar,
+          style: context.textTheme.headlineLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: calendarState.when(
         data: (CalendarState state) => Column(

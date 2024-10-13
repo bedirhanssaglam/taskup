@@ -1,16 +1,16 @@
 import 'package:equatable/equatable.dart';
 import 'package:task_management/product/models/task.dart';
 
-final class HomeState extends Equatable {
-  const HomeState({
+final class DashboardState extends Equatable {
+  const DashboardState({
     this.tasks = const [],
   });
   final List<Task>? tasks;
 
-  HomeState copyWith({
+  DashboardState copyWith({
     List<Task>? tasks,
   }) {
-    return HomeState(
+    return DashboardState(
       tasks: tasks ?? this.tasks,
     );
   }

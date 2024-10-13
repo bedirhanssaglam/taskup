@@ -1,4 +1,4 @@
-part of '../home_view.dart';
+part of '../tasks_view.dart';
 
 final class _AddTaskButton extends StatelessWidget {
   const _AddTaskButton();

@@ -18,15 +18,28 @@
         "alreadyHaveAnAccount": "Zaten bir hesabınız var mı?"
     },
     "bottomNavBar": {
-        "home": "Ana sayfa",
+        "dashboard": "Ana sayfa",
         "calendar": "Takvim",
+        "tasks": "Görevler",
         "profile": "Profil"
     },
-    "home": {
+    "tasks": {
         "hello": "Merhaba",
         "whatDoYouWantToDoToday": "Bugün ne yapmak istiyorsunuz?",
-        "tapPlusButton": "Görevlerinizi eklemek için + butonuna dokunun"
+        "tapPlusButton": "Görevlerinizi eklemek için + butonuna dokunun",
+        "timeout": "Zaman aşımı"
     },
+    "dashboard": {
+        "title": "Yönetim",
+        "taskSummary": "Görev Özeti",
+        "inProgress": "Devam edenler",
+        "thingsToDo": "Yapılacaklar",
+        "pastDates": "Tarihi Geçenler",
+        "completed": "Tamamlananlar",
+        "taskStatistics": "Görev İstatistikleri",
+        "totalWorkingHour": "Toplam çalışma saati",
+        "totalTaskActivity": "Toplam görev etkinliği"
+    },    
     "validators": {
         "normal": "Bu alan boş bırakılamaz.",
         "invalidEmailFormat": "Geçersiz e-mail formatı",

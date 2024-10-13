@@ -52,6 +52,9 @@ class $AssetIconsGen {
   /// File path: asset/icons/music.svg
   SvgGenImage get music => const SvgGenImage('asset/icons/music.svg');
 
+  /// File path: asset/icons/progress.svg
+  SvgGenImage get progress => const SvgGenImage('asset/icons/progress.svg');
+
   /// File path: asset/icons/send.svg
   SvgGenImage get send => const SvgGenImage('asset/icons/send.svg');
 
@@ -66,6 +69,9 @@ class $AssetIconsGen {
 
   /// File path: asset/icons/task.svg
   SvgGenImage get task => const SvgGenImage('asset/icons/task.svg');
+
+  /// File path: asset/icons/timeout.svg
+  SvgGenImage get timeout => const SvgGenImage('asset/icons/timeout.svg');
 
   /// File path: asset/icons/timer.svg
   SvgGenImage get timer => const SvgGenImage('asset/icons/timer.svg');
@@ -96,11 +102,13 @@ class $AssetIconsGen {
         house,
         movie,
         music,
+        progress,
         send,
         social,
         sport,
         tag,
         task,
+        timeout,
         timer,
         trash,
         university,
