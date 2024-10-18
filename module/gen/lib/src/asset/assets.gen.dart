@@ -46,9 +46,6 @@ class $AssetIconsGen {
   /// File path: asset/icons/house.svg
   SvgGenImage get house => const SvgGenImage('asset/icons/house.svg');
 
-  /// File path: asset/icons/loading.svg
-  SvgGenImage get loading => const SvgGenImage('asset/icons/loading.svg');
-
   /// File path: asset/icons/movie.svg
   SvgGenImage get movie => const SvgGenImage('asset/icons/movie.svg');
 
@@ -100,7 +97,6 @@ class $AssetIconsGen {
         health,
         homeView,
         house,
-        loading,
         movie,
         music,
         send,
