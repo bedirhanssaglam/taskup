@@ -5,7 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:task_management/feature/dashboard/view_model/dashboard_view_model.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/service/task/task_service.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/task_provider_items.dart';
 import 'package:task_management/product/utility/extensions/task_extensions.dart';
 
 class _MockTaskService extends Mock implements TaskService {
@@ -53,7 +53,7 @@ void main() {
     test('fetches tasks', () async {
       final container = ProviderContainer(
         overrides: [
-          ProductProviderItems.taskServiceProvider.overrideWithValue(
+          TaskProviderItems.taskServiceProvider.overrideWithValue(
             _MockTaskService(),
           ),
         ],
@@ -79,7 +79,7 @@ void main() {
     setUp(() {
       container = ProviderContainer(
         overrides: [
-          ProductProviderItems.taskServiceProvider.overrideWithValue(
+          TaskProviderItems.taskServiceProvider.overrideWithValue(
             _MockTaskService(),
           ),
         ],

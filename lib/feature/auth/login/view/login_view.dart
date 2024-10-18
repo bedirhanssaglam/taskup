@@ -14,7 +14,7 @@ import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/enums/obscure_text_mode.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/controller_extensions.dart';
-import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/extensions/image_extensions.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
@@ -38,6 +38,7 @@ class _LoginViewState extends ConsumerState<LoginView> with _LoginViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const AppPadding.normalHorizontal(),

@@ -54,20 +54,19 @@ final class _TaskCardItem extends StatelessWidget {
                 Positioned(
                   top: 3.h,
                   right: 3.w,
-                  child: !task.isTimeout && (task.isDoing ?? false)
+                  child: task.isTimeout
                       ? Padding(
-                          padding: const AppPadding.smallAll(),
-                          child: Assets.icons.progress.colored(
-                            const Color(0xFF6C63FF),
-                            height: 35.h,
+                          padding: const AppPadding.mediumAll(),
+                          child: Assets.icons.timeout.colored(
+                            context.colorScheme.error,
+                            height: 20.h,
                           ),
                         )
-                      : task.isTimeout
+                      : (task.isDoing ?? false) && !task.isTimeout
                           ? Padding(
-                              padding: const AppPadding.mediumAll(),
-                              child: Assets.icons.timeout.colored(
-                                context.colorScheme.error,
-                                height: 20.h,
+                              padding: const AppPadding.smallAll(),
+                              child: Assets.icons.doing.show(
+                                height: 30.h,
                               ),
                             )
                           : IconButton(

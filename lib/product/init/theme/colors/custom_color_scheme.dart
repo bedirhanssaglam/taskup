@@ -5,12 +5,13 @@ final class CustomColorScheme {
   const CustomColorScheme._();
 
   static const ColorScheme lightColorScheme = ColorScheme.light(
-    primary: Color(0xFF0077B6),
+    primary: CupertinoColors.systemBlue,
     primaryContainer: Color(0xFF00B4D8),
     secondary: Color(0xFFFFC300),
     secondaryContainer: Color(0xFFFFE699),
     tertiary: Color(0xFF90BE6D),
     tertiaryContainer: Color(0xFFC2E59C),
+    error: CupertinoColors.systemRed,
     errorContainer: Color(0xFFFF595E),
     outline: Color(0xFF2D3142),
     background: CupertinoColors.systemGroupedBackground,
@@ -28,14 +29,14 @@ final class CustomColorScheme {
   );
 
   static const ColorScheme darkColorScheme = ColorScheme.dark(
-    primary: Color(0xFF00B4D8),
+    primary: CupertinoColors.systemBlue,
     primaryContainer: Color(0xFF0077B6),
     secondary: Color(0xFFFFC300),
     secondaryContainer: Color(0xFFB58B00),
     onPrimary: Color.fromARGB(255, 49, 50, 51),
     tertiary: Color(0xFF90BE6D),
     tertiaryContainer: Color(0xFF4B6B2F),
-    errorContainer: Color(0xFFBA1B1B),
+    errorContainer: CupertinoColors.destructiveRed,
     outline: Color(0xFF8A8D91),
     background: CupertinoColors.darkBackgroundGray,
     onBackground: Color(0xFFE6E1E5),

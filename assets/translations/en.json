@@ -1,6 +1,26 @@
 {   
     "hello": "Hello {}!",
     "cancelText": "Cancel",
+    "back": "Back",
+    "letsDoIt": "Let's do it!",
+    "next": "Next",    
+    "starting": {
+        "title": "The best time to plant a sapling was twenty years ago, the second best time is now. Let's start planting the seeds of success!",
+        "button": "Accept and Continue",
+        "agreement": "By continuing you agree to our Privacy Policy."
+    },  
+    "onboarding": {
+        "letsGetStarted": "Let's get started!",
+        "discoverOurApp": "Get ready to discover our application!",
+        "reachYourGoals": "Reach Your Goals",
+        "planningBringsSuccess": "Planning brings success. Easily track your daily goals and get closer to success step by step. Achieving your goals is now much more organized and achievable!",
+        "theArtOfTimeManagement": "The Art of Time Management!",
+        "effectiveTimeManagement": "Effective time management transforms your life. Complete your tasks faster and stress-free by consciously planning your time.",
+        "keepYourMotivationHigh": "Keep Your Motivation High",
+        "progressFuelsMotivation": "Progress fuels motivation. Constantly improve yourself by focusing on your achievements, always keep your motivation high and exceed the limits.",
+        "pomodoro": "Pomodoro",
+        "concentrationBreedsPerfection": "Concentration breeds perfection. Use Pomodoro to help you complete tasks more systematically and increase productivity."
+    },  
     "login": {
         "email": "Email",
         "password": "Password",
@@ -71,7 +91,8 @@
         "house": "House"
     },
     "calendar": {
-        "thereAreNoTaskForTheSelectedDate": "There are no tasks for the selected date."
+        "noTaskTitle": "You don't have any assignments for today.",
+        "noTaskSubtitle": "Make yourself comfortable"
     },
     "filter": {
         "filterOptions": "Filter Options",

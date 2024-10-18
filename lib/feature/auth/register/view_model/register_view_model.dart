@@ -4,6 +4,7 @@ import 'package:task_management/feature/auth/register/view_model/register_state.
 import 'package:task_management/product/init/navigation/app_navigation.dart';
 import 'package:task_management/product/service/exceptions/firebase_exceptions.dart';
 import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/auth_provider_items.dart';
 
 part 'register_view_model.g.dart';
 
@@ -18,7 +19,7 @@ class RegisterViewModel extends _$RegisterViewModel {
     try {
       await ref
           .read(
-            ProductProviderItems.authServiceProvider,
+            AuthProviderItems.authServiceProvider,
           )
           .signUp(
             email: registerData.email,
@@ -29,7 +30,7 @@ class RegisterViewModel extends _$RegisterViewModel {
 
       state = state.copyWith(status: RegisterStatus.success);
       final isAuthenticated =
-          ref.watch(ProductProviderItems.appStateProvider).account.isNotEmpty;
+          ref.watch(AuthProviderItems.appStateProvider).account.isNotEmpty;
       if (isAuthenticated) {
         await ref
             .read(

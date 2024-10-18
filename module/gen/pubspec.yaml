@@ -30,5 +30,6 @@ flutter_gen:
 flutter:
   assets:
     - asset/icons/
+    - asset/images/ 
     - asset/lottie/
     

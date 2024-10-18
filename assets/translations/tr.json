@@ -1,6 +1,26 @@
 {   
     "hello": "Merhaba {}!",
     "cancelText": "İptal",
+    "back": "Geri",
+    "letsDoIt": "Hadi yapalım!",
+    "next": "İleri",
+    "starting": {
+        "title": "Bir fidan dikmek için en iyi zaman yirmi yıl önceydi, ikinci en iyi zaman ise şimdi. Hadi, başarı tohumlarını ekmeye başlayalım!",
+        "button": "Kabul Et ve Devam Et",
+        "agreement": "Devam ederek Gizlilik Politikamızı onaylamış olursunuz."
+    },
+    "onboarding": {
+        "letsGetStarted": "Başlayalım!",
+        "discoverOurApp": "Uygulamamızı keşfetmeye hazır olun!",
+        "reachYourGoals": "Hedeflerinize Ulaşın",
+        "planningBringsSuccess": "'Planlama başarı getirir. Günlük hedeflerinizi kolayca takip edin, başarıya adım adım yaklaşın. Hedeflerinize ulaşmak artık çok daha organize ve ulaşılabilir!",
+        "theArtOfTimeManagement": "Zaman Yönetimi Sanatı!",
+        "effectiveTimeManagement": "Etkili zaman yönetimi hayatınızı dönüştürür. Zamanınızı bilinçli bir şekilde planlayarak görevlerinizi daha hızlı ve stressiz bir şekilde tamamlayın.",
+        "keepYourMotivationHigh": "Motivasyonunuzu Yüksek Tutun",
+        "progressFuelsMotivation": "İlerleme motivasyonu besler. Başarılarınıza odaklanarak kendinizi sürekli geliştirin, motivasyonunuzu her daim yüksek tutun ve sınırları aşın.",
+        "pomodoro": "Pomodoro",
+        "concentrationBreedsPerfection": "Konsantrasyon mükemmelliği doğurur. Görevleri daha sistematik bir şekilde tamamlamanıza ve verimliliği arttırmanıza yardımcı olmak için Pomodoro'yu kullanın."
+    },
     "login": {
         "email": "Email",
         "password": "Parola",
@@ -71,7 +91,8 @@
         "house": "Ev"
     },  
     "calendar": {
-        "thereAreNoTaskForTheSelectedDate": "Seçilen tarihe ait görev yok."
+        "noTaskTitle": "Bugün için bir göreviniz yok.",
+        "noTaskSubtitle": "Rahatına bak"
     },  
     "filter": {
         "filterOptions": "Filtre Seçenekleri",

@@ -3,6 +3,30 @@
 abstract class LocaleKeys {
   static const hello = 'hello';
   static const cancelText = 'cancelText';
+  static const back = 'back';
+  static const letsDoIt = 'letsDoIt';
+  static const next = 'next';
+  static const starting_title = 'starting.title';
+  static const starting_button = 'starting.button';
+  static const starting_agreement = 'starting.agreement';
+  static const starting = 'starting';
+  static const onboarding_letsGetStarted = 'onboarding.letsGetStarted';
+  static const onboarding_discoverOurApp = 'onboarding.discoverOurApp';
+  static const onboarding_reachYourGoals = 'onboarding.reachYourGoals';
+  static const onboarding_planningBringsSuccess =
+      'onboarding.planningBringsSuccess';
+  static const onboarding_theArtOfTimeManagement =
+      'onboarding.theArtOfTimeManagement';
+  static const onboarding_effectiveTimeManagement =
+      'onboarding.effectiveTimeManagement';
+  static const onboarding_keepYourMotivationHigh =
+      'onboarding.keepYourMotivationHigh';
+  static const onboarding_progressFuelsMotivation =
+      'onboarding.progressFuelsMotivation';
+  static const onboarding_pomodoro = 'onboarding.pomodoro';
+  static const onboarding_concentrationBreedsPerfection =
+      'onboarding.concentrationBreedsPerfection';
+  static const onboarding = 'onboarding';
   static const login_email = 'login.email';
   static const login_password = 'login.password';
   static const login_loginText = 'login.loginText';
@@ -64,8 +88,8 @@ abstract class LocaleKeys {
   static const category_movie = 'category.movie';
   static const category_house = 'category.house';
   static const category = 'category';
-  static const calendar_thereAreNoTaskForTheSelectedDate =
-      'calendar.thereAreNoTaskForTheSelectedDate';
+  static const calendar_noTaskTitle = 'calendar.noTaskTitle';
+  static const calendar_noTaskSubtitle = 'calendar.noTaskSubtitle';
   static const calendar = 'calendar';
   static const filter_filterOptions = 'filter.filterOptions';
   static const filter_dateAsc = 'filter.dateAsc';
