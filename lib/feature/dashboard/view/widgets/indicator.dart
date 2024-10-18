@@ -29,7 +29,7 @@ final class Indicator extends StatelessWidget {
         WidgetSizes.spacingXxs.horizontalSpace,
         LocaleText(
           text,
-          style: context.textTheme.bodyLarge,
+          style: context.textTheme.bodyMedium,
         ),
       ],
     );

@@ -16,14 +16,14 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetIconsGen {
   const $AssetIconsGen();
 
-  /// File path: asset/icons/app_icon.svg
-  SvgGenImage get appIcon => const SvgGenImage('asset/icons/app_icon.svg');
-
   /// File path: asset/icons/calendar.svg
   SvgGenImage get calendar => const SvgGenImage('asset/icons/calendar.svg');
 
   /// File path: asset/icons/design.svg
   SvgGenImage get design => const SvgGenImage('asset/icons/design.svg');
+
+  /// File path: asset/icons/doing.svg
+  SvgGenImage get doing => const SvgGenImage('asset/icons/doing.svg');
 
   /// File path: asset/icons/empty_task.svg
   SvgGenImage get emptyTask => const SvgGenImage('asset/icons/empty_task.svg');
@@ -51,9 +51,6 @@ class $AssetIconsGen {
 
   /// File path: asset/icons/music.svg
   SvgGenImage get music => const SvgGenImage('asset/icons/music.svg');
-
-  /// File path: asset/icons/progress.svg
-  SvgGenImage get progress => const SvgGenImage('asset/icons/progress.svg');
 
   /// File path: asset/icons/send.svg
   SvgGenImage get send => const SvgGenImage('asset/icons/send.svg');
@@ -90,9 +87,9 @@ class $AssetIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        appIcon,
         calendar,
         design,
+        doing,
         emptyTask,
         filter,
         flag,
@@ -102,7 +99,6 @@ class $AssetIconsGen {
         house,
         movie,
         music,
-        progress,
         send,
         social,
         sport,
@@ -115,6 +111,38 @@ class $AssetIconsGen {
         user,
         work
       ];
+}
+
+class $AssetImagesGen {
+  const $AssetImagesGen();
+
+  /// File path: asset/images/app_icon.png
+  AssetGenImage get appIcon => const AssetGenImage('asset/images/app_icon.png');
+
+  /// File path: asset/images/motivation.png
+  AssetGenImage get motivation =>
+      const AssetGenImage('asset/images/motivation.png');
+
+  /// File path: asset/images/onboarding.png
+  AssetGenImage get onboarding =>
+      const AssetGenImage('asset/images/onboarding.png');
+
+  /// File path: asset/images/pomodoro.png
+  AssetGenImage get pomodoro =>
+      const AssetGenImage('asset/images/pomodoro.png');
+
+  /// File path: asset/images/success.png
+  AssetGenImage get success => const AssetGenImage('asset/images/success.png');
+
+  /// File path: asset/images/tasks.png
+  AssetGenImage get tasks => const AssetGenImage('asset/images/tasks.png');
+
+  /// File path: asset/images/work.png
+  AssetGenImage get work => const AssetGenImage('asset/images/work.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [appIcon, motivation, onboarding, pomodoro, success, tasks, work];
 }
 
 class $AssetLottieGen {
@@ -132,7 +160,89 @@ class Assets {
   Assets._();
 
   static const $AssetIconsGen icons = $AssetIconsGen();
+  static const $AssetImagesGen images = $AssetImagesGen();
   static const $AssetLottieGen lottie = $AssetLottieGen();
+}
+
+class AssetGenImage {
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
+
+  final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
+
+  Image image({
+    Key? key,
+    AssetBundle? bundle,
+    ImageFrameBuilder? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    String? semanticLabel,
+    bool excludeFromSemantics = false,
+    double? scale,
+    double? width,
+    double? height,
+    Color? color,
+    Animation<double>? opacity,
+    BlendMode? colorBlendMode,
+    BoxFit? fit,
+    AlignmentGeometry alignment = Alignment.center,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
+    Rect? centerSlice,
+    bool matchTextDirection = false,
+    bool gaplessPlayback = false,
+    bool isAntiAlias = false,
+    String? package,
+    FilterQuality filterQuality = FilterQuality.low,
+    int? cacheWidth,
+    int? cacheHeight,
+  }) {
+    return Image.asset(
+      _assetName,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      semanticLabel: semanticLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      scale: scale,
+      width: width,
+      height: height,
+      color: color,
+      opacity: opacity,
+      colorBlendMode: colorBlendMode,
+      fit: fit,
+      alignment: alignment,
+      repeat: repeat,
+      centerSlice: centerSlice,
+      matchTextDirection: matchTextDirection,
+      gaplessPlayback: gaplessPlayback,
+      isAntiAlias: isAntiAlias,
+      package: package,
+      filterQuality: filterQuality,
+      cacheWidth: cacheWidth,
+      cacheHeight: cacheHeight,
+    );
+  }
+
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
 }
 
 class SvgGenImage {

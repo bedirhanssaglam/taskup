@@ -38,7 +38,7 @@ extension TaskListExtensions on List<Task?> {
   }
 
   int get completedCount {
-    return where((task) => task?.isCompleted ?? false).length;
+    return where((Task? task) => task?.isCompleted ?? false).length;
   }
 
   int get overdueCount {
@@ -47,8 +47,7 @@ extension TaskListExtensions on List<Task?> {
       (task) =>
           task?.date != null &&
           task!.date!.toDate().isBefore(today) &&
-          !(task.isCompleted ?? false) &&
-          !(task.isDoing ?? false),
+          !(task.isCompleted ?? false),
     ).length;
   }
 

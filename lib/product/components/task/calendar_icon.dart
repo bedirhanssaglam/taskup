@@ -12,8 +12,8 @@ final class CalendarIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 53.w,
-      height: 53.w,
+      width: 54.w,
+      height: 54.w,
       padding: const EdgeInsets.all(1),
       decoration: BoxDecoration(
         color: CupertinoColors.systemRed.withOpacity(.6),

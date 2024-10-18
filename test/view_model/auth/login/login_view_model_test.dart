@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:task_management/feature/auth/login/view_model/login_state.dart';
 import 'package:task_management/feature/auth/login/view_model/login_view_model.dart';
 import 'package:task_management/product/service/auth/auth_service.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/auth_provider_items.dart';
 
 final class _MockAuthService extends Mock implements AuthService {
   @override
@@ -20,7 +20,7 @@ void main() {
   test('LoginViewModel fetches tasks', () async {
     final container = ProviderContainer(
       overrides: [
-        ProductProviderItems.authServiceProvider.overrideWithValue(
+        AuthProviderItems.authServiceProvider.overrideWithValue(
           _MockAuthService(),
         ),
       ],

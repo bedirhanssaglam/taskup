@@ -8,7 +8,8 @@ final class _LoginHeader extends StatelessWidget {
     return Column(
       children: [
         WidgetSizes.spacingXxl12.verticalSpace,
-        Assets.icons.appIcon.show(),
+        Assets.images.appIcon.show(height: 150.h),
+        WidgetSizes.spacingXs.verticalSpace,
         RichText(
           text: TextSpan(
             style: context.textTheme.headlineLarge,

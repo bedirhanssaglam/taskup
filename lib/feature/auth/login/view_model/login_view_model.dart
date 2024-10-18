@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:task_management/feature/auth/login/view_model/login_state.dart';
 import 'package:task_management/product/service/exceptions/firebase_exceptions.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/auth_provider_items.dart';
 
 part 'login_view_model.g.dart';
 
@@ -19,7 +19,7 @@ class LoginViewModel extends _$LoginViewModel {
     try {
       await ref
           .read(
-            ProductProviderItems.authServiceProvider,
+            AuthProviderItems.authServiceProvider,
           )
           .logInWithEmailAndPassword(
             email: email,

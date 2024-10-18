@@ -9,9 +9,10 @@ mixin _TaskViewMixin on ConsumerState<TaskView> {
     Future<void>.microtask(_init);
   }
 
+  TaskViewModel get _taskViewModel => ref.read(taskViewModelProvider.notifier);
+
   Future<void> _init() async {
-    final homeViewModel = ref.read(taskViewModelProvider.notifier);
-    await homeViewModel.fetchTasks();
+    await _taskViewModel.fetchTasks();
   }
 
   Future<void> showFilterBottomSheet() async {
@@ -28,16 +29,14 @@ mixin _TaskViewMixin on ConsumerState<TaskView> {
 
   Future<void> deleteTask(String? documentId) async {
     if (documentId == null) return;
-    final homeViewModel = ref.read(taskViewModelProvider.notifier);
-    await homeViewModel.deleteTask(documentId);
-    await homeViewModel.fetchTasks();
+    await _taskViewModel.deleteTask(documentId);
+    await _taskViewModel.fetchTasks();
   }
 
   Future<void> updateTask({required UpdateTaskData updateTaskData}) async {
-    final homeViewModel = ref.read(taskViewModelProvider.notifier);
-    await homeViewModel.updateTaskStatus(
+    await _taskViewModel.updateTaskStatus(
       updateTaskData: updateTaskData,
     );
-    await homeViewModel.fetchTasks();
+    await _taskViewModel.fetchTasks();
   }
 }
