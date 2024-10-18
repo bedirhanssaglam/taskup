@@ -46,7 +46,7 @@ final class _TaskCardItem extends StatelessWidget {
                   child: IntrinsicWidth(
                     stepWidth: 1.sw,
                     child: Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: EdgeInsets.all(20.h),
                       child: TaskInfoRow(task: task),
                     ),
                   ),
@@ -59,7 +59,7 @@ final class _TaskCardItem extends StatelessWidget {
                           padding: const AppPadding.mediumAll(),
                           child: Assets.icons.timeout.colored(
                             context.colorScheme.error,
-                            height: 20.h,
+                            height: 23.h,
                           ),
                         )
                       : (task.isDoing ?? false) && !task.isTimeout

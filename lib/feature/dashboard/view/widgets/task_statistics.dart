@@ -44,7 +44,7 @@ final class _TaskStatistics extends StatelessWidget {
               ),
             ),
           ),
-          WidgetSizes.spacingMx.horizontalSpace,
+          WidgetSizes.spacingXl.horizontalSpace,
           _StatisticsIndicators(
             completedPercentage: completedPercentage,
             inProgressPercentage: inProgressPercentage,
