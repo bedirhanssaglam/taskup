@@ -7,6 +7,12 @@ mixin _OnboardingViewMixin on ConsumerState<OnboardingView> {
         AuthProviderItems.onboardingViewModel.notifier,
       );
 
+  @override
+  void initState() {
+    super.initState();
+    Future<void>.microtask(_onboardingViewModel.setPassStartingView);
+  }
+
   int get currentPage => ref.watch(AuthProviderItems.onboardingViewModel);
 
   void setPage(int page) => _onboardingViewModel.setPage(page);

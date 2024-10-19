@@ -116,8 +116,13 @@ class $AssetIconsGen {
 class $AssetImagesGen {
   const $AssetImagesGen();
 
-  /// File path: asset/images/app_icon.png
-  AssetGenImage get appIcon => const AssetGenImage('asset/images/app_icon.png');
+  /// File path: asset/images/app_icon_dark.png
+  AssetGenImage get appIconDark =>
+      const AssetGenImage('asset/images/app_icon_dark.png');
+
+  /// File path: asset/images/app_icon_light.png
+  AssetGenImage get appIconLight =>
+      const AssetGenImage('asset/images/app_icon_light.png');
 
   /// File path: asset/images/motivation.png
   AssetGenImage get motivation =>
@@ -141,8 +146,16 @@ class $AssetImagesGen {
   AssetGenImage get work => const AssetGenImage('asset/images/work.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [appIcon, motivation, onboarding, pomodoro, success, tasks, work];
+  List<AssetGenImage> get values => [
+        appIconDark,
+        appIconLight,
+        motivation,
+        onboarding,
+        pomodoro,
+        success,
+        tasks,
+        work
+      ];
 }
 
 class $AssetLottieGen {

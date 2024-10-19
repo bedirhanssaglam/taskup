@@ -42,6 +42,9 @@ dependencies:
   # JSON serialization
   json_annotation: ^4.9.0
 
+  # Caching
+  hive: ^2.2.3
+
   # Modularization
   core:
     path: module/core
@@ -49,6 +52,7 @@ dependencies:
     path: module/gen
   widget:
     path: module/widget  
+  path_provider: ^2.1.4
 
 dev_dependencies:
   flutter_test:

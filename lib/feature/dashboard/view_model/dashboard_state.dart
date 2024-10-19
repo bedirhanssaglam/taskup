@@ -3,7 +3,7 @@ import 'package:task_management/product/models/task.dart';
 
 final class DashboardState extends Equatable {
   const DashboardState({
-    this.tasks = const [],
+    this.tasks,
   });
   final List<Task>? tasks;
 

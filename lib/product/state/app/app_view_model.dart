@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gen/gen.dart';
 import 'package:task_management/product/service/auth/auth_service.dart';
-import 'package:task_management/product/state/app_state.dart';
+import 'package:task_management/product/state/app/app_state.dart';
 
 class AppViewModel extends StateNotifier<AppState> {
   AppViewModel(this._authService)

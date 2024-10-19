@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 part of '../onboarding_view.dart';
 
 final class _OnboardingFooter extends StatelessWidget {
@@ -51,11 +53,21 @@ final class _OnboardingFooter extends StatelessWidget {
                 ),
               ),
               AppTextButton(
-                onPressed: () {
+                onPressed: () async {
                   if (currentPage < AppConstants.onboardingItems.length - 1) {
                     nextPage();
                   } else {
-                    Navigator.pushReplacementNamed(context, AppRoutes.login);
+                    final cacheManager = HiveCacheManager();
+                    await cacheManager.saveData(
+                      CachePaths.passOnboarding.value,
+                      true,
+                    );
+                    if (context.mounted) {
+                      await Navigator.pushReplacementNamed(
+                        context,
+                        AppRoutes.login,
+                      );
+                    }
                   }
                 },
                 text: currentPage == AppConstants.onboardingItems.length - 1

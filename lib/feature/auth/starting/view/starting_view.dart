@@ -28,7 +28,7 @@ final class StartingView extends StatelessWidget {
               const Spacer(),
               LocaleText(
                 LocaleKeys.starting_title,
-                style: context.textTheme.headlineSmall?.copyWith(
+                style: context.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,

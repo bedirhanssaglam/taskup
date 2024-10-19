@@ -51,7 +51,7 @@ final class CalendarTaskList extends StatelessWidget {
 
     return ListView.builder(
       itemCount: tasks.length,
-      padding: const AppPadding.mediumAll(),
+      padding: const AppPadding.smallAll(),
       itemBuilder: (context, index) {
         return TaskCard(
           task: tasks[index],
