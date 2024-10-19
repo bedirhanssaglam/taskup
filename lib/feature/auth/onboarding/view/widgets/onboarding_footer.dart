@@ -59,10 +59,14 @@ final class _OnboardingFooter extends StatelessWidget {
                   } else {
                     final cacheManager = HiveCacheManager();
                     await cacheManager.saveData(
-                        CachePaths.passOnboarding.value, true);
+                      CachePaths.passOnboarding.value,
+                      true,
+                    );
                     if (context.mounted) {
                       await Navigator.pushReplacementNamed(
-                          context, AppRoutes.login);
+                        context,
+                        AppRoutes.login,
+                      );
                     }
                   }
                 },
