@@ -14,12 +14,8 @@ final class AppInitialize {
 
   static Future<void> initialize() async {
     WidgetsFlutterBinding.ensureInitialized();
-    late Directory documentDir;
 
-    documentDir = await getApplicationDocumentsDirectory();
-
-    Hive.init(documentDir.path);
-
+    await _initHive();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
@@ -27,5 +23,11 @@ final class AppInitialize {
       EasyLocalization.ensureInitialized(),
       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]),
     ]);
+  }
+
+  static Future<void> _initHive() async {
+    late Directory documentDir;
+    documentDir = await getApplicationDocumentsDirectory();
+    Hive.init(documentDir.path);
   }
 }
