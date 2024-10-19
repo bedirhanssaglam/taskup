@@ -63,7 +63,7 @@ void main() {
       await tester.pumpWidget(const _RegisterTestView());
 
       // Act
-      await tester.tap(find.text(LocaleKeys.login_loginText.locale));
+      await tester.tap(find.text(LocaleKeys.login_loginText));
       await tester.pumpAndSettle();
 
       // Assert

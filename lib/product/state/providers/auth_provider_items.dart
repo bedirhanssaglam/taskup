@@ -3,8 +3,8 @@ import 'package:task_management/feature/auth/login/view_model/login_view_model.d
 import 'package:task_management/feature/auth/onboarding/view_model/onboarding_view_model.dart';
 import 'package:task_management/feature/auth/register/view_model/register_view_model.dart';
 import 'package:task_management/product/service/auth/auth_service.dart';
-import 'package:task_management/product/state/app_state.dart';
-import 'package:task_management/product/state/app_view_model.dart';
+import 'package:task_management/product/state/app/app_state.dart';
+import 'package:task_management/product/state/app/app_view_model.dart';
 
 class AuthProviderItems {
   static final appStateProvider =

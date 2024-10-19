@@ -3,8 +3,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:task_management/feature/auth/register/view_model/register_state.dart';
 import 'package:task_management/product/init/navigation/app_navigation.dart';
 import 'package:task_management/product/service/exceptions/firebase_exceptions.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
 import 'package:task_management/product/state/providers/auth_provider_items.dart';
+import 'package:task_management/product/state/providers/product_provider_items.dart';
 
 part 'register_view_model.g.dart';
 
