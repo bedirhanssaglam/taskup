@@ -6,7 +6,8 @@ import 'package:task_management/product/init/localization/product_localization.d
 import 'package:widget/widget.dart';
 
 Future<void> main() async {
-  await AppInitialize.initialize();
+  final appInitialize = AppInitialize();
+  await appInitialize.initialize();
 
   runApp(
     ProductLocalization(

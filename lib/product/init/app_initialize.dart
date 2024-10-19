@@ -10,9 +10,7 @@ import 'package:task_management/firebase_options.dart';
 
 @immutable
 final class AppInitialize {
-  const AppInitialize._();
-
-  static Future<void> initialize() async {
+  Future<void> initialize() async {
     WidgetsFlutterBinding.ensureInitialized();
 
     await _initHive();
@@ -25,7 +23,7 @@ final class AppInitialize {
     ]);
   }
 
-  static Future<void> _initHive() async {
+  Future<void> _initHive() async {
     late Directory documentDir;
     documentDir = await getApplicationDocumentsDirectory();
     Hive.init(documentDir.path);
