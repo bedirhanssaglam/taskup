@@ -25,6 +25,6 @@ class AppThemeViewModel extends StateNotifier<ThemeMode> {
 
   Future<void> _initialize() async {
     final savedTheme = await _cacheManager.getData(_themeKey);
-    state = ThemeMode.values[(savedTheme ?? ThemeMode.system.index) as int];
+    state = ThemeMode.values[(savedTheme ?? ThemeMode.light.index) as int];
   }
 }

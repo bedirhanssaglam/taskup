@@ -8,7 +8,7 @@ final class _RegisterHeader extends StatelessWidget {
     return Column(
       children: [
         WidgetSizes.spacingXxl7.verticalSpace,
-        Assets.images.appIcon.show(height: 120.h),
+        AppLogo(height: 120.h),
         WidgetSizes.spacingXs.verticalSpace,
         LocaleText(
           LocaleKeys.register_title,

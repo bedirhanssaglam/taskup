@@ -3,11 +3,13 @@ import 'package:flutter/material.dart'
 import 'package:task_management/feature/auth/login/view/login_view.dart';
 import 'package:task_management/feature/auth/onboarding/view/onboarding_view.dart';
 import 'package:task_management/feature/auth/register/view/register_view.dart';
+import 'package:task_management/feature/auth/splash/view/splash_view.dart';
 import 'package:task_management/feature/auth/starting/view/starting_view.dart';
 import 'package:task_management/feature/main/view/main_view.dart';
 
 class AppRoutes {
-  static const String starting = '/';
+  static const String splash = '/';
+  static const String starting = '/starting';
   static const String onboarding = '/onboarding';
   static const String login = '/login';
   static const String register = '/register';
@@ -15,6 +17,8 @@ class AppRoutes {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case splash:
+        return MaterialPageRoute(builder: (context) => const SplashView());
       case starting:
         return MaterialPageRoute(builder: (context) => const StartingView());
       case onboarding:

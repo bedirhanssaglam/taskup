@@ -1,13 +1,13 @@
-part of 'app.dart';
+part of '../splash_view.dart';
 
-mixin _AppMixin on ConsumerState<App> {
+mixin _SplashViewMixin on ConsumerState<SplashView> {
   String? initialRoute;
   AppState get appState => ref.watch(AuthProviderItems.appStateProvider);
 
   @override
   void initState() {
     super.initState();
-    Future.microtask(_setInitialRoute);
+    Future<void>.microtask(_setInitialRoute);
   }
 
   Future<void> _setInitialRoute() async {
@@ -29,5 +29,6 @@ mixin _AppMixin on ConsumerState<App> {
         initialRoute = AppRoutes.starting;
       }
     }
+    if (mounted) await Navigator.pushReplacementNamed(context, initialRoute!);
   }
 }
