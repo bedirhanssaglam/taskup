@@ -1,6 +1,7 @@
 enum CachePaths {
   user('user'),
-  passOnboarding('pass_knboarding'),
+  themeMode('theme_mode'),
+  passOnboarding('pass_onboarding'),
   passStarting('pass_starting');
 
   const CachePaths(this.value);
