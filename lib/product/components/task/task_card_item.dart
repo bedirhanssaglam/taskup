@@ -37,17 +37,26 @@ final class _TaskCardItem extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: constraints.maxWidth),
             child: Stack(
               children: [
-                Card(
-                  elevation: 0,
-                  color: context.colorScheme.onPrimary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: AppBorderRadius.circularMedium(),
-                  ),
-                  child: IntrinsicWidth(
-                    stepWidth: 1.sw,
-                    child: Padding(
-                      padding: EdgeInsets.all(20.h),
-                      child: TaskInfoRow(task: task),
+                TapArea(
+                  onTap: () {
+                    TaskDetailBottomSheet.show(
+                      context,
+                      task: task,
+                      onUpdateTap: () {},
+                    );
+                  },
+                  child: Card(
+                    elevation: 0,
+                    color: context.colorScheme.onPrimary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: AppBorderRadius.circularMedium(),
+                    ),
+                    child: IntrinsicWidth(
+                      stepWidth: 1.sw,
+                      child: Padding(
+                        padding: EdgeInsets.all(20.h),
+                        child: TaskInfoRow(task: task),
+                      ),
                     ),
                   ),
                 ),
@@ -59,7 +68,7 @@ final class _TaskCardItem extends StatelessWidget {
                           padding: const AppPadding.mediumAll(),
                           child: Assets.icons.timeout.colored(
                             context.colorScheme.error,
-                            height: 23.h,
+                            height: 20.h,
                           ),
                         )
                       : (task.isDoing ?? false) && !task.isTimeout
