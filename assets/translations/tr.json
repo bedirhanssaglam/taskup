@@ -107,6 +107,10 @@
         "markAsDone": "Yapıldı olarak işaretle",
         "markAsToDo": "Yapılacak olarak işaretle"
     },
+    "taskDetail": {
+        "update": "Güncelle",
+        "status": "Durum: "
+    },
     "months": {
         "jan": "OCA",
         "feb": "ŞUB",

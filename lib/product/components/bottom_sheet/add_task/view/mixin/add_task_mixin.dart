@@ -1,4 +1,4 @@
-part of 'add_task_sheet.dart';
+part of '../add_task_sheet.dart';
 
 mixin _AddTaskMixin on ConsumerState<AddTaskBottomSheet> {
   final TextEditingController titleController = TextEditingController();

@@ -106,7 +106,11 @@
         "share": "Share",
         "markAsDone": "Mark as done",
         "markAsToDo": "Mark as to do"
-    },    
+    },  
+    "taskDetail": {
+        "update": "Update",
+        "status": "Status: "
+    },      
     "dialog": {
         "deleteTask": {
             "title": "Delete Task",
@@ -127,7 +131,7 @@
         "oct": "OCT",
         "nov": "NOV",
         "dec": "DEC"
-    },    
+    },
     "error": {
         "failedToUsers": "Failed to load users.",
         "userNotFound": "User not found.",        

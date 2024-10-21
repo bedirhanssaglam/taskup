@@ -102,6 +102,9 @@ abstract class LocaleKeys {
   static const task_markAsDone = 'task.markAsDone';
   static const task_markAsToDo = 'task.markAsToDo';
   static const task = 'task';
+  static const taskDetail_update = 'taskDetail.update';
+  static const taskDetail_status = 'taskDetail.status';
+  static const taskDetail = 'taskDetail';
   static const months_jan = 'months.jan';
   static const months_feb = 'months.feb';
   static const months_mar = 'months.mar';

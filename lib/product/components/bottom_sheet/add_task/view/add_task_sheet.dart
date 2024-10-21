@@ -28,7 +28,7 @@ import 'package:widget/widget.dart';
 
 part '../../../dialog/date_time_selector.dart';
 part '../../../dialog/priority_dialog.dart';
-part 'add_task_mixin.dart';
+part 'mixin/add_task_mixin.dart';
 
 final class AddTaskBottomSheet extends ConsumerStatefulWidget {
   const AddTaskBottomSheet({super.key});
