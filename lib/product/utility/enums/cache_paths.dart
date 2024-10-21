@@ -1,4 +1,5 @@
 enum CachePaths {
+  user('user'),
   passOnboarding('pass_knboarding'),
   passStarting('pass_starting');
 

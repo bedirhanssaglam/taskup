@@ -39,4 +39,8 @@ mixin _TaskViewMixin on ConsumerState<TaskView> {
     );
     await _taskViewModel.fetchTasks();
   }
+
+  Future<void> logOut() async {
+    await ref.read(AuthProviderItems.authServiceProvider).logOut();
+  }
 }

@@ -4,6 +4,7 @@ abstract class CacheManager {
   Future<void> saveData(String key, Object value);
   Future<Object?> getData(String key);
   Future<void> clearData(String key);
+  Future<void> clearAll();
 }
 
 class HiveCacheManager implements CacheManager {
@@ -33,5 +34,11 @@ class HiveCacheManager implements CacheManager {
   Future<void> clearData(String key) async {
     final box = await _getLazyBox();
     await box.delete(key);
+  }
+
+  @override
+  Future<void> clearAll() async {
+    final box = await _getLazyBox();
+    await box.clear();
   }
 }

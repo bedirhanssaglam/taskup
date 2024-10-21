@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,6 +13,7 @@ import 'package:task_management/product/components/shimmer/shimmer_effect.dart';
 import 'package:task_management/product/components/task/task_card.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
+import 'package:task_management/product/init/navigation/app_navigation.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/state/providers/auth_provider_items.dart';
@@ -42,7 +45,14 @@ class _TaskViewState extends ConsumerState<TaskView> with _TaskViewMixin {
     return Scaffold(
       appBar: _TaskAppBar(
         onFilterTapped: showFilterBottomSheet,
-        onLogoutTapped: ref.read(AuthProviderItems.authServiceProvider).logOut,
+        onLogoutTapped: () async {
+          await logOut();
+          await Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoutes.starting,
+            (route) => false,
+          );
+        },
       ),
       body: Column(
         children: [
