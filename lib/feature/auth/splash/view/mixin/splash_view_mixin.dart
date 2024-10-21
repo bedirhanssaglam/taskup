@@ -19,9 +19,11 @@ mixin _SplashViewMixin on ConsumerState<SplashView> {
       initialRoute = AppRoutes.main;
       await Navigator.pushReplacementNamed(context, AppRoutes.main);
     } else {
-      final passStarting = await cacheManager.getData(CachePaths.passStarting.value) as bool?;
+      final passStarting =
+          await cacheManager.getData(CachePaths.passStarting.value) as bool?;
       if (passStarting ?? false) {
-        final passOnboarding = await cacheManager.getData(CachePaths.passOnboarding.value) as bool?;
+        final passOnboarding = await cacheManager
+            .getData(CachePaths.passOnboarding.value) as bool?;
         if (passOnboarding ?? false) {
           initialRoute = AppRoutes.login;
         } else {

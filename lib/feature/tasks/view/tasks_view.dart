@@ -64,7 +64,8 @@ class _TaskViewState extends ConsumerState<TaskView> with _TaskViewMixin {
                 }
                 return Consumer(
                   builder: (context, ref, child) {
-                    final filterCriteria = ref.watch(ProductProviderItems.filterCriteriaProvider);
+                    final filterCriteria =
+                        ref.watch(ProductProviderItems.filterCriteriaProvider);
                     return _TaskList(
                       tasks: state.tasks,
                       filterCriteria: filterCriteria,

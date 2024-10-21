@@ -19,7 +19,8 @@ class AuthService {
 
   Stream<Account> get account {
     return _firebaseAuth.authStateChanges().map((User? firebaseUser) {
-      final user = firebaseUser == null ? Account.empty : firebaseUser.toAccount;
+      final user =
+          firebaseUser == null ? Account.empty : firebaseUser.toAccount;
       _cache.saveData(CachePaths.user.value, user.hashCode);
       return user;
     });
@@ -41,7 +42,8 @@ class AuthService {
         password: password,
       );
 
-      await userCredential.user!.updateProfile(displayName: '$firstName $lastName');
+      await userCredential.user!
+          .updateProfile(displayName: '$firstName $lastName');
 
       final account = Account(
         uid: userCredential.user!.uid,

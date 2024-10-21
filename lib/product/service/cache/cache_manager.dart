@@ -13,7 +13,9 @@ class HiveCacheManager implements CacheManager {
   static const String _appName = 'taskup';
 
   Future<LazyBox<Object>> _getLazyBox() async {
-    return Hive.isBoxOpen(_appName) ? Hive.lazyBox<Object>(_appName) : await Hive.openLazyBox<Object>(_appName);
+    return Hive.isBoxOpen(_appName)
+        ? Hive.lazyBox<Object>(_appName)
+        : await Hive.openLazyBox<Object>(_appName);
   }
 
   @override
