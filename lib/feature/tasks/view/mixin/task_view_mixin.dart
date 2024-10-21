@@ -21,9 +21,7 @@ mixin _TaskViewMixin on ConsumerState<TaskView> {
       ref.read(ProductProviderItems.filterCriteriaProvider),
     );
     if (newCriteria != null) {
-      ref
-          .read(ProductProviderItems.filterCriteriaProvider.notifier)
-          .updateFilterCriteria(newCriteria);
+      ref.read(ProductProviderItems.filterCriteriaProvider.notifier).updateFilterCriteria(newCriteria);
     }
   }
 
@@ -38,5 +36,9 @@ mixin _TaskViewMixin on ConsumerState<TaskView> {
       updateTaskData: updateTaskData,
     );
     await _taskViewModel.fetchTasks();
+  }
+
+  Future<void> logOut() async {
+    await ref.read(AuthProviderItems.authServiceProvider).logOut();
   }
 }

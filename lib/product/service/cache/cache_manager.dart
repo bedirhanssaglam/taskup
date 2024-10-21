@@ -4,6 +4,7 @@ abstract class CacheManager {
   Future<void> saveData(String key, Object value);
   Future<Object?> getData(String key);
   Future<void> clearData(String key);
+  Future<void> clearAll();
 }
 
 class HiveCacheManager implements CacheManager {
@@ -12,9 +13,7 @@ class HiveCacheManager implements CacheManager {
   static const String _appName = 'taskup';
 
   Future<LazyBox<Object>> _getLazyBox() async {
-    return Hive.isBoxOpen(_appName)
-        ? Hive.lazyBox<Object>(_appName)
-        : await Hive.openLazyBox<Object>(_appName);
+    return Hive.isBoxOpen(_appName) ? Hive.lazyBox<Object>(_appName) : await Hive.openLazyBox<Object>(_appName);
   }
 
   @override
@@ -33,5 +32,11 @@ class HiveCacheManager implements CacheManager {
   Future<void> clearData(String key) async {
     final box = await _getLazyBox();
     await box.delete(key);
+  }
+
+  @override
+  Future<void> clearAll() async {
+    final box = await _getLazyBox();
+    await box.clear();
   }
 }

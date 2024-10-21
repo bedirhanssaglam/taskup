@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 part of '../splash_view.dart';
 
 mixin _SplashViewMixin on ConsumerState<SplashView> {
@@ -11,15 +13,15 @@ mixin _SplashViewMixin on ConsumerState<SplashView> {
   }
 
   Future<void> _setInitialRoute() async {
-    if (appState.status.isAuthenticated) {
+    final cacheManager = HiveCacheManager();
+    final user = await cacheManager.getData(CachePaths.user.value);
+    if (user != null) {
       initialRoute = AppRoutes.main;
+      await Navigator.pushReplacementNamed(context, AppRoutes.main);
     } else {
-      final cacheManager = HiveCacheManager();
-      final passStarting =
-          await cacheManager.getData(CachePaths.passStarting.value) as bool?;
+      final passStarting = await cacheManager.getData(CachePaths.passStarting.value) as bool?;
       if (passStarting ?? false) {
-        final passOnboarding = await cacheManager
-            .getData(CachePaths.passOnboarding.value) as bool?;
+        final passOnboarding = await cacheManager.getData(CachePaths.passOnboarding.value) as bool?;
         if (passOnboarding ?? false) {
           initialRoute = AppRoutes.login;
         } else {
@@ -28,7 +30,7 @@ mixin _SplashViewMixin on ConsumerState<SplashView> {
       } else {
         initialRoute = AppRoutes.starting;
       }
+      if (mounted) await Navigator.pushReplacementNamed(context, initialRoute!);
     }
-    if (mounted) await Navigator.pushReplacementNamed(context, initialRoute!);
   }
 }
