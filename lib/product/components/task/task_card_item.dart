@@ -5,11 +5,13 @@ final class _TaskCardItem extends StatelessWidget {
     required this.task,
     required this.onDelete,
     required this.onMarkAsDone,
+    required this.onMarkAsProgress,
   });
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
-  final VoidCallback onMarkAsDone;
+  final ValueSetter<bool> onMarkAsDone;
+  final VoidCallback onMarkAsProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,16 @@ final class _TaskCardItem extends StatelessWidget {
                     TaskDetailBottomSheet.show(
                       context,
                       task: task,
-                      onUpdateTap: () {},
+                      onUpdateTap: () {
+                        Navigator.pop(context);
+                        TaskStatusBottomSheet.show(
+                          context,
+                          task: task,
+                          onMarkAsDone: onMarkAsDone,
+                          onMarkAsProgress: onMarkAsProgress,
+                          onDelete: onDelete,
+                        );
+                      },
                     );
                   },
                   child: Card(
@@ -71,7 +82,9 @@ final class _TaskCardItem extends StatelessWidget {
                             height: 20.h,
                           ),
                         )
-                      : (task.isDoing ?? false) && !task.isTimeout
+                      : (task.isDoing ?? false) &&
+                              !task.isTimeout &&
+                              !(task.isCompleted ?? false)
                           ? Padding(
                               padding: const AppPadding.smallAll(),
                               child: Assets.icons.doing.show(
@@ -79,7 +92,9 @@ final class _TaskCardItem extends StatelessWidget {
                               ),
                             )
                           : IconButton(
-                              onPressed: onMarkAsDone,
+                              onPressed: () {
+                                onMarkAsDone.call(!(task.isCompleted ?? false));
+                              },
                               icon: Icon(
                                 CupertinoIcons.check_mark_circled_solid,
                                 color: (task.isCompleted ?? false)

@@ -71,6 +71,8 @@ class _TaskViewState extends ConsumerState<TaskView> with _TaskViewMixin {
                       filterCriteria: filterCriteria,
                       onDelete: deleteTask,
                       onMarkAsDone: (task) => updateTask(updateTaskData: task),
+                      onMarkAsProgress: (task) =>
+                          updateTask(updateTaskData: task),
                     );
                   },
                 );

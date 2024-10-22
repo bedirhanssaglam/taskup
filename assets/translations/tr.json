@@ -104,8 +104,10 @@
     "task": {
         "edit": "Düzenle",
         "share": "Paylaş",
+        "changeTaskStatus": "Görev durumunu değiştir",
         "markAsDone": "Yapıldı olarak işaretle",
-        "markAsToDo": "Yapılacak olarak işaretle"
+        "markAsToDo": "Yapılacak olarak işaretle",
+        "markAsProgress": "Yapılıyor olarak işaretle"
     },
     "taskDetail": {
         "update": "Güncelle",

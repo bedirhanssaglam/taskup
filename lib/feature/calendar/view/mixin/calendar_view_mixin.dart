@@ -4,6 +4,9 @@ mixin _CalendarViewMixin on ConsumerState<CalendarView> {
   final ValueNotifier<DateTime> selectedDate =
       ValueNotifier<DateTime>(DateTime.now());
 
+  CalendarViewModel get _calendarViewModel =>
+      ref.read(calendarViewModelProvider.notifier);
+
   @override
   void initState() {
     super.initState();
@@ -25,16 +28,14 @@ mixin _CalendarViewMixin on ConsumerState<CalendarView> {
 
   Future<void> deleteTask(String? documentId) async {
     if (documentId == null) return;
-    final calendarViewModel = ref.read(calendarViewModelProvider.notifier);
-    await calendarViewModel.deleteTask(documentId);
+    await _calendarViewModel.deleteTask(documentId);
   }
 
   Future<void> updateTask({required UpdateTaskData updateTaskData}) async {
-    final calendarViewModel = ref.read(calendarViewModelProvider.notifier);
-    await calendarViewModel.updateTaskStatus(
+    await _calendarViewModel.updateTaskStatus(
       updateTaskData: updateTaskData,
     );
-    await calendarViewModel.fetchTasks();
+    await _calendarViewModel.fetchTasks();
   }
 
   @override

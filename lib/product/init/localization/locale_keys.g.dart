@@ -99,8 +99,10 @@ abstract class LocaleKeys {
   static const filter = 'filter';
   static const task_edit = 'task.edit';
   static const task_share = 'task.share';
+  static const task_changeTaskStatus = 'task.changeTaskStatus';
   static const task_markAsDone = 'task.markAsDone';
   static const task_markAsToDo = 'task.markAsToDo';
+  static const task_markAsProgress = 'task.markAsProgress';
   static const task = 'task';
   static const taskDetail_update = 'taskDetail.update';
   static const taskDetail_status = 'taskDetail.status';

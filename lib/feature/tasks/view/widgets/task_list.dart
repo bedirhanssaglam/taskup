@@ -6,12 +6,14 @@ final class _TaskList extends StatelessWidget {
     required this.filterCriteria,
     required this.onDelete,
     required this.onMarkAsDone,
+    required this.onMarkAsProgress,
   });
 
   final List<Task>? tasks;
   final FilterCriteria filterCriteria;
   final AsyncValueSetter<String?> onDelete;
   final AsyncValueSetter<UpdateTaskData> onMarkAsDone;
+  final AsyncValueSetter<UpdateTaskData> onMarkAsProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ final class _TaskList extends StatelessWidget {
                   task: task,
                   onDelete: onDelete,
                   onMarkAsDone: onMarkAsDone,
+                  onMarkAsProgress: onMarkAsProgress,
                 ),
               ),
           ],
