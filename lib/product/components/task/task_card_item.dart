@@ -5,11 +5,13 @@ final class _TaskCardItem extends StatelessWidget {
     required this.task,
     required this.onDelete,
     required this.onMarkAsDone,
+    required this.onMarkAsProgress,
   });
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
   final VoidCallback onMarkAsDone;
+  final VoidCallback onMarkAsProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,15 @@ final class _TaskCardItem extends StatelessWidget {
                     TaskDetailBottomSheet.show(
                       context,
                       task: task,
-                      onUpdateTap: () {},
+                      onUpdateTap: () {
+                        TaskStatusBottomSheet.show(
+                          context,
+                          task: task,
+                          onMarkAsDone: onMarkAsDone,
+                          onMarkAsProgress: onMarkAsProgress,
+                          onDelete: onDelete,
+                        );
+                      },
                     );
                   },
                   child: Card(
@@ -82,9 +92,7 @@ final class _TaskCardItem extends StatelessWidget {
                               onPressed: onMarkAsDone,
                               icon: Icon(
                                 CupertinoIcons.check_mark_circled_solid,
-                                color: (task.isCompleted ?? false)
-                                    ? CupertinoColors.systemGreen
-                                    : CupertinoColors.lightBackgroundGray,
+                                color: (task.isCompleted ?? false) ? CupertinoColors.systemGreen : CupertinoColors.lightBackgroundGray,
                               ),
                             ),
                 ),

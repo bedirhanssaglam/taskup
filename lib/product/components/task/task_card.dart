@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
 import 'package:task_management/product/components/bottom_sheet/task_detail/view/task_detail_bottom_sheet.dart';
+import 'package:task_management/product/components/bottom_sheet/task_status/view/task_status_bottom_sheet.dart';
 import 'package:task_management/product/components/dialog/delete_task_dialog.dart';
 import 'package:task_management/product/components/tap_area/tap_area.dart';
 import 'package:task_management/product/components/task/category_card.dart';
@@ -27,12 +28,14 @@ final class TaskCard extends StatelessWidget {
     required this.task,
     required this.onDelete,
     required this.onMarkAsDone,
+    required this.onMarkAsProgress,
     super.key,
   });
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
   final AsyncValueSetter<UpdateTaskData> onMarkAsDone;
+  final VoidCallback onMarkAsProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +62,9 @@ final class TaskCard extends StatelessWidget {
                   Navigator.pop(context);
                   _onMarkAsDone();
                 },
-                trailingIcon: task.isCompleted ?? false
-                    ? Icons.assignment_outlined
-                    : Icons.assignment_turned_in,
+                trailingIcon: task.isCompleted ?? false ? Icons.assignment_outlined : Icons.assignment_turned_in,
                 child: LocaleText(
-                  task.isCompleted ?? false
-                      ? LocaleKeys.task_markAsToDo
-                      : LocaleKeys.task_markAsDone,
+                  task.isCompleted ?? false ? LocaleKeys.task_markAsToDo : LocaleKeys.task_markAsDone,
                 ),
               ),
               CupertinoContextMenuAction(
@@ -82,12 +81,14 @@ final class TaskCard extends StatelessWidget {
               task: task,
               onDelete: onDelete,
               onMarkAsDone: _onMarkAsDone,
+              onMarkAsProgress: onMarkAsProgress,
             ),
           )
         : _TaskCardItem(
             task: task,
             onDelete: onDelete,
             onMarkAsDone: _onMarkAsDone,
+            onMarkAsProgress: onMarkAsProgress,
           );
   }
 

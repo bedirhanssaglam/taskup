@@ -57,6 +57,7 @@ final class CalendarTaskList extends StatelessWidget {
           task: tasks[index],
           onDelete: onDelete,
           onMarkAsDone: onMarkAsDone,
+          onMarkAsProgress: () {},
         );
       },
     );

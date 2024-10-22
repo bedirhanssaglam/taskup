@@ -16,8 +16,7 @@ final class _TaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sortedTasks = TaskFilterHelper.sortTasks(tasks, filterCriteria);
-    final groupedTasks =
-        TaskFilterHelper.groupTasks(sortedTasks, filterCriteria);
+    final groupedTasks = TaskFilterHelper.groupTasks(sortedTasks, filterCriteria);
 
     return ListView.builder(
       itemCount: groupedTasks.length,
@@ -44,6 +43,7 @@ final class _TaskList extends StatelessWidget {
                   task: task,
                   onDelete: onDelete,
                   onMarkAsDone: onMarkAsDone,
+                  onMarkAsProgress: () {},
                 ),
               ),
           ],
