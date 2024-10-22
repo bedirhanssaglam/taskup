@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:task_management/product/components/bottom_sheet/filter/view/filter_bottom_sheet.dart';
 import 'package:task_management/product/components/bottom_sheet/filter/view_model/filter_view_model.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/product_provider_items.dart';
 import 'package:task_management/product/utility/task_filter_helper.dart';
 import 'package:widget/widget.dart';
 

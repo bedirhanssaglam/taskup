@@ -20,4 +20,45 @@ extension TaskExtensions on Task {
     }
     return 'No Date';
   }
+
+  bool get isTimeout {
+    return (date?.toDate().isBefore(DateTime.now()) ?? false) &&
+        !(isCompleted ?? false);
+  }
+}
+
+extension TaskListExtensions on List<Task?> {
+  int get doingCount {
+    final today = DateTime.now();
+    return where(
+      (task) =>
+          (task?.isDoing ?? false) &&
+          (task?.date?.toDate().isAfter(today) ?? false),
+    ).length;
+  }
+
+  int get completedCount {
+    return where((Task? task) => task?.isCompleted ?? false).length;
+  }
+
+  int get overdueCount {
+    final today = DateTime.now();
+    return where(
+      (task) =>
+          task?.date != null &&
+          task!.date!.toDate().isBefore(today) &&
+          !(task.isCompleted ?? false),
+    ).length;
+  }
+
+  int get upcomingCount {
+    final today = DateTime.now();
+    return where(
+      (task) =>
+          task?.date != null &&
+          task!.date!.toDate().isAfter(today) &&
+          !(task.isCompleted ?? false) &&
+          !(task.isDoing ?? false),
+    ).length;
+  }
 }

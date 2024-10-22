@@ -9,7 +9,7 @@
     </queries>
     
     <application
-        android:label="task_management"
+        android:label="taskup"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

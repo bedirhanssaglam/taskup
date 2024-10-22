@@ -15,7 +15,7 @@ final class AppTextField extends StatelessWidget {
     this.validator,
     this.prefixIcon,
     this.title,
-    this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    this.borderRadius = const BorderRadius.all(Radius.circular(16)),
     this.maxLines = 1,
     this.autofocus = false,
     this.onChanged,

@@ -3,6 +3,30 @@
 abstract class LocaleKeys {
   static const hello = 'hello';
   static const cancelText = 'cancelText';
+  static const back = 'back';
+  static const letsDoIt = 'letsDoIt';
+  static const next = 'next';
+  static const starting_title = 'starting.title';
+  static const starting_button = 'starting.button';
+  static const starting_agreement = 'starting.agreement';
+  static const starting = 'starting';
+  static const onboarding_letsGetStarted = 'onboarding.letsGetStarted';
+  static const onboarding_discoverOurApp = 'onboarding.discoverOurApp';
+  static const onboarding_reachYourGoals = 'onboarding.reachYourGoals';
+  static const onboarding_planningBringsSuccess =
+      'onboarding.planningBringsSuccess';
+  static const onboarding_theArtOfTimeManagement =
+      'onboarding.theArtOfTimeManagement';
+  static const onboarding_effectiveTimeManagement =
+      'onboarding.effectiveTimeManagement';
+  static const onboarding_keepYourMotivationHigh =
+      'onboarding.keepYourMotivationHigh';
+  static const onboarding_progressFuelsMotivation =
+      'onboarding.progressFuelsMotivation';
+  static const onboarding_pomodoro = 'onboarding.pomodoro';
+  static const onboarding_concentrationBreedsPerfection =
+      'onboarding.concentrationBreedsPerfection';
+  static const onboarding = 'onboarding';
   static const login_email = 'login.email';
   static const login_password = 'login.password';
   static const login_loginText = 'login.loginText';
@@ -17,14 +41,26 @@ abstract class LocaleKeys {
   static const register_passwordAgain = 'register.passwordAgain';
   static const register_alreadyHaveAnAccount = 'register.alreadyHaveAnAccount';
   static const register = 'register';
-  static const bottomNavBar_home = 'bottomNavBar.home';
+  static const bottomNavBar_dashboard = 'bottomNavBar.dashboard';
   static const bottomNavBar_calendar = 'bottomNavBar.calendar';
+  static const bottomNavBar_tasks = 'bottomNavBar.tasks';
   static const bottomNavBar_profile = 'bottomNavBar.profile';
   static const bottomNavBar = 'bottomNavBar';
-  static const home_hello = 'home.hello';
-  static const home_whatDoYouWantToDoToday = 'home.whatDoYouWantToDoToday';
-  static const home_tapPlusButton = 'home.tapPlusButton';
-  static const home = 'home';
+  static const tasks_hello = 'tasks.hello';
+  static const tasks_whatDoYouWantToDoToday = 'tasks.whatDoYouWantToDoToday';
+  static const tasks_tapPlusButton = 'tasks.tapPlusButton';
+  static const tasks_timeout = 'tasks.timeout';
+  static const tasks = 'tasks';
+  static const dashboard_title = 'dashboard.title';
+  static const dashboard_taskSummary = 'dashboard.taskSummary';
+  static const dashboard_inProgress = 'dashboard.inProgress';
+  static const dashboard_thingsToDo = 'dashboard.thingsToDo';
+  static const dashboard_pastDates = 'dashboard.pastDates';
+  static const dashboard_completed = 'dashboard.completed';
+  static const dashboard_taskStatistics = 'dashboard.taskStatistics';
+  static const dashboard_totalWorkingHour = 'dashboard.totalWorkingHour';
+  static const dashboard_totalTaskActivity = 'dashboard.totalTaskActivity';
+  static const dashboard = 'dashboard';
   static const validators_normal = 'validators.normal';
   static const validators_invalidEmailFormat = 'validators.invalidEmailFormat';
   static const validators_confirmPassword = 'validators.confirmPassword';
@@ -52,8 +88,8 @@ abstract class LocaleKeys {
   static const category_movie = 'category.movie';
   static const category_house = 'category.house';
   static const category = 'category';
-  static const calendar_thereAreNoTaskForTheSelectedDate =
-      'calendar.thereAreNoTaskForTheSelectedDate';
+  static const calendar_noTaskTitle = 'calendar.noTaskTitle';
+  static const calendar_noTaskSubtitle = 'calendar.noTaskSubtitle';
   static const calendar = 'calendar';
   static const filter_filterOptions = 'filter.filterOptions';
   static const filter_dateAsc = 'filter.dateAsc';
@@ -66,6 +102,9 @@ abstract class LocaleKeys {
   static const task_markAsDone = 'task.markAsDone';
   static const task_markAsToDo = 'task.markAsToDo';
   static const task = 'task';
+  static const taskDetail_update = 'taskDetail.update';
+  static const taskDetail_status = 'taskDetail.status';
+  static const taskDetail = 'taskDetail';
   static const months_jan = 'months.jan';
   static const months_feb = 'months.feb';
   static const months_mar = 'months.mar';

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_management/product/components/draggable_line/draggable_line.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/product_provider_items.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
@@ -51,7 +52,7 @@ class _FilterBottomSheetState extends ConsumerState<FilterBottomSheet>
         ),
         child: Column(
           children: [
-            const _DraggableLine(),
+            const DraggableLine(),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -84,25 +85,6 @@ class _FilterBottomSheetState extends ConsumerState<FilterBottomSheet>
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-final class _DraggableLine extends StatelessWidget {
-  const _DraggableLine();
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: WidgetSizes.spacingXxl4.w,
-        height: WidgetSizes.spacingXxs.h,
-        margin: EdgeInsets.only(bottom: 12.h),
-        decoration: BoxDecoration(
-          color: Colors.grey.shade300,
-          borderRadius: AppBorderRadius.circularSmall(),
         ),
       ),
     );

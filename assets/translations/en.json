@@ -1,6 +1,26 @@
 {   
     "hello": "Hello {}!",
     "cancelText": "Cancel",
+    "back": "Back",
+    "letsDoIt": "Let's do it!",
+    "next": "Next",    
+    "starting": {
+        "title": "The best time to plant a sapling was twenty years ago, the second best time is now. Let's start planting the seeds of success!",
+        "button": "Accept and Continue",
+        "agreement": "By continuing you agree to our Privacy Policy."
+    },  
+    "onboarding": {
+        "letsGetStarted": "Let's get started!",
+        "discoverOurApp": "Get ready to discover our application!",
+        "reachYourGoals": "Reach Your Goals",
+        "planningBringsSuccess": "Planning brings success. Easily track your daily goals and get closer to success step by step. Achieving your goals is now much more organized and achievable!",
+        "theArtOfTimeManagement": "The Art of Time Management!",
+        "effectiveTimeManagement": "Effective time management transforms your life. Complete your tasks faster and stress-free by consciously planning your time.",
+        "keepYourMotivationHigh": "Keep Your Motivation High",
+        "progressFuelsMotivation": "Progress fuels motivation. Constantly improve yourself by focusing on your achievements, always keep your motivation high and exceed the limits.",
+        "pomodoro": "Pomodoro",
+        "concentrationBreedsPerfection": "Concentration breeds perfection. Use Pomodoro to help you complete tasks more systematically and increase productivity."
+    },  
     "login": {
         "email": "Email",
         "password": "Password",
@@ -18,15 +38,28 @@
         "alreadyHaveAnAccount": "Already have an account?"
     },   
     "bottomNavBar": {
-        "home": "Home",
+        "dashboard": "Dashboard",
+        "tasks": "Tasks",
         "calendar": "Calendar",
         "profile": "Profile"
     },
-    "home": {
+    "tasks": {
         "hello": "Hello",
         "whatDoYouWantToDoToday": "What do you want to do today?",
-        "tapPlusButton": "Tap + to add your tasks"
+        "tapPlusButton": "Tap + to add your tasks",
+        "timeout": "Timeout"
     },   
+    "dashboard": {
+        "title": "Dashboard",
+        "projectSummary": "Project Summary",
+        "inProgress": "In Progress",
+        "thingsToDo": "Things to Do",
+        "pastDates": "Past Dates",
+        "completed": "Completed",
+        "projectStatistics": "Project Statistics",
+        "totalWorkingHour": "Total working hour",
+        "totalTaskActivity": "Total task activity"
+    },
     "validators": {
         "normal": "This field cannot be left blank.",
         "invalidEmailFormat": "Invalid email format",
@@ -58,7 +91,8 @@
         "house": "House"
     },
     "calendar": {
-        "thereAreNoTaskForTheSelectedDate": "There are no tasks for the selected date."
+        "noTaskTitle": "You don't have any assignments for today.",
+        "noTaskSubtitle": "Make yourself comfortable"
     },
     "filter": {
         "filterOptions": "Filter Options",
@@ -72,7 +106,11 @@
         "share": "Share",
         "markAsDone": "Mark as done",
         "markAsToDo": "Mark as to do"
-    },    
+    },  
+    "taskDetail": {
+        "update": "Update",
+        "status": "Status: "
+    },      
     "dialog": {
         "deleteTask": {
             "title": "Delete Task",
@@ -93,7 +131,7 @@
         "oct": "OCT",
         "nov": "NOV",
         "dec": "DEC"
-    },    
+    },
     "error": {
         "failedToUsers": "Failed to load users.",
         "userNotFound": "User not found.",        

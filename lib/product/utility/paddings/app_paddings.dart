@@ -8,6 +8,8 @@ final class AppPadding extends EdgeInsets {
 
   const AppPadding.mediumAll() : super.all(WidgetSizes.spacingS);
 
+  const AppPadding.bigAll() : super.all(WidgetSizes.spacingM);
+
   const AppPadding.largeAll() : super.all(WidgetSizes.spacingXl);
 
   const AppPadding.smallHorizontal()
@@ -28,6 +30,11 @@ final class AppPadding extends EdgeInsets {
   const AppPadding.mediumVertical()
       : super.symmetric(
           vertical: WidgetSizes.spacingS,
+        );
+
+  const AppPadding.bigVertical()
+      : super.symmetric(
+          vertical: WidgetSizes.spacingM,
         );
 
   const AppPadding.smallVerticalAndHorizontal()

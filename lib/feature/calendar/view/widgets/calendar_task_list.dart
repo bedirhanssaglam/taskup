@@ -36,8 +36,13 @@ final class CalendarTaskList extends StatelessWidget {
               width: WidgetSizes.spacingXxlL12.w,
             ),
             LocaleText(
-              LocaleKeys.calendar_thereAreNoTaskForTheSelectedDate,
-              style: context.textTheme.bodyLarge,
+              LocaleKeys.calendar_noTaskTitle,
+              style: context.textTheme.titleLarge,
+            ),
+            WidgetSizes.spacingXxs.verticalSpace,
+            LocaleText(
+              LocaleKeys.calendar_noTaskSubtitle,
+              style: context.textTheme.bodyMedium,
             ),
           ],
         ),
@@ -46,7 +51,7 @@ final class CalendarTaskList extends StatelessWidget {
 
     return ListView.builder(
       itemCount: tasks.length,
-      padding: const AppPadding.mediumAll(),
+      padding: const AppPadding.smallAll(),
       itemBuilder: (context, index) {
         return TaskCard(
           task: tasks[index],

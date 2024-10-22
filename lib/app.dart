@@ -14,17 +14,17 @@ final class App extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _AppState();
 }
 
-class _AppState extends ConsumerState<App> with AppProviderMixin {
+class _AppState extends ConsumerState<App> with AppProviderMixin<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.generateRoute,
       navigatorKey: NavigationService().navigatorKey,
-      initialRoute:
-          appState.status.isAuthenticated ? AppRoutes.main : AppRoutes.login,
+      initialRoute: AppRoutes.splash,
       theme: LightThemeManager().themeData,
       darkTheme: DarkThemeManager().themeData,
+      themeMode: themeMode,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,

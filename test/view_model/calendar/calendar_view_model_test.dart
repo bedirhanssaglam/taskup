@@ -5,7 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_view_model.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/service/task/task_service.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/task_provider_items.dart';
 
 final class _MockTaskService extends Mock implements TaskService {
   @override
@@ -34,7 +34,7 @@ void main() {
     setUp(() {
       container = ProviderContainer(
         overrides: [
-          ProductProviderItems.taskServiceProvider.overrideWithValue(
+          TaskProviderItems.taskServiceProvider.overrideWithValue(
             _MockTaskService(),
           ),
         ],

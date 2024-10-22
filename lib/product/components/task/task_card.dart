@@ -5,7 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/product/components/bottom_sheet/task_detail/view/task_detail_bottom_sheet.dart';
 import 'package:task_management/product/components/dialog/delete_task_dialog.dart';
+import 'package:task_management/product/components/tap_area/tap_area.dart';
 import 'package:task_management/product/components/task/category_card.dart';
 import 'package:task_management/product/components/task/task_info_row.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
@@ -15,6 +17,7 @@ import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/extensions/task_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 
 part 'task_card_item.dart';

@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_status.dart';
 import 'package:task_management/product/models/task.dart';
-import 'package:task_management/product/state/product_provider_items.dart';
+import 'package:task_management/product/state/providers/task_provider_items.dart';
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 
 part 'add_task_view_model.g.dart';
@@ -19,7 +19,7 @@ class AddTaskViewModel extends _$AddTaskViewModel {
     try {
       await ref
           .read(
-            ProductProviderItems.firebaseServiceProvider,
+            TaskProviderItems.firebaseServiceProvider,
           )
           .add(CollectionPaths.tasks, task);
       state = state.copyWith(status: AddTaskStatus.success);

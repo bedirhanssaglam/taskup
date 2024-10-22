@@ -34,12 +34,16 @@ dependencies:
   lottie: ^2.6.0
   validify: ^0.0.3
   shimmer: ^3.0.0
+  fl_chart: ^0.69.0
 
   # Localization
   easy_localization: ^3.0.3  
 
   # JSON serialization
   json_annotation: ^4.9.0
+
+  # Caching
+  hive: ^2.2.3
 
   # Modularization
   core:
@@ -48,6 +52,7 @@ dependencies:
     path: module/gen
   widget:
     path: module/widget  
+  path_provider: ^2.1.4
 
 dev_dependencies:
   flutter_test:

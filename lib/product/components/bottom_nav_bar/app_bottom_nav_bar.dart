@@ -42,11 +42,20 @@ final class AppBottomNavBar extends StatelessWidget {
                   : context.colorScheme.onSurfaceVariant,
               height: WidgetSizes.spacingXxl.h,
             ),
-            label: LocaleKeys.bottomNavBar_home.locale,
+            label: LocaleKeys.bottomNavBar_dashboard.locale,
+          ),
+          NavigationDestination(
+            icon: Assets.icons.task.colored(
+              pageIndex == 1
+                  ? context.colorScheme.primary
+                  : context.colorScheme.onSurfaceVariant,
+              height: WidgetSizes.spacingXxl.h,
+            ),
+            label: LocaleKeys.bottomNavBar_tasks.locale,
           ),
           NavigationDestination(
             icon: Assets.icons.calendar.colored(
-              pageIndex == 1
+              pageIndex == 2
                   ? context.colorScheme.primary
                   : context.colorScheme.onSurfaceVariant,
               height: WidgetSizes.spacingXxl.h,
@@ -55,7 +64,7 @@ final class AppBottomNavBar extends StatelessWidget {
           ),
           NavigationDestination(
             icon: Assets.icons.user.colored(
-              pageIndex == 2
+              pageIndex == 3
                   ? context.colorScheme.primary
                   : context.colorScheme.onSurfaceVariant,
               height: WidgetSizes.spacingXxl.h,
@@ -76,13 +85,22 @@ final class AppBottomNavBar extends StatelessWidget {
                 ? context.colorScheme.primary
                 : context.colorScheme.onSurfaceVariant,
           ),
-          label: LocaleKeys.bottomNavBar_home.locale,
+          label: LocaleKeys.bottomNavBar_dashboard.locale,
+        ),
+        BottomNavigationBarItem(
+          icon: Assets.icons.task.colored(
+            pageIndex == 1
+                ? context.colorScheme.primary
+                : context.colorScheme.onSurfaceVariant,
+            height: WidgetSizes.spacingXxl.h,
+          ),
+          label: LocaleKeys.bottomNavBar_tasks.locale,
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.calendar_month,
             size: WidgetSizes.spacingXxl.h,
-            color: pageIndex == 1
+            color: pageIndex == 2
                 ? context.colorScheme.primary
                 : context.colorScheme.onSurfaceVariant,
           ),
@@ -92,7 +110,7 @@ final class AppBottomNavBar extends StatelessWidget {
           icon: Icon(
             Icons.person,
             size: WidgetSizes.spacingXxl.h,
-            color: pageIndex == 2
+            color: pageIndex == 3
                 ? context.colorScheme.primary
                 : context.colorScheme.onSurfaceVariant,
           ),

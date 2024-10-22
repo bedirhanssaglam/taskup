@@ -1,34 +1,33 @@
 import 'dart:async';
 
-import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/product/service/cache/cache_manager.dart';
 import 'package:task_management/product/service/exceptions/firebase_exceptions.dart';
+import 'package:task_management/product/utility/enums/cache_paths.dart';
 import 'package:task_management/product/utility/enums/collection_paths.dart';
 
 class AuthService {
   AuthService({
-    CacheClient? cache,
+    HiveCacheManager? cache,
     FirebaseAuth? firebaseAuth,
-  })  : _cache = cache ?? CacheClient(),
+  })  : _cache = cache ?? HiveCacheManager(),
         _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
-  final CacheClient _cache;
+  final HiveCacheManager _cache;
   final FirebaseAuth _firebaseAuth;
-
-  static const String userCacheKey = '__user_cache_key__';
 
   Stream<Account> get account {
     return _firebaseAuth.authStateChanges().map((User? firebaseUser) {
       final user =
           firebaseUser == null ? Account.empty : firebaseUser.toAccount;
-      _cache.write(key: userCacheKey, value: user);
+      _cache.saveData(CachePaths.user.value, user.hashCode);
       return user;
     });
   }
 
   Account get currentUser {
-    return _cache.read<Account>(key: userCacheKey) ?? Account.empty;
+    return (_cache.getData(CachePaths.user.value) as Account?) ?? Account.empty;
   }
 
   Future<void> signUp({
@@ -67,10 +66,16 @@ class AuthService {
     required String password,
   }) async {
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
+      final userCredential = await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      if (userCredential.user != null) {
+        await _cache.saveData(
+          CachePaths.user.value,
+          userCredential.user!.toAccount.hashCode,
+        );
+      }
     } on FirebaseAuthException catch (e) {
       throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {
@@ -81,6 +86,7 @@ class AuthService {
   Future<void> logOut() async {
     try {
       await _firebaseAuth.signOut();
+      await _cache.clearAll();
     } catch (_) {
       throw LogOutFailure();
     }
