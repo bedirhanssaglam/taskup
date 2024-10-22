@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://github.com/user-attachments/assets/77a380f3-41f6-48b1-aaa2-bdd0c98bbf90" height="200" alt="Bloc" />
+</p>
+
 # taskup
 
 taskup is an open-source task management application designed to help you organize and manage your tasks efficiently. Built using Flutter, this project leverages Riverpod for state management and Firebase.
