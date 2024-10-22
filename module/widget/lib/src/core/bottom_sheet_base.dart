@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 final class BottomSheetBase {
@@ -8,10 +11,15 @@ final class BottomSheetBase {
     required WidgetBuilder builder,
     bool isScrollControlled = true,
   }) async {
-    return showModalBottomSheet<T>(
-      context: context,
-      isScrollControlled: isScrollControlled,
-      builder: builder,
-    );
+    return Platform.isIOS
+        ? showCupertinoModalPopup<T>(
+            context: context,
+            builder: builder,
+          )
+        : showModalBottomSheet<T>(
+            context: context,
+            isScrollControlled: isScrollControlled,
+            builder: builder,
+          );
   }
 }
