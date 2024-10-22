@@ -57,6 +57,8 @@ class _CalendarViewState extends ConsumerState<CalendarView>
                     tasks: _filterTasksByDate(state.tasks!, value),
                     onDelete: deleteTask,
                     onMarkAsDone: (task) => updateTask(updateTaskData: task),
+                    onMarkAsProgress: (task) =>
+                        updateTask(updateTaskData: task),
                   );
                 },
               ),

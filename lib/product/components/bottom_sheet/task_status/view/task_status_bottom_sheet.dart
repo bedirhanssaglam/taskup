@@ -1,10 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/product/components/text/locale_text.dart';
+import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/task.dart';
+import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
+import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:widget/widget.dart';
+
+part 'widgets/android_task_status_sheet_item.dart';
+part 'widgets/ios_task_status_sheet_item.dart';
 
 final class TaskStatusBottomSheet extends StatelessWidget {
   const TaskStatusBottomSheet({
@@ -16,14 +27,14 @@ final class TaskStatusBottomSheet extends StatelessWidget {
   });
 
   final Task task;
-  final VoidCallback onMarkAsDone;
+  final ValueSetter<bool> onMarkAsDone;
   final VoidCallback onMarkAsProgress;
   final AsyncValueSetter<String?> onDelete;
 
   static Future<void> show(
     BuildContext context, {
     required Task task,
-    required VoidCallback onMarkAsDone,
+    required ValueSetter<bool> onMarkAsDone,
     required VoidCallback onMarkAsProgress,
     required AsyncValueSetter<String?> onDelete,
   }) async {
@@ -40,68 +51,18 @@ final class TaskStatusBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoActionSheet(
-      title: const Text('Güncelle'),
-      message: const Text('Görev durumunu değiştir'),
-      actions: <CupertinoActionSheetAction>[
-        if (!(task.isCompleted ?? false))
-          CupertinoActionSheetAction(
-            isDefaultAction: true,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Yapıldı olarak işaretle'),
-                4.horizontalSpace,
-                const Icon(
-                  CupertinoIcons.check_mark_circled_solid,
-                  color: CupertinoColors.systemGreen,
-                ),
-              ],
-            ),
-          ),
-        if (task.isCompleted ?? false)
-          CupertinoActionSheetAction(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Yapılacak olarak işaretle'),
-                4.horizontalSpace,
-                const Icon(
-                  CupertinoIcons.check_mark_circled_solid,
-                  color: CupertinoColors.systemGrey,
-                ),
-              ],
-            ),
-          ),
-        CupertinoActionSheetAction(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Yapılıyor olarak işaretle'),
-              4.horizontalSpace,
-              Assets.icons.doing.show(
-                height: 25.h,
-              ),
-            ],
-          ),
-        ),
-        CupertinoActionSheetAction(
-          isDestructiveAction: true,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Görevi Sil'),
-        ),
-      ],
-    );
+    return Platform.isIOS
+        ? _IOSTaskStatusSheetItem(
+            task: task,
+            onMarkAsDone: onMarkAsDone,
+            onMarkAsProgress: onMarkAsProgress,
+            onDelete: onDelete,
+          )
+        : _AndroidTaskStatusSheetItem(
+            task: task,
+            onMarkAsDone: onMarkAsDone,
+            onMarkAsProgress: onMarkAsProgress,
+            onDelete: onDelete,
+          );
   }
 }

@@ -29,7 +29,9 @@ final class _TaskStatus extends StatelessWidget {
                 ),
               )
             else
-              (task.isDoing ?? false) && !task.isTimeout
+              (task.isDoing ?? false) &&
+                      !task.isTimeout &&
+                      !(task.isCompleted ?? false)
                   ? Padding(
                       padding: const AppPadding.smallAll(),
                       child: Assets.icons.doing.show(

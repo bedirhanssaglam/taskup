@@ -104,8 +104,10 @@
     "task": {
         "edit": "Edit",
         "share": "Share",
+        "changeTaskStatus": "Change task status",
         "markAsDone": "Mark as done",
-        "markAsToDo": "Mark as to do"
+        "markAsToDo": "Mark as to do",
+        "markAsProgress": "Mark as progress"
     },  
     "taskDetail": {
         "update": "Update",

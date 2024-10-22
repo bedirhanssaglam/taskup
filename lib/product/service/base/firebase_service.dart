@@ -88,6 +88,7 @@ class FirebaseService extends IFirebaseService {
 
     await documentRef.update({
       RequestKeys.isCompleted.reference: updateTaskData.isCompleted,
+      RequestKeys.isDoing.reference: updateTaskData.isDoing,
     });
   }
 }

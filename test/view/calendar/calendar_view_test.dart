@@ -21,6 +21,7 @@ void main() {
                 tasks: const [],
                 onMarkAsDone: (value) async {},
                 onDelete: (value) async {},
+                onMarkAsProgress: (value) async {},
               ),
             ),
           ),

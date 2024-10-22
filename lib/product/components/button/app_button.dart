@@ -17,7 +17,7 @@ final class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: WidgetSizes.spacingXxl7.h,
+      height: WidgetSizes.spacingXxl8.h,
       width: double.infinity,
       child: Platform.isAndroid
           ? ElevatedButton(

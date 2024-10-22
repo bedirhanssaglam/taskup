@@ -35,7 +35,7 @@ final class TaskCard extends StatelessWidget {
   final Task task;
   final AsyncValueSetter<String?> onDelete;
   final AsyncValueSetter<UpdateTaskData> onMarkAsDone;
-  final VoidCallback onMarkAsProgress;
+  final AsyncValueSetter<UpdateTaskData> onMarkAsProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +60,15 @@ final class TaskCard extends StatelessWidget {
               CupertinoContextMenuAction(
                 onPressed: () {
                   Navigator.pop(context);
-                  _onMarkAsDone();
+                  _onMarkAsDone(!(task.isCompleted ?? false));
                 },
-                trailingIcon: task.isCompleted ?? false ? Icons.assignment_outlined : Icons.assignment_turned_in,
+                trailingIcon: task.isCompleted ?? false
+                    ? Icons.assignment_outlined
+                    : Icons.assignment_turned_in,
                 child: LocaleText(
-                  task.isCompleted ?? false ? LocaleKeys.task_markAsToDo : LocaleKeys.task_markAsDone,
+                  task.isCompleted ?? false
+                      ? LocaleKeys.task_markAsToDo
+                      : LocaleKeys.task_markAsDone,
                 ),
               ),
               CupertinoContextMenuAction(
@@ -81,22 +85,33 @@ final class TaskCard extends StatelessWidget {
               task: task,
               onDelete: onDelete,
               onMarkAsDone: _onMarkAsDone,
-              onMarkAsProgress: onMarkAsProgress,
+              onMarkAsProgress: _onMarkAsProgress,
             ),
           )
         : _TaskCardItem(
             task: task,
             onDelete: onDelete,
             onMarkAsDone: _onMarkAsDone,
-            onMarkAsProgress: onMarkAsProgress,
+            onMarkAsProgress: _onMarkAsProgress,
           );
   }
 
-  void _onMarkAsDone() {
+  void _onMarkAsDone(bool isCompleted) {
     onMarkAsDone.call(
       UpdateTaskData(
         documentId: task.documentId,
-        isCompleted: !(task.isCompleted ?? false),
+        isCompleted: isCompleted,
+        isDoing: false,
+      ),
+    );
+  }
+
+  void _onMarkAsProgress() {
+    onMarkAsProgress.call(
+      UpdateTaskData(
+        documentId: task.documentId,
+        isDoing: true,
+        isCompleted: false,
       ),
     );
   }

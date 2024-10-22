@@ -70,6 +70,7 @@ class _FilterBottomSheetState extends ConsumerState<FilterBottomSheet>
                           children: FilterCriteria.values.map(
                             (FilterCriteria criteria) {
                               return RadioListTile<FilterCriteria>(
+                                contentPadding: EdgeInsets.zero,
                                 title: LocaleText(criteria.reference),
                                 value: criteria,
                                 groupValue: value,

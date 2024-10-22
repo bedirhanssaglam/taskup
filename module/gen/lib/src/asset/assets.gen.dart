@@ -16,6 +16,9 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetIconsGen {
   const $AssetIconsGen();
 
+  /// File path: asset/icons/app_logo.svg
+  SvgGenImage get appLogo => const SvgGenImage('asset/icons/app_logo.svg');
+
   /// File path: asset/icons/calendar.svg
   SvgGenImage get calendar => const SvgGenImage('asset/icons/calendar.svg');
 
@@ -87,6 +90,7 @@ class $AssetIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        appLogo,
         calendar,
         design,
         doing,
@@ -116,14 +120,6 @@ class $AssetIconsGen {
 class $AssetImagesGen {
   const $AssetImagesGen();
 
-  /// File path: asset/images/app_icon_dark.png
-  AssetGenImage get appIconDark =>
-      const AssetGenImage('asset/images/app_icon_dark.png');
-
-  /// File path: asset/images/app_icon_light.png
-  AssetGenImage get appIconLight =>
-      const AssetGenImage('asset/images/app_icon_light.png');
-
   /// File path: asset/images/motivation.png
   AssetGenImage get motivation =>
       const AssetGenImage('asset/images/motivation.png');
@@ -146,16 +142,8 @@ class $AssetImagesGen {
   AssetGenImage get work => const AssetGenImage('asset/images/work.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        appIconDark,
-        appIconLight,
-        motivation,
-        onboarding,
-        pomodoro,
-        success,
-        tasks,
-        work
-      ];
+  List<AssetGenImage> get values =>
+      [motivation, onboarding, pomodoro, success, tasks, work];
 }
 
 class $AssetLottieGen {

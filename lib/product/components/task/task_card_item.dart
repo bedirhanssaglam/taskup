@@ -10,7 +10,7 @@ final class _TaskCardItem extends StatelessWidget {
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
-  final VoidCallback onMarkAsDone;
+  final ValueSetter<bool> onMarkAsDone;
   final VoidCallback onMarkAsProgress;
 
   @override
@@ -45,6 +45,7 @@ final class _TaskCardItem extends StatelessWidget {
                       context,
                       task: task,
                       onUpdateTap: () {
+                        Navigator.pop(context);
                         TaskStatusBottomSheet.show(
                           context,
                           task: task,
@@ -81,7 +82,9 @@ final class _TaskCardItem extends StatelessWidget {
                             height: 20.h,
                           ),
                         )
-                      : (task.isDoing ?? false) && !task.isTimeout
+                      : (task.isDoing ?? false) &&
+                              !task.isTimeout &&
+                              !(task.isCompleted ?? false)
                           ? Padding(
                               padding: const AppPadding.smallAll(),
                               child: Assets.icons.doing.show(
@@ -89,10 +92,14 @@ final class _TaskCardItem extends StatelessWidget {
                               ),
                             )
                           : IconButton(
-                              onPressed: onMarkAsDone,
+                              onPressed: () {
+                                onMarkAsDone.call(!(task.isCompleted ?? false));
+                              },
                               icon: Icon(
                                 CupertinoIcons.check_mark_circled_solid,
-                                color: (task.isCompleted ?? false) ? CupertinoColors.systemGreen : CupertinoColors.lightBackgroundGray,
+                                color: (task.isCompleted ?? false)
+                                    ? CupertinoColors.systemGreen
+                                    : CupertinoColors.lightBackgroundGray,
                               ),
                             ),
                 ),

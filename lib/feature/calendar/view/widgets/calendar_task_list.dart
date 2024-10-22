@@ -17,12 +17,14 @@ final class CalendarTaskList extends StatelessWidget {
     required this.tasks,
     required this.onDelete,
     required this.onMarkAsDone,
+    required this.onMarkAsProgress,
     super.key,
   });
 
   final List<Task> tasks;
   final AsyncValueSetter<String?> onDelete;
   final AsyncValueSetter<UpdateTaskData> onMarkAsDone;
+  final AsyncValueSetter<UpdateTaskData> onMarkAsProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ final class CalendarTaskList extends StatelessWidget {
           task: tasks[index],
           onDelete: onDelete,
           onMarkAsDone: onMarkAsDone,
-          onMarkAsProgress: () {},
+          onMarkAsProgress: onMarkAsProgress,
         );
       },
     );

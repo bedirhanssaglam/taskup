@@ -59,7 +59,7 @@ class _TaskDetailBottomSheetState extends ConsumerState<TaskDetailBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 425.w,
+      height: 450.w,
       width: 1.sw,
       padding: const AppPadding.largeAll(),
       decoration: BoxDecoration(
