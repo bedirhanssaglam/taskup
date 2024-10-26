@@ -1,16 +1,17 @@
-part of '../dashboard_view.dart';
+part of '../settings_view.dart';
 
-final class _DashboardAppBar extends StatelessWidget
+final class _SettingsAppBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const _DashboardAppBar();
+  const _SettingsAppBar();
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       automaticallyImplyLeading: false,
       centerTitle: false,
       title: LocaleText(
-        LocaleKeys.dashboard_title.locale,
+        LocaleKeys.bottomNavBar_settings,
         style: context.textTheme.headlineLarge?.copyWith(
           fontWeight: FontWeight.bold,
         ),

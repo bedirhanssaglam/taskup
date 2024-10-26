@@ -3,7 +3,10 @@
     "cancelText": "Cancel",
     "back": "Back",
     "letsDoIt": "Let's do it!",
-    "next": "Next",    
+    "next": "Next",  
+    "turkish": "Turkish",
+    "english": "English",  
+    "delete": "Delete",
     "starting": {
         "title": "The best time to plant a sapling was twenty years ago, the second best time is now. Let's start planting the seeds of success!",
         "button": "Accept and Continue",
@@ -41,7 +44,7 @@
         "dashboard": "Dashboard",
         "tasks": "Tasks",
         "calendar": "Calendar",
-        "profile": "Profile"
+        "settings": "Settings"
     },
     "tasks": {
         "hello": "Hello",
@@ -119,6 +122,19 @@
             "content": "Are you sure you want to delete this task?",
             "delete": "Delete"
         }
+    },
+    "settings": {
+        "generalSettings": "General Settings",
+        "customizeUserInterface": "Customize your user interface.",
+        "language": "Language",
+        "displayLanguage": "Display Language",
+        "darkTheme": "Dark Theme",
+        "helpAndFeedback": "Help and Feedback",
+        "about": "About",
+        "deleteAccount": "Delete Account",
+        "deleteAccountDescription": "We were hoping you wouldn't use this 😔 We'll blow you off the database. Are you sure you want to delete your account?",
+        "logOut": "Log Out",
+        "areYouSureWantToLogOut": "Are you sure you want to log out?"
     },
     "months": {
         "jan": "JAN",

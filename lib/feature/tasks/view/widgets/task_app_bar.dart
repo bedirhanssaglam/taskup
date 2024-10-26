@@ -3,11 +3,9 @@ part of '../tasks_view.dart';
 final class _TaskAppBar extends StatelessWidget implements PreferredSizeWidget {
   const _TaskAppBar({
     required this.onFilterTapped,
-    required this.onLogoutTapped,
   });
 
   final VoidCallback onFilterTapped;
-  final VoidCallback onLogoutTapped;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +23,6 @@ final class _TaskAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           onPressed: onFilterTapped,
           icon: Assets.icons.filter.colored(context.colorScheme.primary),
-        ),
-        IconButton(
-          onPressed: onLogoutTapped,
-          icon: const Icon(Icons.logout),
         ),
       ],
     );

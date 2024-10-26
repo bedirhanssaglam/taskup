@@ -63,13 +63,14 @@ final class AppBottomNavBar extends StatelessWidget {
             label: LocaleKeys.bottomNavBar_calendar.locale,
           ),
           NavigationDestination(
-            icon: Assets.icons.user.colored(
-              pageIndex == 3
+            icon: Icon(
+              Icons.settings,
+              color: pageIndex == 3
                   ? context.colorScheme.primary
                   : context.colorScheme.onSurfaceVariant,
-              height: WidgetSizes.spacingXxl.h,
+              size: WidgetSizes.spacingXxl.h,
             ),
-            label: LocaleKeys.bottomNavBar_profile.locale,
+            label: LocaleKeys.bottomNavBar_settings.locale,
           ),
         ],
       );
@@ -108,13 +109,13 @@ final class AppBottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.person,
+            CupertinoIcons.settings,
             size: WidgetSizes.spacingXxl.h,
             color: pageIndex == 3
                 ? context.colorScheme.primary
                 : context.colorScheme.onSurfaceVariant,
           ),
-          label: LocaleKeys.bottomNavBar_profile.locale,
+          label: LocaleKeys.bottomNavBar_settings.locale,
         ),
       ];
 }
