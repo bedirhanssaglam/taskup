@@ -6,6 +6,9 @@ abstract class LocaleKeys {
   static const back = 'back';
   static const letsDoIt = 'letsDoIt';
   static const next = 'next';
+  static const turkish = 'turkish';
+  static const english = 'english';
+  static const delete = 'delete';
   static const starting_title = 'starting.title';
   static const starting_button = 'starting.button';
   static const starting_agreement = 'starting.agreement';
@@ -44,7 +47,7 @@ abstract class LocaleKeys {
   static const bottomNavBar_dashboard = 'bottomNavBar.dashboard';
   static const bottomNavBar_calendar = 'bottomNavBar.calendar';
   static const bottomNavBar_tasks = 'bottomNavBar.tasks';
-  static const bottomNavBar_profile = 'bottomNavBar.profile';
+  static const bottomNavBar_settings = 'bottomNavBar.settings';
   static const bottomNavBar = 'bottomNavBar';
   static const tasks_hello = 'tasks.hello';
   static const tasks_whatDoYouWantToDoToday = 'tasks.whatDoYouWantToDoToday';
@@ -125,6 +128,21 @@ abstract class LocaleKeys {
   static const dialog_deleteTask_delete = 'dialog.deleteTask.delete';
   static const dialog_deleteTask = 'dialog.deleteTask';
   static const dialog = 'dialog';
+  static const settings_generalSettings = 'settings.generalSettings';
+  static const settings_customizeUserInterface =
+      'settings.customizeUserInterface';
+  static const settings_language = 'settings.language';
+  static const settings_displayLanguage = 'settings.displayLanguage';
+  static const settings_darkTheme = 'settings.darkTheme';
+  static const settings_helpAndFeedback = 'settings.helpAndFeedback';
+  static const settings_about = 'settings.about';
+  static const settings_deleteAccount = 'settings.deleteAccount';
+  static const settings_deleteAccountDescription =
+      'settings.deleteAccountDescription';
+  static const settings_logOut = 'settings.logOut';
+  static const settings_areYouSureWantToLogOut =
+      'settings.areYouSureWantToLogOut';
+  static const settings = 'settings';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_userNotFound = 'error.userNotFound';
   static const error_unknownException = 'error.unknownException';

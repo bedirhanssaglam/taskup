@@ -13,10 +13,8 @@ import 'package:task_management/product/components/shimmer/shimmer_effect.dart';
 import 'package:task_management/product/components/task/task_card.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
-import 'package:task_management/product/init/navigation/app_navigation.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
-import 'package:task_management/product/state/providers/auth_provider_items.dart';
 import 'package:task_management/product/state/providers/product_provider_items.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
@@ -45,14 +43,6 @@ class _TaskViewState extends ConsumerState<TaskView> with _TaskViewMixin {
     return Scaffold(
       appBar: _TaskAppBar(
         onFilterTapped: showFilterBottomSheet,
-        onLogoutTapped: () async {
-          await logOut();
-          await Navigator.pushNamedAndRemoveUntil(
-            context,
-            AppRoutes.starting,
-            (route) => false,
-          );
-        },
       ),
       body: Column(
         children: [

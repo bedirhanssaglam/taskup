@@ -31,6 +31,9 @@ class $AssetIconsGen {
   /// File path: asset/icons/empty_task.svg
   SvgGenImage get emptyTask => const SvgGenImage('asset/icons/empty_task.svg');
 
+  /// File path: asset/icons/english.svg
+  SvgGenImage get english => const SvgGenImage('asset/icons/english.svg');
+
   /// File path: asset/icons/filter.svg
   SvgGenImage get filter => const SvgGenImage('asset/icons/filter.svg');
 
@@ -54,6 +57,9 @@ class $AssetIconsGen {
 
   /// File path: asset/icons/music.svg
   SvgGenImage get music => const SvgGenImage('asset/icons/music.svg');
+
+  /// File path: asset/icons/not_found.svg
+  SvgGenImage get notFound => const SvgGenImage('asset/icons/not_found.svg');
 
   /// File path: asset/icons/send.svg
   SvgGenImage get send => const SvgGenImage('asset/icons/send.svg');
@@ -79,11 +85,11 @@ class $AssetIconsGen {
   /// File path: asset/icons/trash.svg
   SvgGenImage get trash => const SvgGenImage('asset/icons/trash.svg');
 
+  /// File path: asset/icons/turkish.svg
+  SvgGenImage get turkish => const SvgGenImage('asset/icons/turkish.svg');
+
   /// File path: asset/icons/university.svg
   SvgGenImage get university => const SvgGenImage('asset/icons/university.svg');
-
-  /// File path: asset/icons/user.svg
-  SvgGenImage get user => const SvgGenImage('asset/icons/user.svg');
 
   /// File path: asset/icons/work.svg
   SvgGenImage get work => const SvgGenImage('asset/icons/work.svg');
@@ -95,6 +101,7 @@ class $AssetIconsGen {
         design,
         doing,
         emptyTask,
+        english,
         filter,
         flag,
         grocery,
@@ -103,6 +110,7 @@ class $AssetIconsGen {
         house,
         movie,
         music,
+        notFound,
         send,
         social,
         sport,
@@ -111,8 +119,8 @@ class $AssetIconsGen {
         timeout,
         timer,
         trash,
+        turkish,
         university,
-        user,
         work
       ];
 }

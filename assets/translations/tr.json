@@ -4,6 +4,9 @@
     "back": "Geri",
     "letsDoIt": "Hadi yapalım!",
     "next": "İleri",
+    "turkish": "Türkçe",
+    "english": "İngilizce",
+    "delete": "Sil",
     "starting": {
         "title": "Bir fidan dikmek için en iyi zaman yirmi yıl önceydi, ikinci en iyi zaman ise şimdi. Hadi, başarı tohumlarını ekmeye başlayalım!",
         "button": "Kabul Et ve Devam Et",
@@ -41,7 +44,7 @@
         "dashboard": "Ana sayfa",
         "calendar": "Takvim",
         "tasks": "Görevler",
-        "profile": "Profil"
+        "settings": "Ayarlar"
     },
     "tasks": {
         "hello": "Merhaba",
@@ -133,7 +136,20 @@
             "content": "Bu görevi silmek istediğinizden emin misiniz?",
             "delete": "Sil"
         }
-    },          
+    },
+    "settings": {
+        "generalSettings": "Genel Ayarlar",
+        "customizeUserInterface": "Kullanıcı arayüzünüzü özelleştirin.",
+        "language": "Dil",
+        "displayLanguage": "Görüntüleme Dili",
+        "darkTheme": "Karanlık Tema",
+        "helpAndFeedback": "Yardım ve Geri Bildirim",
+        "about": "Hakkında",
+        "deleteAccount": "Hesabı Sil",
+        "deleteAccountDescription": "Bunu kullanmamanı ümit ediyorduk 😔 Seni veritabanından uçuracağız. Hesabını silmek istediğinden emin misin?",
+        "logOut": "Çıkış Yap",
+        "areYouSureWantToLogOut": "Çıkış yapmak istediğinize emin misiniz?"
+    },              
     "error": {
         "failedToUsers": "Kullanıcılar yüklenemedi.",
         "userNotFound": "Kullanıcı bulunamadı.",

@@ -31,6 +31,6 @@ void main() {
 
     find.text(LocaleKeys.bottomNavBar_dashboard).once();
     find.text(LocaleKeys.bottomNavBar_calendar).once();
-    find.text(LocaleKeys.bottomNavBar_profile).once();
+    find.text(LocaleKeys.bottomNavBar_settings).once();
   });
 }

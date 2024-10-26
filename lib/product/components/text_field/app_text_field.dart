@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
@@ -81,7 +82,7 @@ final class AppTextField extends StatelessWidget {
             prefixIcon: prefixIcon,
             hintText: hintText,
             hintStyle: context.textTheme.bodyMedium?.copyWith(
-              color: context.colorScheme.outline,
+              color: CupertinoColors.systemGrey,
             ),
           ),
           validator: validator,
