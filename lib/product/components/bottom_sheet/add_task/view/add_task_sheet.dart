@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
-import 'package:task_management/feature/tasks/view_model/task_view_model.dart';
-import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_status.dart';
+import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_state.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_view_model.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/components/dialog/category_dialog.dart';
@@ -21,6 +20,7 @@ import 'package:task_management/product/utility/border_radius/app_border_radius.
 import 'package:task_management/product/utility/date_time/date_time_picker.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
+import 'package:task_management/product/utility/extensions/riverpod_extensions.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';

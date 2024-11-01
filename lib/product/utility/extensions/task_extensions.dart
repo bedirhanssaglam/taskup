@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:task_management/product/models/task.dart';
+import 'package:task_management/product/utility/extensions/date_time_extensions.dart';
 
 extension TaskExtensions on Task {
   String get getTaskGroupKey {
@@ -29,11 +30,10 @@ extension TaskExtensions on Task {
 
 extension TaskListExtensions on List<Task?> {
   int get doingCount {
-    final today = DateTime.now();
+    final today = Date.today();
     return where(
       (task) =>
-          (task?.isDoing ?? false) &&
-          (task?.date?.toDate().isAfter(today) ?? false),
+          (task?.isDoing ?? false) && (Date(task!.date!.toDate()) > today),
     ).length;
   }
 
@@ -42,21 +42,21 @@ extension TaskListExtensions on List<Task?> {
   }
 
   int get overdueCount {
-    final today = DateTime.now();
+    final today = Date.today();
     return where(
       (task) =>
           task?.date != null &&
-          task!.date!.toDate().isBefore(today) &&
+          (Date(task!.date!.toDate()) < today) &&
           !(task.isCompleted ?? false),
     ).length;
   }
 
   int get upcomingCount {
-    final today = DateTime.now();
+    final today = Date.today();
     return where(
       (task) =>
           task?.date != null &&
-          task!.date!.toDate().isAfter(today) &&
+          Date(task!.date!.toDate()) > today &&
           !(task.isCompleted ?? false) &&
           !(task.isDoing ?? false),
     ).length;

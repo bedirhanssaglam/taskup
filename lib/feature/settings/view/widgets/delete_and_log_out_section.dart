@@ -23,7 +23,7 @@ final class _DeleteAndLogOutSection extends StatelessWidget {
         AppListTile(
           onTap: onLogOutTap,
           title: LocaleKeys.settings_logOut,
-          leading: Icons.power_settings_new_outlined,
+          leading: Icons.logout,
           leadingColor: context.colorScheme.error,
           trailing: const CupertinoListTileChevron(),
         ),

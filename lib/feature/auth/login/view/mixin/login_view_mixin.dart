@@ -5,15 +5,13 @@ mixin _LoginViewMixin on ConsumerState<LoginView> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  LoginState get loginState => ref.watch(loginViewModelProvider);
-
   Future<void> checkFormStateAndLogin(BuildContext context) async {
     if (_isFormStateValidate()) {
-      await ref.read(loginViewModelProvider.notifier).login(
-            context,
-            email: emailController.trimmedText,
-            password: passwordController.trimmedText,
-          );
+      await ref.loginViewModel.login(
+        context,
+        email: emailController.trimmedText,
+        password: passwordController.trimmedText,
+      );
     }
   }
 

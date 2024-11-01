@@ -4,7 +4,6 @@ part of '../splash_view.dart';
 
 mixin _SplashViewMixin on ConsumerState<SplashView> {
   String? initialRoute;
-  AppState get appState => ref.watch(AuthProviderItems.appStateProvider);
 
   @override
   void initState() {

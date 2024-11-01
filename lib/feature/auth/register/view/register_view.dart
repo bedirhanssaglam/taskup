@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_management/feature/auth/register/view_model/register_state.dart';
-import 'package:task_management/feature/auth/register/view_model/register_view_model.dart';
 import 'package:task_management/product/components/button/app_button.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/components/logo/app_logo.dart';
@@ -13,6 +12,7 @@ import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/enums/obscure_text_mode.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/controller_extensions.dart';
+import 'package:task_management/product/utility/extensions/riverpod_extensions.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
@@ -94,15 +94,15 @@ class _RegisterViewState extends ConsumerState<RegisterView>
                   },
                 ),
                 WidgetSizes.spacingXxl3.verticalSpace,
-                if (registerState.status.isLoading)
+                if (ref.registerState.status.isLoading)
                   const CircularProgressIndicator.adaptive()
                 else
                   AppButton(
                     onPressed: () => register(context),
                     text: LocaleKeys.login_registerText,
                   ),
-                if (registerState.status.isError) ...[
-                  _RegisterError(errorMessage: registerState.errorMessage!),
+                if (ref.registerState.status.isError) ...[
+                  _RegisterError(errorMessage: ref.registerState.errorMessage!),
                 ],
                 WidgetSizes.spacingS.verticalSpace,
                 const _HaveAccountWidget(),

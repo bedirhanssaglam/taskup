@@ -18,7 +18,7 @@ mixin _AddTaskMixin on ConsumerState<AddTaskBottomSheet> {
         );
     if (!mounted) return;
 
-    await ref.read(taskViewModelProvider.notifier).fetchTasks();
+    await ref.taskViewModel.fetchTasks();
   }
 
   @override

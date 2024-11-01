@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:task_management/feature/auth/login/view_model/login_state.dart';
-import 'package:task_management/feature/auth/login/view_model/login_view_model.dart';
 import 'package:task_management/feature/auth/register/view/register_view.dart';
 import 'package:task_management/product/components/button/app_button.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
@@ -14,6 +12,7 @@ import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/enums/obscure_text_mode.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/controller_extensions.dart';
+import 'package:task_management/product/utility/extensions/riverpod_extensions.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
@@ -58,16 +57,17 @@ class _LoginViewState extends ConsumerState<LoginView> with _LoginViewMixin {
                   },
                 ),
                 WidgetSizes.spacingXxl7.verticalSpace,
-                if (loginState.status.isLoading)
+                if (ref.loginState.status.isLoading)
                   const CircularProgressIndicator.adaptive()
                 else
                   AppButton(
                     onPressed: () => checkFormStateAndLogin(context),
                     text: LocaleKeys.login_loginText,
                   ),
-                if (loginState.status.isError) ...[
+                if (ref.loginState.status.isError) ...[
                   WidgetSizes.spacingM.verticalSpace,
-                  _LoginError(errorMessage: loginState.errorMessage!.locale),
+                  _LoginError(
+                      errorMessage: ref.loginState.errorMessage!.locale),
                 ],
                 WidgetSizes.spacingL.verticalSpace,
                 const _NoAccountWidget(),

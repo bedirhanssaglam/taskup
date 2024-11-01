@@ -1,5 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 
+extension type Date._(DateTime dateTime) {
+  Date(DateTime dateTime)
+      : this._(
+          DateTime(dateTime.year, dateTime.month, dateTime.day),
+        );
+
+  Date.today() : this(DateTime.now());
+
+  bool operator >(Date other) => dateTime.isAfter(other.dateTime);
+
+  bool operator <(Date other) => dateTime.isBefore(other.dateTime);
+}
+
 extension DateTimeComparison on DateTime {
   bool isSameDate(DateTime other) {
     return year == other.year && month == other.month && day == other.day;
