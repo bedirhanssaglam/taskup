@@ -61,7 +61,8 @@
         "completed": "Tamamlananlar",
         "taskStatistics": "Görev İstatistikleri",
         "totalWorkingHour": "Toplam çalışma saati",
-        "totalTaskActivity": "Toplam görev etkinliği"
+        "totalTaskActivity": "Toplam görev etkinliği",
+        "addYourTasksAndSeeProgress": "Görevlerinizi ekleyin ve ilerleme durumunu burada görün."
     },    
     "validators": {
         "normal": "Bu alan boş bırakılamaz.",

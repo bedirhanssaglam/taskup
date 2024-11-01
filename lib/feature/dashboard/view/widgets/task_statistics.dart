@@ -28,33 +28,35 @@ final class _TaskStatistics extends StatelessWidget {
     final double upcomingPercentage =
         totalCount > 0 ? (upcomingCount / totalCount) * 100 : 0;
 
-    return AspectRatio(
-      aspectRatio: 2,
-      child: Row(
-        children: <Widget>[
-          WidgetSizes.spacingMx.verticalSpace,
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 2,
-              child: PieChartWidget(
-                completedPercentage: completedPercentage,
-                inProgressPercentage: inProgressPercentage,
-                overduePercentage: overduePercentage,
-                upcomingPercentage: upcomingPercentage,
-              ),
+    return totalCount != 0
+        ? AspectRatio(
+            aspectRatio: 2,
+            child: Row(
+              children: <Widget>[
+                WidgetSizes.spacingMx.verticalSpace,
+                Expanded(
+                  child: AspectRatio(
+                    aspectRatio: 2,
+                    child: PieChartWidget(
+                      completedPercentage: completedPercentage,
+                      inProgressPercentage: inProgressPercentage,
+                      overduePercentage: overduePercentage,
+                      upcomingPercentage: upcomingPercentage,
+                    ),
+                  ),
+                ),
+                WidgetSizes.spacingXl.horizontalSpace,
+                _StatisticsIndicators(
+                  completedPercentage: completedPercentage,
+                  inProgressPercentage: inProgressPercentage,
+                  overduePercentage: overduePercentage,
+                  upcomingPercentage: upcomingPercentage,
+                ),
+                WidgetSizes.spacingMx.horizontalSpace,
+              ],
             ),
-          ),
-          WidgetSizes.spacingXl.horizontalSpace,
-          _StatisticsIndicators(
-            completedPercentage: completedPercentage,
-            inProgressPercentage: inProgressPercentage,
-            overduePercentage: overduePercentage,
-            upcomingPercentage: upcomingPercentage,
-          ),
-          WidgetSizes.spacingMx.horizontalSpace,
-        ],
-      ),
-    );
+          )
+        : const _EmptyStatisticWidget();
   }
 }
 
@@ -72,31 +74,52 @@ final class _StatisticsIndicators extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Indicator(
-          color: Color(0xFF6C63FF),
-          text: LocaleKeys.dashboard_inProgress,
+          color: TaskStatistics.inProgress.color,
+          text: TaskStatistics.inProgress.text,
         ),
         Padding(
-          padding: AppPadding.smallVertical(),
+          padding: const AppPadding.smallVertical(),
           child: Indicator(
-            color: Color(0xFFEA7C30),
-            text: LocaleKeys.dashboard_thingsToDo,
+            color: TaskStatistics.toDo.color,
+            text: TaskStatistics.toDo.text,
           ),
         ),
         Indicator(
-          color: Color(0xFFEB5757),
-          text: LocaleKeys.dashboard_pastDates,
+          color: TaskStatistics.pastDate.color,
+          text: TaskStatistics.pastDate.text,
         ),
         Padding(
-          padding: AppPadding.smallVertical(),
+          padding: const AppPadding.smallVertical(),
           child: Indicator(
-            color: Color(0xFF27AE60),
-            text: LocaleKeys.dashboard_completed,
+            color: TaskStatistics.completed.color,
+            text: TaskStatistics.completed.text,
           ),
+        ),
+      ],
+    );
+  }
+}
+
+final class _EmptyStatisticWidget extends StatelessWidget {
+  const _EmptyStatisticWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Assets.images.emptyStatistic.show(
+          height: WidgetSizes.spacingXxl12.h,
+        ),
+        WidgetSizes.spacingXs.verticalSpace,
+        LocaleText(
+          LocaleKeys.dashboard_addYourTasksAndSeeProgress,
+          textAlign: TextAlign.center,
         ),
       ],
     );

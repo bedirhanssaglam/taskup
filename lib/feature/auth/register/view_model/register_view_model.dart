@@ -29,15 +29,12 @@ class RegisterViewModel extends _$RegisterViewModel {
           );
 
       state = state.copyWith(status: RegisterStatus.success);
-      final isAuthenticated =
-          ref.watch(AuthProviderItems.appStateProvider).account.isNotEmpty;
-      if (isAuthenticated) {
-        await ref
-            .read(
-              ProductProviderItems.navigationService,
-            )
-            .navigateReplacementTo(AppRoutes.main);
-      }
+
+      await ref
+          .read(
+            ProductProviderItems.navigationService,
+          )
+          .navigateReplacementTo(AppRoutes.main);
     } on SignUpWithEmailAndPasswordFailure catch (e) {
       state = state.copyWith(
         status: RegisterStatus.error,

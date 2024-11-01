@@ -70,6 +70,8 @@ final class LogInWithEmailAndPasswordFailure implements Exception {
 
 final class LogOutFailure implements Exception {}
 
+final class DeleteUserFailure implements Exception {}
+
 final class NoUserFailure implements Exception {
   const NoUserFailure([
     this.message = LocaleKeys.error_userNotFound,

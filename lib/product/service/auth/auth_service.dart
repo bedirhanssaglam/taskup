@@ -26,9 +26,7 @@ class AuthService {
     });
   }
 
-  Account get currentUser {
-    return (_cache.getData(CachePaths.user.value) as Account?) ?? Account.empty;
-  }
+  Account get currentUser => _firebaseAuth.currentUser!.toAccount;
 
   Future<void> signUp({
     required String email,
@@ -89,6 +87,20 @@ class AuthService {
       await _cache.clearAll();
     } catch (_) {
       throw LogOutFailure();
+    }
+  }
+
+  Future<void> deleteUser() async {
+    final user = _firebaseAuth.currentUser;
+
+    if (user != null) {
+      try {
+        await user.delete();
+
+        await _firebaseAuth.signOut();
+      } catch (_) {
+        throw DeleteUserFailure();
+      }
     }
   }
 }

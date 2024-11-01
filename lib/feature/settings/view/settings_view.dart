@@ -11,7 +11,6 @@ import 'package:task_management/product/components/list_section/app_list_tile.da
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/init/localization/product_localization.dart';
-import 'package:task_management/product/init/navigation/app_navigation.dart';
 import 'package:task_management/product/state/providers/auth_provider_items.dart';
 import 'package:task_management/product/utility/enums/locale_enums.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
@@ -91,17 +90,17 @@ class _SettingsViewState extends ConsumerState<SettingsView>
             const _HelpAndAboutSection(),
             _DeleteAndLogOutSection(
               onDeleteAccountTap: () async {
-                await DeleteAccountDialog.show(context);
+                final isConfirm = await DeleteAccountDialog.show(context);
+                if (isConfirm ?? false) {
+                  await deleteUser();
+                  await context.navigateToStartingView();
+                }
               },
               onLogOutTap: () async {
                 final isConfirm = await LogOutDialog.show(context);
                 if (isConfirm ?? false) {
                   await logOut();
-                  await Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    AppRoutes.starting,
-                    (route) => false,
-                  );
+                  await context.navigateToStartingView();
                 }
               },
             ),

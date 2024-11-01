@@ -61,7 +61,8 @@
         "completed": "Completed",
         "projectStatistics": "Project Statistics",
         "totalWorkingHour": "Total working hour",
-        "totalTaskActivity": "Total task activity"
+        "totalTaskActivity": "Total task activity",
+        "addYourTasksAndSeeProgress": "Add your tasks and see progress here."
     },
     "validators": {
         "normal": "This field cannot be left blank.",
