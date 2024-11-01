@@ -25,7 +25,6 @@ dependencies:
 
   # Utility libraries
   equatable: ^2.0.5
-  speech_to_text: ^6.2.0
   flutter_tts: ^3.3.0
   
   # UI components and utilities

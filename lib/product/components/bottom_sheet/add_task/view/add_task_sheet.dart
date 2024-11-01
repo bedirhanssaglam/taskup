@@ -15,7 +15,6 @@ import 'package:task_management/product/components/text_field/app_text_field.dar
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/category.dart';
 import 'package:task_management/product/models/task.dart';
-import 'package:task_management/product/service/speech_recognation/speech_recognation_service.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/date_time/date_time_picker.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
@@ -94,16 +93,6 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet>
                                 TextPosition(offset: cursorPosition),
                               );
                             },
-                            suffixIcon: IconButton(
-                              onPressed: () =>
-                                  speechService.listenVoice((String result) {
-                                descriptionNotifier.value = result;
-                              }),
-                              icon: Icon(
-                                Icons.mic_none,
-                                color: context.colorScheme.primary,
-                              ),
-                            ),
                           );
                         },
                       ),

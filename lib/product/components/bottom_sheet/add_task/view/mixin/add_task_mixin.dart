@@ -5,7 +5,6 @@ mixin _AddTaskMixin on ConsumerState<AddTaskBottomSheet> {
 
   final ValueNotifier<String> descriptionNotifier = ValueNotifier<String>('');
   final ValueNotifier<int?> priorityNotifier = ValueNotifier<int?>(null);
-  final SpeechRecognitionService speechService = SpeechRecognitionService();
   final TextEditingController descriptionController = TextEditingController();
   Category? selectedCategory;
   DateTime? selectedDateTime;
