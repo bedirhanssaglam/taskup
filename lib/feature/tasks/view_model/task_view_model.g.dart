@@ -6,7 +6,7 @@ part of 'task_view_model.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$taskViewModelHash() => r'c2b6b29fd883d2811eb2f060f0cf80254c0a14df';
+String _$taskViewModelHash() => r'b46e430f8b74c7b8d0c7c1cda9e89368b1b48476';
 
 /// See also [TaskViewModel].
 @ProviderFor(TaskViewModel)

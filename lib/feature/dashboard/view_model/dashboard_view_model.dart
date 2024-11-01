@@ -2,18 +2,18 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:task_management/feature/dashboard/view_model/dashboard_state.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/state/providers/task_provider_items.dart';
+import 'package:task_management/product/utility/mixins/async_notifier_mixin.dart';
 
 part 'dashboard_view_model.g.dart';
 
 @riverpod
-class DashboardViewModel extends _$DashboardViewModel {
+class DashboardViewModel extends _$DashboardViewModel
+    with AsyncNotifierMixin<DashboardState> {
   @override
   AsyncValue<DashboardState> build() => const AsyncValue.data(DashboardState());
 
   Future<void> fetchTasks() async {
-    state = const AsyncValue.loading();
-
-    state = await AsyncValue.guard(() async {
+    await loadingAndGuard(() async {
       final tasks =
           await ref.read(TaskProviderItems.taskServiceProvider).getAllTasks();
       return DashboardState(

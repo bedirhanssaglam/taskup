@@ -3,18 +3,18 @@ import 'package:task_management/feature/calendar/view_model/calendar_state.dart'
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/state/providers/task_provider_items.dart';
+import 'package:task_management/product/utility/mixins/async_notifier_mixin.dart';
 
 part 'calendar_view_model.g.dart';
 
 @riverpod
-class CalendarViewModel extends _$CalendarViewModel {
+class CalendarViewModel extends _$CalendarViewModel
+    with AsyncNotifierMixin<CalendarState> {
   @override
   AsyncValue<CalendarState> build() => const AsyncValue.data(CalendarState());
 
   Future<void> fetchTasks() async {
-    state = const AsyncValue.loading();
-
-    state = await AsyncValue.guard(() async {
+    await loadingAndGuard(() async {
       final tasks =
           await ref.read(TaskProviderItems.taskServiceProvider).getAllTasks();
       return CalendarState(

@@ -3,18 +3,17 @@ import 'package:task_management/feature/tasks/view_model/task_state.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/state/providers/task_provider_items.dart';
+import 'package:task_management/product/utility/mixins/async_notifier_mixin.dart';
 
 part 'task_view_model.g.dart';
 
 @riverpod
-class TaskViewModel extends _$TaskViewModel {
+class TaskViewModel extends _$TaskViewModel with AsyncNotifierMixin<TaskState> {
   @override
   AsyncValue<TaskState> build() => const AsyncValue.data(TaskState());
 
   Future<void> fetchTasks() async {
-    state = const AsyncValue.loading();
-
-    state = await AsyncValue.guard(() async {
+    await loadingAndGuard(() async {
       final tasks =
           await ref.read(TaskProviderItems.taskServiceProvider).getAllTasks();
       return TaskState(
