@@ -128,6 +128,10 @@ class $AssetIconsGen {
 class $AssetImagesGen {
   const $AssetImagesGen();
 
+  /// File path: asset/images/empty_statistic.png
+  AssetGenImage get emptyStatistic =>
+      const AssetGenImage('asset/images/empty_statistic.png');
+
   /// File path: asset/images/motivation.png
   AssetGenImage get motivation =>
       const AssetGenImage('asset/images/motivation.png');
@@ -151,7 +155,7 @@ class $AssetImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [motivation, onboarding, pomodoro, success, tasks, work];
+      [emptyStatistic, motivation, onboarding, pomodoro, success, tasks, work];
 }
 
 class $AssetLottieGen {

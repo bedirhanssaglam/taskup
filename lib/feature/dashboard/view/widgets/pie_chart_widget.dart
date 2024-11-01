@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/product/utility/enums/task_statistics.dart';
 
 final class PieChartWidget extends StatefulWidget {
   const PieChartWidget({
@@ -59,7 +60,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: const Color(0xFF6C63FF),
+            color: TaskStatistics.inProgress.color,
             value: widget.inProgressPercentage,
             title: '${widget.inProgressPercentage.toStringAsFixed(1)}%',
             radius: radius,
@@ -71,7 +72,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
           );
         case 1:
           return PieChartSectionData(
-            color: const Color(0xFF27AE60),
+            color: TaskStatistics.completed.color,
             value: widget.completedPercentage,
             title: '${widget.completedPercentage.toStringAsFixed(1)}%',
             radius: radius,
@@ -83,7 +84,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
           );
         case 2:
           return PieChartSectionData(
-            color: const Color(0xFFEB5757),
+            color: TaskStatistics.pastDate.color,
             value: widget.overduePercentage,
             title: '${widget.overduePercentage.toStringAsFixed(1)}%',
             radius: radius,
@@ -95,7 +96,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
           );
         case 3:
           return PieChartSectionData(
-            color: const Color(0xFFEA7C30),
+            color: TaskStatistics.toDo.color,
             value: widget.upcomingPercentage,
             title: '${widget.upcomingPercentage.toStringAsFixed(1)}%',
             radius: radius,

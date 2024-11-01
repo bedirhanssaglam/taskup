@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gen/gen.dart';
 import 'package:task_management/feature/dashboard/view/widgets/indicator.dart';
 import 'package:task_management/feature/dashboard/view/widgets/pie_chart_widget.dart';
 import 'package:task_management/feature/dashboard/view_model/dashboard_state.dart';
@@ -10,7 +11,9 @@ import 'package:task_management/product/components/tap_area/tap_area.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
+import 'package:task_management/product/utility/enums/task_statistics.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
+import 'package:task_management/product/utility/extensions/image_extensions.dart';
 import 'package:task_management/product/utility/extensions/string_extensions.dart';
 import 'package:task_management/product/utility/extensions/task_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
@@ -59,27 +62,27 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       _SummaryCard(
-                        title: LocaleKeys.dashboard_inProgress,
+                        title: TaskStatistics.inProgress.text,
                         count: doingCount,
-                        color: const Color(0xFF6C63FF),
+                        color: TaskStatistics.inProgress.color,
                         onTap: () {},
                       ),
                       _SummaryCard(
-                        title: LocaleKeys.dashboard_thingsToDo,
+                        title: TaskStatistics.toDo.text,
                         count: upcomingCount,
-                        color: const Color(0xFFEA7C30),
+                        color: TaskStatistics.toDo.color,
                         onTap: () {},
                       ),
                       _SummaryCard(
-                        title: LocaleKeys.dashboard_pastDates,
+                        title: TaskStatistics.pastDate.text,
                         count: overdueCount,
-                        color: const Color(0xFFEB5757),
+                        color: TaskStatistics.pastDate.color,
                         onTap: () {},
                       ),
                       _SummaryCard(
-                        title: LocaleKeys.dashboard_completed,
+                        title: TaskStatistics.completed.text,
                         count: completedCount,
-                        color: const Color(0xFF27AE60),
+                        color: TaskStatistics.completed.color,
                         onTap: () {},
                       ),
                     ],
@@ -108,17 +111,17 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const _StatCard(
+                      _StatCard(
                         title: LocaleKeys.dashboard_totalWorkingHour,
                         value: '50:25:06',
                         percentage: '34%',
-                        color: Color(0xFF27AE60),
+                        color: TaskStatistics.completed.color,
                       ),
                       _StatCard(
                         title: LocaleKeys.dashboard_totalTaskActivity,
                         value: state.tasks?.length.toString() ?? '0',
                         percentage: '50%',
-                        color: const Color(0xFF6C63FF),
+                        color: TaskStatistics.inProgress.color,
                       ),
                     ],
                   ),

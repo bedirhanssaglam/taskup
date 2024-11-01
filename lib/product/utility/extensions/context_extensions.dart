@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/product/init/navigation/app_navigation.dart';
 
 extension ContextExtensions on BuildContext {
   ThemeData get themeData => Theme.of(this);
@@ -17,4 +18,12 @@ extension ContextExtensions on BuildContext {
   String monthShortName(DateTime date) => DateFormat.MMM(
         locale.toString(),
       ).format(date).toUpperCase();
+
+  Future<void> navigateToStartingView() async {
+    await Navigator.pushNamedAndRemoveUntil(
+      this,
+      AppRoutes.starting,
+      (route) => false,
+    );
+  }
 }

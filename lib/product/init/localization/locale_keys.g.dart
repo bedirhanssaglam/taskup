@@ -63,6 +63,8 @@ abstract class LocaleKeys {
   static const dashboard_taskStatistics = 'dashboard.taskStatistics';
   static const dashboard_totalWorkingHour = 'dashboard.totalWorkingHour';
   static const dashboard_totalTaskActivity = 'dashboard.totalTaskActivity';
+  static const dashboard_addYourTasksAndSeeProgress =
+      'dashboard.addYourTasksAndSeeProgress';
   static const dashboard = 'dashboard';
   static const validators_normal = 'validators.normal';
   static const validators_invalidEmailFormat = 'validators.invalidEmailFormat';
