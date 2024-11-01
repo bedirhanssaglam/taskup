@@ -67,7 +67,8 @@ class _LoginViewState extends ConsumerState<LoginView> with _LoginViewMixin {
                 if (ref.loginState.status.isError) ...[
                   WidgetSizes.spacingM.verticalSpace,
                   _LoginError(
-                      errorMessage: ref.loginState.errorMessage!.locale),
+                    errorMessage: ref.loginState.errorMessage!.locale,
+                  ),
                 ],
                 WidgetSizes.spacingL.verticalSpace,
                 const _NoAccountWidget(),
