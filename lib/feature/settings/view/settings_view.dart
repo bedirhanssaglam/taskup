@@ -95,9 +95,10 @@ class _SettingsViewState extends ConsumerState<SettingsView>
                     onChanged: (value) {
                       mainViewModel.changePage(0);
                       soundEffectViewModel.toggleSoundEffect();
-                      AppSnackBar.show(context,
-                          text: LocaleKeys
-                              .settings_soundEffectsPreferenceUpdated);
+                      AppSnackBar.show(
+                        context,
+                        text: LocaleKeys.settings_soundEffectsPreferenceUpdated,
+                      );
                     },
                   ),
                 ),

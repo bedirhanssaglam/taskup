@@ -222,8 +222,7 @@ final class HalfGaugePainter extends CustomPainter {
     final textPainter = TextPainter(
       text: textSpan,
       textDirection: TextDirection.ltr,
-    );
-    textPainter.layout(maxWidth: size.width);
+    )..layout(maxWidth: size.width);
 
     final xTextPosition = (size.width - textPainter.width) / 2;
     final yTextPosition = (size.height - textPainter.height) * 3 / 4;
