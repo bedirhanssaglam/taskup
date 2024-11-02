@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_management/feature/calendar/view/widgets/date_tile.dart';
 import 'package:task_management/product/components/tap_area/tap_area.dart';
-import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/date_time_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
 import 'package:task_management/product/utility/size/widget_sizes.dart';
 
-class DateSelector extends StatefulWidget {
+final class DateSelector extends StatefulWidget {
   const DateSelector({
     required this.currentDate,
     required this.onDateSelected,
@@ -18,55 +18,13 @@ class DateSelector extends StatefulWidget {
   final ValueChanged<DateTime> onDateSelected;
 
   @override
-  _DateSelectorState createState() => _DateSelectorState();
+  State<DateSelector> createState() => _DateSelectorState();
 }
 
-class _DateSelectorState extends State<DateSelector> {
-  late DateTime _visibleMonth;
-  late DateTime _selectedDate;
-  late ScrollController _scrollController;
-
-  @override
-  void initState() {
-    super.initState();
-    _visibleMonth = DateTime(widget.currentDate.year, widget.currentDate.month);
-    _selectedDate = widget.currentDate;
-    _scrollController = ScrollController();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  void _updateMonth(int monthOffset) {
-    setState(() {
-      _visibleMonth =
-          DateTime(_visibleMonth.year, _visibleMonth.month + monthOffset);
-      _selectedDate = DateTime(_visibleMonth.year, _visibleMonth.month);
-      widget.onDateSelected(_selectedDate);
-
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _scrollController.animateTo(
-          0,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-        );
-      });
-    });
-  }
-
-  List<DateTime> _generateMonthDates(DateTime month) {
-    final start = DateTime(month.year, month.month);
-    final daysInMonth = DateTime(month.year, month.month + 1, 0).day;
-    return List.generate(
-        daysInMonth, (index) => start.add(Duration(days: index)));
-  }
-
+class _DateSelectorState extends State<DateSelector> with _DateSelectorMixin {
   @override
   Widget build(BuildContext context) {
-    final dates = _generateMonthDates(_visibleMonth);
+    final dates = _visibleMonthNotifier.value.generateMonthDates;
 
     return Column(
       children: [
@@ -80,11 +38,16 @@ class _DateSelectorState extends State<DateSelector> {
                 context.colorScheme.primary,
                 () => _updateMonth(-1),
               ),
-              Text(
-                _visibleMonth.formatMonthAndYear,
-                style: context.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              ValueListenableBuilder<DateTime>(
+                valueListenable: _visibleMonthNotifier,
+                builder: (context, visibleMonth, child) {
+                  return Text(
+                    visibleMonth.formatMonthAndYear,
+                    style: context.textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  );
+                },
               ),
               _buildIconCircle(
                 Icons.arrow_forward_ios_outlined,
@@ -103,15 +66,18 @@ class _DateSelectorState extends State<DateSelector> {
             padding: const AppPadding.smallVertical(),
             itemBuilder: (context, index) {
               final date = dates[index];
-              final isSelected = date.isSameDate(_selectedDate);
-              return TapArea(
-                onTap: () {
-                  setState(() {
-                    _selectedDate = date;
-                    widget.onDateSelected(date);
-                  });
+              return ValueListenableBuilder<DateTime>(
+                valueListenable: _selectedDateNotifier,
+                builder: (context, selectedDate, child) {
+                  final isSelected = date.isSameDate(selectedDate);
+                  return TapArea(
+                    onTap: () {
+                      _selectedDateNotifier.value = date;
+                      widget.onDateSelected(date);
+                    },
+                    child: DateTile(date: date, isSelected: isSelected),
+                  );
                 },
-                child: _DateTile(date: date, isSelected: isSelected),
               );
             },
           ),
@@ -133,49 +99,46 @@ class _DateSelectorState extends State<DateSelector> {
   }
 }
 
-class _DateTile extends StatelessWidget {
-  const _DateTile({
-    required this.date,
-    required this.isSelected,
-  });
-
-  final DateTime date;
-  final bool isSelected;
+mixin _DateSelectorMixin on State<DateSelector> {
+  late ValueNotifier<DateTime> _visibleMonthNotifier;
+  late ValueNotifier<DateTime> _selectedDateNotifier;
+  late ScrollController _scrollController;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 60.w,
-      margin: const EdgeInsets.symmetric(horizontal: 5),
-      decoration: BoxDecoration(
-        borderRadius: AppBorderRadius.circularMedium(),
-        color: isSelected
-            ? context.colorScheme.primary
-            : context.colorScheme.outlineVariant,
-      ),
-      padding: const AppPadding.mediumAll(),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            date.formatDayOfWeek,
-            style: context.textTheme.bodyMedium?.copyWith(
-              color: isSelected
-                  ? context.colorScheme.background
-                  : context.colorScheme.onBackground,
-            ),
-          ),
-          WidgetSizes.spacingXSs.verticalSpace,
-          Text(
-            date.formatDayOfMonth,
-            style: context.textTheme.bodyLarge?.copyWith(
-              color: isSelected
-                  ? context.colorScheme.background
-                  : context.colorScheme.onBackground,
-            ),
-          ),
-        ],
-      ),
+  void initState() {
+    super.initState();
+    _visibleMonthNotifier = ValueNotifier<DateTime>(
+      DateTime(widget.currentDate.year, widget.currentDate.month),
     );
+    _selectedDateNotifier = ValueNotifier<DateTime>(widget.currentDate);
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _visibleMonthNotifier.dispose();
+    _selectedDateNotifier.dispose();
+    super.dispose();
+  }
+
+  void _updateMonth(int monthOffset) {
+    _visibleMonthNotifier.value = DateTime(
+      _visibleMonthNotifier.value.year,
+      _visibleMonthNotifier.value.month + monthOffset,
+    );
+    _selectedDateNotifier.value = DateTime(
+      _visibleMonthNotifier.value.year,
+      _visibleMonthNotifier.value.month,
+    );
+    widget.onDateSelected(_selectedDateNotifier.value);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollController.animateTo(
+        0,
+        duration: Durations.medium2,
+        curve: Curves.easeInOut,
+      );
+    });
   }
 }
