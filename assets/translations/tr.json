@@ -7,6 +7,7 @@
     "turkish": "Türkçe",
     "english": "İngilizce",
     "delete": "Sil",
+    "ok": "Tamam",
     "starting": {
         "title": "Bir fidan dikmek için en iyi zaman yirmi yıl önceydi, ikinci en iyi zaman ise şimdi. Hadi, başarı tohumlarını ekmeye başlayalım!",
         "button": "Kabul Et ve Devam Et",
@@ -62,7 +63,9 @@
         "taskStatistics": "Görev İstatistikleri",
         "totalWorkingHour": "Toplam çalışma saati",
         "totalTaskActivity": "Toplam görev etkinliği",
-        "addYourTasksAndSeeProgress": "Görevlerinizi ekleyin ve ilerleme durumunu burada görün."
+        "addYourTasksAndSeeProgress": "Görevlerinizi ekleyin ve ilerleme durumunu burada görün.",
+        "productivity": "Üretkenlik",
+        "productivityDescription": "Bu gösterge, tamamlanan görevlerinizin toplam görev sayısına oranını temsil eder. Yüzde değerinin artması, görevlerinizi zamanında tamamladığınızı ve hedeflerinize daha yakın olduğunuzu gösterir. Üretkenliğinizi artırmak için görevlerinizi planlayabilir ve önceliklendirebilirsiniz.\n\nGörevlerinizi yapıldı olarak işaretlemeyi unutmayın! Her tamamlanan görev, bir adım daha ileri gitmenizi sağlar ve bu göstergenin artmasına katkıda bulunur. Unutmayın, başarılarınız birikerek büyür!"
     },    
     "validators": {
         "normal": "Bu alan boş bırakılamaz.",
@@ -95,7 +98,7 @@
         "house": "Ev"
     },  
     "calendar": {
-        "noTaskTitle": "Bugün için bir göreviniz yok.",
+        "noTaskTitle": "Bugün için bir göreviniz yok",
         "noTaskSubtitle": "Rahatına bak"
     },  
     "filter": {

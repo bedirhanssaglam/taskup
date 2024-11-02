@@ -23,4 +23,13 @@ extension DateTimeComparison on DateTime {
   String get formatDayOfWeek => DateFormat('EEE').format(this);
 
   String get formatDayOfMonth => DateFormat('d').format(this);
+
+  List<DateTime> get generateMonthDates {
+    final start = DateTime(year, month);
+    final daysInMonth = DateTime(year, month + 1, 0).day;
+    return List.generate(
+      daysInMonth,
+      (index) => start.add(Duration(days: index)),
+    );
+  }
 }

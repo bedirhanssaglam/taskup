@@ -1,5 +1,8 @@
+import 'dart:math' show Random;
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:task_management/product/models/task.dart';
+import 'package:task_management/product/models/time_slot.dart';
 import 'package:task_management/product/utility/extensions/date_time_extensions.dart';
 
 extension TaskExtensions on Task {
@@ -60,5 +63,48 @@ extension TaskListExtensions on List<Task?> {
           !(task.isCompleted ?? false) &&
           !(task.isDoing ?? false),
     ).length;
+  }
+}
+
+extension TimeSlotExtension on List<Task> {
+  List<TimeSlot> get generateTimeSlotsWithTasks {
+    final timeSlots = <TimeSlot>[];
+
+    for (final task in this) {
+      final taskTime = task.date!.toDate();
+      timeSlots.add(
+        TimeSlot(
+          time:
+              "${taskTime.hour.toString().padLeft(2, '0')}:${taskTime.minute.toString().padLeft(2, '0')}",
+          task: task,
+        ),
+      );
+    }
+
+    final now = DateTime.now();
+    final startOfDay = DateTime(now.year, now.month, now.day);
+
+    for (var i = 0; i < 24; i++) {
+      final currentHour = startOfDay.add(Duration(hours: i));
+
+      final hasTaskInThisHour = timeSlots.any((slot) {
+        return slot.time.split(':')[0] ==
+            currentHour.hour.toString().padLeft(2, '0');
+      });
+
+      if (!hasTaskInThisHour && Random().nextBool()) {
+        timeSlots.add(
+          TimeSlot(
+            time: "${currentHour.hour.toString().padLeft(2, '0')}:00",
+          ),
+        );
+      }
+    }
+
+    timeSlots.sort((a, b) {
+      return a.time.compareTo(b.time);
+    });
+
+    return timeSlots;
   }
 }

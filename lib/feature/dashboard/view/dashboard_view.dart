@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,6 +9,7 @@ import 'package:task_management/feature/dashboard/view/widgets/indicator.dart';
 import 'package:task_management/feature/dashboard/view/widgets/pie_chart_widget.dart';
 import 'package:task_management/feature/dashboard/view_model/dashboard_state.dart';
 import 'package:task_management/feature/dashboard/view_model/dashboard_view_model.dart';
+import 'package:task_management/product/components/dialog/productivity_dialog.dart';
 import 'package:task_management/product/components/loading/app_loading.dart';
 import 'package:task_management/product/components/tap_area/tap_area.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
@@ -24,6 +28,7 @@ part './widgets/dashboard_appbar.dart';
 part './widgets/stats_card.dart';
 part './widgets/summary_card.dart';
 part './widgets/task_statistics.dart';
+part './widgets/task_summaries.dart';
 
 final class DashboardView extends ConsumerStatefulWidget {
   const DashboardView({super.key});
@@ -43,6 +48,13 @@ class _DashboardViewState extends ConsumerState<DashboardView>
           padding: const AppPadding.mediumAll(),
           child: dashboardState.when(
             data: (state) {
+              final totalTaskCount =
+                  state.tasks?.length ?? 0; // Toplam görev sayısını al
+
+// Eğer toplam görev sayısı 0 ise yüzde 0 olacak
+              final percentage = totalTaskCount > 0
+                  ? (completedCount / totalTaskCount) * 100
+                  : 0.0;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -53,39 +65,11 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                     ),
                   ),
                   WidgetSizes.spacingM.verticalSpace,
-                  GridView.count(
-                    crossAxisCount: 2,
-                    shrinkWrap: true,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: 1.4 / 1,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      _SummaryCard(
-                        title: TaskStatistics.inProgress.text,
-                        count: doingCount,
-                        color: TaskStatistics.inProgress.color,
-                        onTap: () {},
-                      ),
-                      _SummaryCard(
-                        title: TaskStatistics.toDo.text,
-                        count: upcomingCount,
-                        color: TaskStatistics.toDo.color,
-                        onTap: () {},
-                      ),
-                      _SummaryCard(
-                        title: TaskStatistics.pastDate.text,
-                        count: overdueCount,
-                        color: TaskStatistics.pastDate.color,
-                        onTap: () {},
-                      ),
-                      _SummaryCard(
-                        title: TaskStatistics.completed.text,
-                        count: completedCount,
-                        color: TaskStatistics.completed.color,
-                        onTap: () {},
-                      ),
-                    ],
+                  _TaskSummaries(
+                    doingCount: doingCount,
+                    upcomingCount: upcomingCount,
+                    overdueCount: overdueCount,
+                    completedCount: completedCount,
                   ),
                   WidgetSizes.spacingL.verticalSpace,
                   LocaleText(
@@ -111,11 +95,37 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _StatCard(
-                        title: LocaleKeys.dashboard_totalWorkingHour,
-                        value: '50:25:06',
-                        percentage: '34%',
-                        color: TaskStatistics.completed.color,
+                      Container(
+                        height: .25.sh,
+                        width: .45.sw,
+                        padding: const AppPadding.mediumAll(),
+                        decoration: BoxDecoration(
+                          color: context.colorScheme.outlineVariant,
+                          borderRadius: AppBorderRadius.circularBig(),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Üretkenlik',
+                                  style: context.textTheme.bodyMedium,
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    ProductivityDialog.show(context);
+                                  },
+                                  icon: const Icon(Icons.info_outline),
+                                ),
+                              ],
+                            ),
+                            HalfGaugeChart(
+                              percent: percentage,
+                            ),
+                          ],
+                        ),
                       ),
                       _StatCard(
                         title: LocaleKeys.dashboard_totalTaskActivity,
@@ -136,5 +146,93 @@ class _DashboardViewState extends ConsumerState<DashboardView>
         ),
       ),
     );
+  }
+}
+
+class HalfGaugeChart extends StatelessWidget {
+  const HalfGaugeChart({
+    required this.percent,
+    super.key,
+  });
+
+  final double percent;
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 2,
+      child: CustomPaint(
+        painter: HalfGaugePainter(
+          percent: percent,
+        ),
+      ),
+    );
+  }
+}
+
+final class HalfGaugePainter extends CustomPainter {
+  HalfGaugePainter({
+    required this.percent,
+  });
+
+  final double percent;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height);
+    final radius = size.width / 2 - 30 / 2;
+
+    final backgroundPaint = Paint()
+      ..color = CupertinoColors.systemGrey
+      ..strokeWidth = 10
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      pi,
+      pi,
+      false,
+      backgroundPaint,
+    );
+
+    final percentPaint = Paint()
+      ..color = TaskStatistics.completed.color
+      ..strokeWidth = 10
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+
+    final percentAngle = percent * pi / 100;
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      pi,
+      percentAngle,
+      false,
+      percentPaint,
+    );
+
+    final textSpan = TextSpan(
+      text: '${percent.round()}%',
+      style: TextStyle(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+    );
+    final textPainter = TextPainter(
+      text: textSpan,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout(maxWidth: size.width);
+
+    final xTextPosition = (size.width - textPainter.width) / 2;
+    final yTextPosition = (size.height - textPainter.height) * 3 / 4;
+    final textOffset = Offset(xTextPosition, yTextPosition);
+    textPainter.paint(canvas, textOffset);
+  }
+
+  @override
+  bool shouldRepaint(covariant HalfGaugePainter oldDelegate) {
+    return oldDelegate.percent != percent;
   }
 }

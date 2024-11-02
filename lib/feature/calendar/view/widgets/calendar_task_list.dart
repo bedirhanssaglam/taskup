@@ -1,16 +1,13 @@
 import 'package:flutter/foundation.dart' show AsyncValueSetter;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gen/gen.dart';
+import 'package:task_management/feature/calendar/view/widgets/empty_calendar_widget.dart';
 import 'package:task_management/product/components/task/task_card.dart';
-import 'package:task_management/product/components/text/locale_text.dart';
-import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
-import 'package:task_management/product/utility/extensions/lottie_extensions.dart';
+import 'package:task_management/product/utility/extensions/task_extensions.dart';
 import 'package:task_management/product/utility/paddings/app_paddings.dart';
-import 'package:task_management/product/utility/size/widget_sizes.dart';
 
 final class CalendarTaskList extends StatelessWidget {
   const CalendarTaskList({
@@ -29,37 +26,50 @@ final class CalendarTaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (tasks.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Assets.lottie.emptyCalendar.show(
-              height: WidgetSizes.spacingXxlL12.h,
-              width: WidgetSizes.spacingXxlL12.w,
-            ),
-            LocaleText(
-              LocaleKeys.calendar_noTaskTitle,
-              style: context.textTheme.titleLarge,
-            ),
-            WidgetSizes.spacingXxs.verticalSpace,
-            LocaleText(
-              LocaleKeys.calendar_noTaskSubtitle,
-              style: context.textTheme.bodyMedium,
-            ),
-          ],
-        ),
-      );
+      return const EmptyCalendarWidget();
     }
 
+    tasks.sort((a, b) => a.date!.toDate().compareTo(b.date!.toDate()));
+
+    final timeSlotsWithTasks = tasks.generateTimeSlotsWithTasks;
+
     return ListView.builder(
-      itemCount: tasks.length,
+      itemCount: timeSlotsWithTasks.length,
       padding: const AppPadding.smallAll(),
       itemBuilder: (context, index) {
-        return TaskCard(
-          task: tasks[index],
-          onDelete: onDelete,
-          onMarkAsDone: onMarkAsDone,
-          onMarkAsProgress: onMarkAsProgress,
+        final timeSlot = timeSlotsWithTasks[index];
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 60.w,
+                child: Text(
+                  timeSlot.time,
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: context.colorScheme.onBackground.withOpacity(0.7),
+                  ),
+                  textAlign: TextAlign.right,
+                ),
+              ),
+              SizedBox(width: 16.w),
+              Expanded(
+                child: timeSlot.task != null
+                    ? TaskCard(
+                        task: timeSlot.task!,
+                        onDelete: onDelete,
+                        onMarkAsDone: onMarkAsDone,
+                        onMarkAsProgress: onMarkAsProgress,
+                        showCalendar: false,
+                      )
+                    : Divider(
+                        thickness: 1,
+                        color: Colors.grey[300],
+                      ),
+              ),
+            ],
+          ),
         );
       },
     );

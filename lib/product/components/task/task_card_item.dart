@@ -6,12 +6,14 @@ final class _TaskCardItem extends StatelessWidget {
     required this.onDelete,
     required this.onMarkAsDone,
     required this.onMarkAsProgress,
+    this.showCalendar = true,
   });
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
   final ValueSetter<bool> onMarkAsDone;
   final VoidCallback onMarkAsProgress;
+  final bool showCalendar;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +68,10 @@ final class _TaskCardItem extends StatelessWidget {
                       stepWidth: 1.sw,
                       child: Padding(
                         padding: EdgeInsets.all(20.h),
-                        child: TaskInfoRow(task: task),
+                        child: TaskInfoRow(
+                          task: task,
+                          showCalendar: showCalendar,
+                        ),
                       ),
                     ),
                   ),

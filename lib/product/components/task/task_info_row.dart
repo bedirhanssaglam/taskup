@@ -13,17 +13,19 @@ import 'package:task_management/product/utility/size/widget_sizes.dart';
 final class TaskInfoRow extends StatelessWidget {
   const TaskInfoRow({
     required this.task,
+    this.showCalendar = true,
     super.key,
   });
 
   final Task task;
+  final bool showCalendar;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CalendarIcon(date: task.date!.toDate()),
+        if (showCalendar) CalendarIcon(date: task.date!.toDate()),
         WidgetSizes.spacingXxl.horizontalSpace,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,13 +33,13 @@ final class TaskInfoRow extends StatelessWidget {
             SizedBox(
               width: .6.sw,
               child: Text(
-                task.title ?? '',
+                task.title ?? '', // This will display empty if null
                 style: context.textTheme.titleLarge,
               ),
             ),
             WidgetSizes.spacingXxs.verticalSpace,
             Text(
-              task.date?.convertDate ?? '',
+              task.date?.convertDate ?? '', // This will display empty if null
               style: context.textTheme.bodyMedium,
             ),
             WidgetSizes.spacingXxs.verticalSpace,
@@ -58,7 +60,7 @@ final class TaskInfoRow extends StatelessWidget {
                   ),
                   WidgetSizes.spacingXxs.horizontalSpace,
                   Text(
-                    task.priority ?? '',
+                    task.priority ?? '', // This will display empty if null
                     style: context.textTheme.bodyLarge,
                   ),
                 ],
