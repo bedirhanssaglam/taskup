@@ -9,6 +9,7 @@ abstract class LocaleKeys {
   static const turkish = 'turkish';
   static const english = 'english';
   static const delete = 'delete';
+  static const ok = 'ok';
   static const starting_title = 'starting.title';
   static const starting_button = 'starting.button';
   static const starting_agreement = 'starting.agreement';
@@ -65,6 +66,9 @@ abstract class LocaleKeys {
   static const dashboard_totalTaskActivity = 'dashboard.totalTaskActivity';
   static const dashboard_addYourTasksAndSeeProgress =
       'dashboard.addYourTasksAndSeeProgress';
+  static const dashboard_productivity = 'dashboard.productivity';
+  static const dashboard_productivityDescription =
+      'dashboard.productivityDescription';
   static const dashboard = 'dashboard';
   static const validators_normal = 'validators.normal';
   static const validators_invalidEmailFormat = 'validators.invalidEmailFormat';

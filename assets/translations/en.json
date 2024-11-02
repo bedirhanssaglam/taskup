@@ -7,6 +7,7 @@
     "turkish": "Turkish",
     "english": "English",  
     "delete": "Delete",
+    "ok": "OK",
     "starting": {
         "title": "The best time to plant a sapling was twenty years ago, the second best time is now. Let's start planting the seeds of success!",
         "button": "Accept and Continue",
@@ -62,7 +63,9 @@
         "projectStatistics": "Project Statistics",
         "totalWorkingHour": "Total working hour",
         "totalTaskActivity": "Total task activity",
-        "addYourTasksAndSeeProgress": "Add your tasks and see progress here."
+        "addYourTasksAndSeeProgress": "Add your tasks and see progress here.",
+        "productivity": "Productivity",
+        "productivityDescription": "This indicator represents the ratio of your completed tasks to the total number of tasks. An increase in the percentage value indicates that you are completing your tasks on time and are closer to your goals. You can plan and prioritize your tasks to increase your productivity.\n\nDon't forget to mark your tasks as done! Each completed task allows you to move one step further and contributes to increasing this indicator. Remember, your successes accumulate and grow!"
     },
     "validators": {
         "normal": "This field cannot be left blank.",
