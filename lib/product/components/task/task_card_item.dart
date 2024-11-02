@@ -46,6 +46,8 @@ final class _TaskCardItem extends StatelessWidget {
                     TaskDetailBottomSheet.show(
                       context,
                       task: task,
+                      onDeleteTap: () => onDelete(task.id),
+                      onShareTap: () {},
                       onUpdateTap: () {
                         Navigator.pop(context);
                         TaskStatusBottomSheet.show(

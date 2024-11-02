@@ -35,6 +35,7 @@ dependencies:
   validify: ^0.0.3
   shimmer: ^3.0.0
   fl_chart: ^0.69.0
+  pull_down_button: ^0.10.2
 
   # Localization
   easy_localization: ^3.0.3  
