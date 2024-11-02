@@ -24,6 +24,7 @@ part './widgets/dashboard_appbar.dart';
 part './widgets/stats_card.dart';
 part './widgets/summary_card.dart';
 part './widgets/task_statistics.dart';
+part './widgets/task_summaries.dart';
 
 final class DashboardView extends ConsumerStatefulWidget {
   const DashboardView({super.key});
@@ -32,8 +33,7 @@ final class DashboardView extends ConsumerStatefulWidget {
   ConsumerState<DashboardView> createState() => _DashboardViewState();
 }
 
-class _DashboardViewState extends ConsumerState<DashboardView>
-    with _DashboardViewMixin {
+class _DashboardViewState extends ConsumerState<DashboardView> with _DashboardViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,39 +53,11 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                     ),
                   ),
                   WidgetSizes.spacingM.verticalSpace,
-                  GridView.count(
-                    crossAxisCount: 2,
-                    shrinkWrap: true,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: 1.4 / 1,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      _SummaryCard(
-                        title: TaskStatistics.inProgress.text,
-                        count: doingCount,
-                        color: TaskStatistics.inProgress.color,
-                        onTap: () {},
-                      ),
-                      _SummaryCard(
-                        title: TaskStatistics.toDo.text,
-                        count: upcomingCount,
-                        color: TaskStatistics.toDo.color,
-                        onTap: () {},
-                      ),
-                      _SummaryCard(
-                        title: TaskStatistics.pastDate.text,
-                        count: overdueCount,
-                        color: TaskStatistics.pastDate.color,
-                        onTap: () {},
-                      ),
-                      _SummaryCard(
-                        title: TaskStatistics.completed.text,
-                        count: completedCount,
-                        color: TaskStatistics.completed.color,
-                        onTap: () {},
-                      ),
-                    ],
+                  _TaskSummaries(
+                    doingCount: doingCount,
+                    upcomingCount: upcomingCount,
+                    overdueCount: overdueCount,
+                    completedCount: completedCount,
                   ),
                   WidgetSizes.spacingL.verticalSpace,
                   LocaleText(

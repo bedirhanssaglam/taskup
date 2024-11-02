@@ -21,9 +21,15 @@ final class _SummaryCard extends StatelessWidget {
         height: .1.sh,
         padding: const AppPadding.bigAll(),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.4),
+          color: color.withOpacity(.4),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(),
+          boxShadow: [
+            BoxShadow(
+              color: color.withOpacity(.2),
+              blurRadius: 5,
+              spreadRadius: 2,
+            ),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

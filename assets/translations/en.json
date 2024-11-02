@@ -95,7 +95,7 @@
         "house": "House"
     },
     "calendar": {
-        "noTaskTitle": "You don't have any assignments for today.",
+        "noTaskTitle": "You don't have any assignments for today",
         "noTaskSubtitle": "Make yourself comfortable"
     },
     "filter": {
