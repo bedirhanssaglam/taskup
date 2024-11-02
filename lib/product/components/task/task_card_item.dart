@@ -6,12 +6,14 @@ final class _TaskCardItem extends StatelessWidget {
     required this.onDelete,
     required this.onMarkAsDone,
     required this.onMarkAsProgress,
+    this.showCalendar = true,
   });
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
   final ValueSetter<bool> onMarkAsDone;
   final VoidCallback onMarkAsProgress;
+  final bool showCalendar;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +68,10 @@ final class _TaskCardItem extends StatelessWidget {
                       stepWidth: 1.sw,
                       child: Padding(
                         padding: EdgeInsets.all(20.h),
-                        child: TaskInfoRow(task: task),
+                        child: TaskInfoRow(
+                          task: task,
+                          showCalendar: showCalendar,
+                        ),
                       ),
                     ),
                   ),
@@ -82,9 +87,7 @@ final class _TaskCardItem extends StatelessWidget {
                             height: 20.h,
                           ),
                         )
-                      : (task.isDoing ?? false) &&
-                              !task.isTimeout &&
-                              !(task.isCompleted ?? false)
+                      : (task.isDoing ?? false) && !task.isTimeout && !(task.isCompleted ?? false)
                           ? Padding(
                               padding: const AppPadding.smallAll(),
                               child: Assets.icons.doing.show(
@@ -97,9 +100,7 @@ final class _TaskCardItem extends StatelessWidget {
                               },
                               icon: Icon(
                                 CupertinoIcons.check_mark_circled_solid,
-                                color: (task.isCompleted ?? false)
-                                    ? CupertinoColors.systemGreen
-                                    : CupertinoColors.lightBackgroundGray,
+                                color: (task.isCompleted ?? false) ? CupertinoColors.systemGreen : CupertinoColors.lightBackgroundGray,
                               ),
                             ),
                 ),

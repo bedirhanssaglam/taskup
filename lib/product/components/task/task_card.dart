@@ -29,6 +29,7 @@ final class TaskCard extends StatelessWidget {
     required this.onDelete,
     required this.onMarkAsDone,
     required this.onMarkAsProgress,
+    this.showCalendar = true,
     super.key,
   });
 
@@ -36,6 +37,7 @@ final class TaskCard extends StatelessWidget {
   final AsyncValueSetter<String?> onDelete;
   final AsyncValueSetter<UpdateTaskData> onMarkAsDone;
   final AsyncValueSetter<UpdateTaskData> onMarkAsProgress;
+  final bool showCalendar;
 
   @override
   Widget build(BuildContext context) {
@@ -62,13 +64,9 @@ final class TaskCard extends StatelessWidget {
                   Navigator.pop(context);
                   _onMarkAsDone(!(task.isCompleted ?? false));
                 },
-                trailingIcon: task.isCompleted ?? false
-                    ? Icons.assignment_outlined
-                    : Icons.assignment_turned_in,
+                trailingIcon: task.isCompleted ?? false ? Icons.assignment_outlined : Icons.assignment_turned_in,
                 child: LocaleText(
-                  task.isCompleted ?? false
-                      ? LocaleKeys.task_markAsToDo
-                      : LocaleKeys.task_markAsDone,
+                  task.isCompleted ?? false ? LocaleKeys.task_markAsToDo : LocaleKeys.task_markAsDone,
                 ),
               ),
               CupertinoContextMenuAction(
@@ -84,6 +82,7 @@ final class TaskCard extends StatelessWidget {
             child: _TaskCardItem(
               task: task,
               onDelete: onDelete,
+              showCalendar: showCalendar,
               onMarkAsDone: _onMarkAsDone,
               onMarkAsProgress: _onMarkAsProgress,
             ),
@@ -91,6 +90,7 @@ final class TaskCard extends StatelessWidget {
         : _TaskCardItem(
             task: task,
             onDelete: onDelete,
+            showCalendar: showCalendar,
             onMarkAsDone: _onMarkAsDone,
             onMarkAsProgress: _onMarkAsProgress,
           );
