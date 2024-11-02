@@ -42,7 +42,8 @@ class _DateSelectorState extends State<DateSelector> {
 
   void _updateMonth(int monthOffset) {
     setState(() {
-      _visibleMonth = DateTime(_visibleMonth.year, _visibleMonth.month + monthOffset);
+      _visibleMonth =
+          DateTime(_visibleMonth.year, _visibleMonth.month + monthOffset);
       _selectedDate = DateTime(_visibleMonth.year, _visibleMonth.month);
       widget.onDateSelected(_selectedDate);
 
@@ -59,7 +60,8 @@ class _DateSelectorState extends State<DateSelector> {
   List<DateTime> _generateMonthDates(DateTime month) {
     final start = DateTime(month.year, month.month);
     final daysInMonth = DateTime(month.year, month.month + 1, 0).day;
-    return List.generate(daysInMonth, (index) => start.add(Duration(days: index)));
+    return List.generate(
+        daysInMonth, (index) => start.add(Duration(days: index)));
   }
 
   @override
@@ -147,7 +149,9 @@ class _DateTile extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: AppBorderRadius.circularMedium(),
-        color: isSelected ? context.colorScheme.primary : context.colorScheme.outlineVariant,
+        color: isSelected
+            ? context.colorScheme.primary
+            : context.colorScheme.outlineVariant,
       ),
       padding: const AppPadding.mediumAll(),
       child: Column(
@@ -156,14 +160,18 @@ class _DateTile extends StatelessWidget {
           Text(
             date.formatDayOfWeek,
             style: context.textTheme.bodyMedium?.copyWith(
-              color: isSelected ? context.colorScheme.background : context.colorScheme.onBackground,
+              color: isSelected
+                  ? context.colorScheme.background
+                  : context.colorScheme.onBackground,
             ),
           ),
           WidgetSizes.spacingXSs.verticalSpace,
           Text(
             date.formatDayOfMonth,
             style: context.textTheme.bodyLarge?.copyWith(
-              color: isSelected ? context.colorScheme.background : context.colorScheme.onBackground,
+              color: isSelected
+                  ? context.colorScheme.background
+                  : context.colorScheme.onBackground,
             ),
           ),
         ],

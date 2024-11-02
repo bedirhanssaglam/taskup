@@ -33,7 +33,8 @@ final class DashboardView extends ConsumerStatefulWidget {
   ConsumerState<DashboardView> createState() => _DashboardViewState();
 }
 
-class _DashboardViewState extends ConsumerState<DashboardView> with _DashboardViewMixin {
+class _DashboardViewState extends ConsumerState<DashboardView>
+    with _DashboardViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

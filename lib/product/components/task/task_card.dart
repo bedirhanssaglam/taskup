@@ -64,9 +64,13 @@ final class TaskCard extends StatelessWidget {
                   Navigator.pop(context);
                   _onMarkAsDone(!(task.isCompleted ?? false));
                 },
-                trailingIcon: task.isCompleted ?? false ? Icons.assignment_outlined : Icons.assignment_turned_in,
+                trailingIcon: task.isCompleted ?? false
+                    ? Icons.assignment_outlined
+                    : Icons.assignment_turned_in,
                 child: LocaleText(
-                  task.isCompleted ?? false ? LocaleKeys.task_markAsToDo : LocaleKeys.task_markAsDone,
+                  task.isCompleted ?? false
+                      ? LocaleKeys.task_markAsToDo
+                      : LocaleKeys.task_markAsDone,
                 ),
               ),
               CupertinoContextMenuAction(
