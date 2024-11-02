@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
 import 'package:task_management/feature/tasks/view_model/task_state.dart';
 import 'package:task_management/feature/tasks/view_model/task_view_model.dart';
+import 'package:task_management/product/components/animation/animated_view.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view/add_task_sheet.dart';
 import 'package:task_management/product/components/bottom_sheet/filter/view/filter_bottom_sheet.dart';
 import 'package:task_management/product/components/shimmer/shimmer_effect.dart';
@@ -45,36 +46,39 @@ class _TaskViewState extends ConsumerState<TaskView> with _TaskViewMixin {
       appBar: _TaskAppBar(
         onFilterTapped: showFilterBottomSheet,
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: taskState.when(
-              data: (state) {
-                if (state.tasks?.isEmpty ?? true) {
-                  return const _EmptyTaskWidget();
-                }
-                return Consumer(
-                  builder: (context, ref, child) {
-                    final filterCriteria =
-                        ref.watch(ProductProviderItems.filterCriteriaProvider);
-                    return _TaskList(
-                      tasks: state.tasks,
-                      filterCriteria: filterCriteria,
-                      onDelete: deleteTask,
-                      onMarkAsDone: (task) => updateTask(updateTaskData: task),
-                      onMarkAsProgress: (task) =>
-                          updateTask(updateTaskData: task),
-                    );
-                  },
-                );
-              },
-              loading: _TaskListShimmer.new,
-              error: (error, stack) => Center(
-                child: Text(error.toString().locale),
+      body: AnimatedView(
+        child: Column(
+          children: [
+            Expanded(
+              child: taskState.when(
+                data: (state) {
+                  if (state.tasks?.isEmpty ?? true) {
+                    return const _EmptyTaskWidget();
+                  }
+                  return Consumer(
+                    builder: (context, ref, child) {
+                      final filterCriteria = ref
+                          .watch(ProductProviderItems.filterCriteriaProvider);
+                      return _TaskList(
+                        tasks: state.tasks,
+                        filterCriteria: filterCriteria,
+                        onDelete: deleteTask,
+                        onMarkAsDone: (task) =>
+                            updateTask(updateTaskData: task),
+                        onMarkAsProgress: (task) =>
+                            updateTask(updateTaskData: task),
+                      );
+                    },
+                  );
+                },
+                loading: _TaskListShimmer.new,
+                error: (error, stack) => Center(
+                  child: Text(error.toString().locale),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: const _AddTaskButton(),
     );

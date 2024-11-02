@@ -67,7 +67,9 @@ final class _TaskCardItem extends StatelessWidget {
                     child: IntrinsicWidth(
                       stepWidth: 1.sw,
                       child: Padding(
-                        padding: EdgeInsets.all(20.h),
+                        padding: showCalendar
+                            ? EdgeInsets.all(20.h)
+                            : EdgeInsets.all(16.h),
                         child: TaskInfoRow(
                           task: task,
                           showCalendar: showCalendar,

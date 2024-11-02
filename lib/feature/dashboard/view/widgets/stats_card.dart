@@ -16,7 +16,7 @@ final class _StatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: .25.sh,
+      height: .40.sw,
       width: .45.sw,
       padding: const AppPadding.mediumAll(),
       decoration: BoxDecoration(

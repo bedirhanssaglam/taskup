@@ -4,6 +4,7 @@ import 'package:task_management/feature/calendar/view/widgets/calendar_task_list
 import 'package:task_management/feature/calendar/view/widgets/date_selector.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_state.dart';
 import 'package:task_management/feature/calendar/view_model/calendar_view_model.dart';
+import 'package:task_management/product/components/animation/animated_view.dart';
 import 'package:task_management/product/components/loading/app_loading.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
@@ -38,32 +39,34 @@ class _CalendarViewState extends ConsumerState<CalendarView>
         ),
       ),
       body: calendarState.when(
-        data: (CalendarState state) => Column(
-          children: [
-            ValueListenableBuilder<DateTime>(
-              valueListenable: selectedDate,
-              builder: (context, value, _) {
-                return DateSelector(
-                  currentDate: value,
-                  onDateSelected: (date) => selectedDate.value = date,
-                );
-              },
-            ),
-            Expanded(
-              child: ValueListenableBuilder<DateTime>(
+        data: (CalendarState state) => AnimatedView(
+          child: Column(
+            children: [
+              ValueListenableBuilder<DateTime>(
                 valueListenable: selectedDate,
                 builder: (context, value, _) {
-                  return CalendarTaskList(
-                    tasks: _filterTasksByDate(state.tasks!, value),
-                    onDelete: deleteTask,
-                    onMarkAsDone: (task) => updateTask(updateTaskData: task),
-                    onMarkAsProgress: (task) =>
-                        updateTask(updateTaskData: task),
+                  return DateSelector(
+                    currentDate: value,
+                    onDateSelected: (date) => selectedDate.value = date,
                   );
                 },
               ),
-            ),
-          ],
+              Expanded(
+                child: ValueListenableBuilder<DateTime>(
+                  valueListenable: selectedDate,
+                  builder: (context, value, _) {
+                    return CalendarTaskList(
+                      tasks: _filterTasksByDate(state.tasks!, value),
+                      onDelete: deleteTask,
+                      onMarkAsDone: (task) => updateTask(updateTaskData: task),
+                      onMarkAsProgress: (task) =>
+                          updateTask(updateTaskData: task),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
         loading: AppLoading.new,
         error: (error, _) => Center(child: Text(error.toString())),
