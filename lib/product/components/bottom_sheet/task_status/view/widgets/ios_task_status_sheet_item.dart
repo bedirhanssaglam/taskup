@@ -9,7 +9,7 @@ final class _IOSTaskStatusSheetItem extends StatelessWidget {
   });
 
   final Task task;
-  final ValueSetter<bool> onMarkAsDone;
+  final AsyncValueSetter<bool> onMarkAsDone;
   final VoidCallback onMarkAsProgress;
   final AsyncValueSetter<String?> onDelete;
 
@@ -22,9 +22,9 @@ final class _IOSTaskStatusSheetItem extends StatelessWidget {
         if (!(task.isCompleted ?? false))
           CupertinoActionSheetAction(
             isDefaultAction: true,
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(context);
-              onMarkAsDone.call(true);
+              await onMarkAsDone.call(true);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

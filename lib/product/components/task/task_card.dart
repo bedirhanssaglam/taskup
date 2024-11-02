@@ -15,6 +15,7 @@ import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/task.dart';
 import 'package:task_management/product/models/update_task_data.dart';
+import 'package:task_management/product/utility/audio/app_audio_player.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
 import 'package:task_management/product/utility/extensions/icon_extensions.dart';
@@ -60,9 +61,9 @@ final class TaskCard extends StatelessWidget {
                 child: LocaleText(LocaleKeys.task_share),
               ),
               CupertinoContextMenuAction(
-                onPressed: () {
+                onPressed: () async {
                   Navigator.pop(context);
-                  _onMarkAsDone(!(task.isCompleted ?? false));
+                  await _onMarkAsDone(!(task.isCompleted ?? false));
                 },
                 trailingIcon: task.isCompleted ?? false
                     ? Icons.assignment_outlined
@@ -100,8 +101,8 @@ final class TaskCard extends StatelessWidget {
           );
   }
 
-  void _onMarkAsDone(bool isCompleted) {
-    onMarkAsDone.call(
+  Future<void> _onMarkAsDone(bool isCompleted) async {
+    await onMarkAsDone.call(
       UpdateTaskData(
         documentId: task.documentId,
         isCompleted: isCompleted,

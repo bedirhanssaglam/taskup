@@ -133,8 +133,14 @@ abstract class LocaleKeys {
   static const dialog_deleteTask_content = 'dialog.deleteTask.content';
   static const dialog_deleteTask_delete = 'dialog.deleteTask.delete';
   static const dialog_deleteTask = 'dialog.deleteTask';
+  static const dialog_congrats_title = 'dialog.congrats.title';
+  static const dialog_congrats_content = 'dialog.congrats.content';
+  static const dialog_congrats = 'dialog.congrats';
   static const dialog = 'dialog';
   static const settings_generalSettings = 'settings.generalSettings';
+  static const settings_soundEffects = 'settings.soundEffects';
+  static const settings_soundEffectsPreferenceUpdated =
+      'settings.soundEffectsPreferenceUpdated';
   static const settings_customizeUserInterface =
       'settings.customizeUserInterface';
   static const settings_language = 'settings.language';

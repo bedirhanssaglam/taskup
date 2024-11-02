@@ -6,6 +6,7 @@ import 'package:task_management/product/state/app/app_state.dart';
 import 'package:task_management/product/state/app/app_view_model.dart';
 import 'package:task_management/product/state/providers/auth_provider_items.dart';
 import 'package:task_management/product/state/providers/product_provider_items.dart';
+import 'package:task_management/product/state/sound/sound_effect_view_model.dart';
 import 'package:task_management/product/state/theme/app_theme_view_model.dart';
 
 mixin AppProviderMixin<T extends ConsumerStatefulWidget> on ConsumerState<T> {
@@ -28,4 +29,10 @@ mixin AppProviderMixin<T extends ConsumerStatefulWidget> on ConsumerState<T> {
       );
 
   ThemeMode get themeMode => ref.watch(ProductProviderItems.appThemeViewModel);
+
+  bool get soundEffect => ref.watch(ProductProviderItems.soundEffectViewModel);
+
+  SoundEffectViewModel get soundEffectViewModel => ref.watch(
+        ProductProviderItems.soundEffectViewModel.notifier,
+      );
 }

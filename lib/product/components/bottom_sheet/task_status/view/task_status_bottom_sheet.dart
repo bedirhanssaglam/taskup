@@ -27,14 +27,14 @@ final class TaskStatusBottomSheet extends StatelessWidget {
   });
 
   final Task task;
-  final ValueSetter<bool> onMarkAsDone;
+  final AsyncValueSetter<bool> onMarkAsDone;
   final VoidCallback onMarkAsProgress;
   final AsyncValueSetter<String?> onDelete;
 
   static Future<void> show(
     BuildContext context, {
     required Task task,
-    required ValueSetter<bool> onMarkAsDone,
+    required AsyncValueSetter<bool> onMarkAsDone,
     required VoidCallback onMarkAsProgress,
     required AsyncValueSetter<String?> onDelete,
   }) async {

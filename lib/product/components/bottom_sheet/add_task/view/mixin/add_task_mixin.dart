@@ -11,6 +11,9 @@ mixin _AddTaskMixin on ConsumerState<AddTaskBottomSheet> {
 
   AddTaskState get addTaskState => ref.watch(addTaskViewModelProvider);
 
+// TaskState'i AsyncValue olarak izleyin
+  AsyncValue<TaskState> get taskState => ref.watch(taskViewModelProvider);
+
   Future<void> addTask(Task task) async {
     await ref.read(addTaskViewModelProvider.notifier).addTask(
           task: task,
@@ -18,6 +21,8 @@ mixin _AddTaskMixin on ConsumerState<AddTaskBottomSheet> {
     if (!mounted) return;
 
     await ref.taskViewModel.fetchTasks();
+    final appAudioPlayer = AppAudioPlayer();
+    await appAudioPlayer.playAddTaskEffect();
   }
 
   @override

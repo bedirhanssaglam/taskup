@@ -11,7 +11,7 @@ final class _TaskCardItem extends StatelessWidget {
 
   final Task task;
   final AsyncValueSetter<String?> onDelete;
-  final ValueSetter<bool> onMarkAsDone;
+  final AsyncValueSetter<bool> onMarkAsDone;
   final VoidCallback onMarkAsProgress;
   final bool showCalendar;
 
@@ -97,8 +97,13 @@ final class _TaskCardItem extends StatelessWidget {
                               ),
                             )
                           : IconButton(
-                              onPressed: () {
-                                onMarkAsDone.call(!(task.isCompleted ?? false));
+                              onPressed: () async {
+                                await onMarkAsDone.call(
+                                  !(task.isCompleted ?? false),
+                                );
+
+                                final appAudioPlayer = AppAudioPlayer();
+                                await appAudioPlayer.playMarkAsDoneEffect();
                               },
                               icon: Icon(
                                 CupertinoIcons.check_mark_circled_solid,

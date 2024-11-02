@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_management/feature/main/view_model/main_view_model.dart';
 import 'package:task_management/product/components/bottom_sheet/filter/view_model/filter_view_model.dart';
 import 'package:task_management/product/init/navigation/navigation_service.dart';
+import 'package:task_management/product/state/sound/sound_effect_view_model.dart';
 import 'package:task_management/product/state/theme/app_theme_view_model.dart';
 import 'package:task_management/product/utility/task_filter_helper.dart';
 
@@ -23,5 +24,10 @@ class ProductProviderItems {
   static final appThemeViewModel =
       StateNotifierProvider<AppThemeViewModel, ThemeMode>((ref) {
     return AppThemeViewModel();
+  });
+
+  static final soundEffectViewModel =
+      StateNotifierProvider<SoundEffectViewModel, bool>((ref) {
+    return SoundEffectViewModel();
   });
 }

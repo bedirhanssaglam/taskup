@@ -5,16 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gen/gen.dart';
+import 'package:task_management/feature/tasks/view_model/task_state.dart';
+import 'package:task_management/feature/tasks/view_model/task_view_model.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_state.dart';
 import 'package:task_management/product/components/bottom_sheet/add_task/view_model/add_task_view_model.dart';
 import 'package:task_management/product/components/button/app_text_button.dart';
 import 'package:task_management/product/components/dialog/category_dialog.dart';
+import 'package:task_management/product/components/dialog/congrats_dialog.dart';
 import 'package:task_management/product/components/tap_area/tap_area.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/components/text_field/app_text_field.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/models/category.dart';
 import 'package:task_management/product/models/task.dart';
+import 'package:task_management/product/utility/audio/app_audio_player.dart';
 import 'package:task_management/product/utility/border_radius/app_border_radius.dart';
 import 'package:task_management/product/utility/date_time/date_time_picker.dart';
 import 'package:task_management/product/utility/extensions/context_extensions.dart';
@@ -146,8 +150,11 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet>
                                 isDoing: false,
                               );
                               await addTask(task);
-
                               Navigator.of(context).pop();
+
+                              if (taskState.asData?.value.tasks?.length == 1) {
+                                await CongratsDialog.show(context);
+                              }
                             },
                             icon: Assets.icons.send.colored(
                               context.colorScheme.primary,

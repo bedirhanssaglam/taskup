@@ -25,6 +25,7 @@ dependencies:
 
   # Utility libraries
   equatable: ^2.0.5
+  audio_plus: ^1.0.3
   
   # UI components and utilities
   cupertino_icons: ^1.0.6
@@ -73,5 +74,6 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/audio/
     - assets/images/
     - assets/translations/

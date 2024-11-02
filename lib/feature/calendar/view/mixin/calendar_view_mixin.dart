@@ -35,6 +35,7 @@ mixin _CalendarViewMixin on ConsumerState<CalendarView> {
     await _calendarViewModel.updateTaskStatus(
       updateTaskData: updateTaskData,
     );
+
     await _calendarViewModel.fetchTasks();
   }
 

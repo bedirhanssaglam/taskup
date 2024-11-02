@@ -125,10 +125,16 @@
             "title": "Delete Task",
             "content": "Are you sure you want to delete this task?",
             "delete": "Delete"
+        },
+        "congrats": {
+            "title": "Congratulations! 🎉",
+            "content": "You have successfully created your first task!\nNow you can better organize your daily work and take steps to achieve your goals. Go ahead!"
         }
     },
     "settings": {
         "generalSettings": "General Settings",
+        "soundEffects": "Sound Effects",
+        "soundEffectsPreferenceUpdated": "Sound effects preference updated.",
         "customizeUserInterface": "Customize your user interface.",
         "language": "Language",
         "displayLanguage": "Display Language",

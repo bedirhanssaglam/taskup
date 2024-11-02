@@ -10,12 +10,12 @@ abstract class CacheManager {
 class HiveCacheManager implements CacheManager {
   HiveCacheManager();
 
-  static const String _appName = 'taskup';
+  static const String _dbName = 'taskup';
 
   Future<LazyBox<Object>> _getLazyBox() async {
-    return Hive.isBoxOpen(_appName)
-        ? Hive.lazyBox<Object>(_appName)
-        : await Hive.openLazyBox<Object>(_appName);
+    return Hive.isBoxOpen(_dbName)
+        ? Hive.lazyBox<Object>(_dbName)
+        : await Hive.openLazyBox<Object>(_dbName);
   }
 
   @override

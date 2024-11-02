@@ -139,10 +139,16 @@
             "title": "Görevi Sil",
             "content": "Bu görevi silmek istediğinizden emin misiniz?",
             "delete": "Sil"
-        }
+        },
+        "congrats": {
+            "title": "Tebrikler! 🎉",
+            "content": "İlk görevini başarıyla oluşturdun!\nArtık günlük işlerini daha iyi organize edebilir ve hedeflerine ulaşmak için adım atabilirsin. Hadi devam et!"
+        }        
     },
     "settings": {
         "generalSettings": "Genel Ayarlar",
+        "soundEffects": "Ses Efektleri",
+        "soundEffectsPreferenceUpdated": "Ses efektleri tercihi güncellendi.",
         "customizeUserInterface": "Kullanıcı arayüzünüzü özelleştirin.",
         "language": "Dil",
         "displayLanguage": "Görüntüleme Dili",

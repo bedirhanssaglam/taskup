@@ -8,6 +8,7 @@ import 'package:task_management/product/components/dialog/delete_account_dialog.
 import 'package:task_management/product/components/dialog/log_out_dialog.dart';
 import 'package:task_management/product/components/list_section/adaptive_list_section.dart';
 import 'package:task_management/product/components/list_section/app_list_tile.dart';
+import 'package:task_management/product/components/snackbar/app_snack_bar.dart';
 import 'package:task_management/product/components/text/locale_text.dart';
 import 'package:task_management/product/init/localization/locale_keys.g.dart';
 import 'package:task_management/product/init/localization/product_localization.dart';
@@ -82,6 +83,21 @@ class _SettingsViewState extends ConsumerState<SettingsView>
                     onChanged: (value) {
                       mainViewModel.changePage(0);
                       appThemeViewModel.toggleTheme();
+                    },
+                  ),
+                ),
+                AppListTile(
+                  title: LocaleKeys.settings_soundEffects,
+                  leading: Icons.music_note,
+                  leadingColor: context.colorScheme.inversePrimary,
+                  trailing: Switch.adaptive(
+                    value: soundEffect,
+                    onChanged: (value) {
+                      mainViewModel.changePage(0);
+                      soundEffectViewModel.toggleSoundEffect();
+                      AppSnackBar.show(context,
+                          text: LocaleKeys
+                              .settings_soundEffectsPreferenceUpdated);
                     },
                   ),
                 ),
