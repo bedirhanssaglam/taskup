@@ -4,7 +4,6 @@ final class _TaskDetailPullDownButton extends StatelessWidget {
   const _TaskDetailPullDownButton({
     required this.onShareTap,
     required this.onDeleteTap,
-    super.key,
   });
 
   final VoidCallback onShareTap;
