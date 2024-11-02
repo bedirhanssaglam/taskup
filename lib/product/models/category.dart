@@ -5,6 +5,14 @@ import 'package:task_management/product/init/localization/locale_keys.g.dart';
 final class Category {
   const Category({required this.name, required this.color, required this.icon});
 
+  factory Category.fromFirestore(Map<String, dynamic> data) {
+    return Category(
+      name: data['name'] as String,
+      color: _getColorFromString(data['color'] as String),
+      icon: SvgGenImage(data['icon'] as String),
+    );
+  }
+
   final String name;
   final Color color;
   final SvgGenImage icon;
@@ -68,15 +76,6 @@ final class Category {
       'color': _getColorString(color),
       'icon': icon.path,
     };
-  }
-
-  // ignore: prefer_constructors_over_static_methods
-  static Category fromFirestore(Map<String, dynamic> data) {
-    return Category(
-      name: data['name'] as String,
-      color: _getColorFromString(data['color'] as String),
-      icon: SvgGenImage(data['icon'] as String),
-    );
   }
 
   String _getColorString(Color color) {
