@@ -62,6 +62,60 @@ taskup is an open-source task management application designed to help you organi
     </tbody>
 </table>
 
+#### Android
+<p float="left">
+<table>
+    <tbody>
+            <td align="center" style="background-color: white">
+                <img width="125" src="https://github.com/user-attachments/assets/26c129f0-5f59-4ed7-817d-d5b66d38e7cc"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+               <img src="https://github.com/user-attachments/assets/313179c7-d5bc-4a0b-b16f-8fbea23db764" width="125"/></a>
+            </td>
+              <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/4e17eeff-484d-4fb0-8f1f-6e86b4287f41" width="125"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/0e4c054e-9584-464b-9059-9409f948bc77" width="125"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/550a9a98-99e1-402d-a280-53df5802f0ce" width="125"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/1ac06bfc-2550-4c17-8ddf-137fa91a290d" width="125"/></a>
+            </td>   
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/de5a7864-4bf0-435b-b4d8-eb58a71a0d04" width="125"/></a>
+            </td>     
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+            <td align="center" style="background-color: white">
+               <img src="https://github.com/user-attachments/assets/c9a34b72-4eff-43ab-99ac-53fc7058055d" width="125"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+               <img src="https://github.com/user-attachments/assets/702925d7-1850-4b42-be31-826f623f778f" width="125"/></a>
+            </td>  
+            <td align="center" style="background-color: white">
+               <img src="https://github.com/user-attachments/assets/8e1bc4a2-6ce9-4f8e-9408-f3986c978be2" width="125"/></a>
+            </td>
+              <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/00fcc259-b7fe-40f1-bcb1-b303a157d178" width="125"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/7c927c78-0ef1-4d0f-9e62-f9a64cb899e3" width="125"/></a>
+            </td>  
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/10020642-522f-4437-a0bf-4003de3925c1" width="125"/></a>
+            </td>
+            <td align="center" style="background-color: white">
+                <img src="https://github.com/user-attachments/assets/c1feee61-5640-4f2d-b3e9-4d5cc5168ab2" width="125"/></a>
+            </td>    
+    </tbody>
+</table>
+
 ## 📦 Getting Started
 
 To get started with taskup, follow the steps below:
