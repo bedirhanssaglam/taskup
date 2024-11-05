@@ -16,7 +16,7 @@ final class _AndroidTaskStatusSheetItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250.h,
+      height: 320.h,
       padding: const AppPadding.bigAll(),
       decoration: const BoxDecoration(
         borderRadius: AppBorderRadius.onlyTop(),
@@ -26,8 +26,9 @@ final class _AndroidTaskStatusSheetItem extends StatelessWidget {
         children: [
           LocaleText(
             LocaleKeys.taskDetail_update,
-            style: context.textTheme.titleLarge
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: context.textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           if (!(task.isCompleted ?? false))
             ListTile(
