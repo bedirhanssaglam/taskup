@@ -11,4 +11,3 @@ analyzer:
     public_member_api_docs: ignore
     comment_references: ignore
     sort_pub_dependencies: ignore
-    flutter_style_todos: false
