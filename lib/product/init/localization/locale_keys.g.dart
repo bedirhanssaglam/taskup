@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const hello = 'hello';
   static const cancelText = 'cancelText';
   static const back = 'back';
@@ -17,19 +17,13 @@ abstract class LocaleKeys {
   static const onboarding_letsGetStarted = 'onboarding.letsGetStarted';
   static const onboarding_discoverOurApp = 'onboarding.discoverOurApp';
   static const onboarding_reachYourGoals = 'onboarding.reachYourGoals';
-  static const onboarding_planningBringsSuccess =
-      'onboarding.planningBringsSuccess';
-  static const onboarding_theArtOfTimeManagement =
-      'onboarding.theArtOfTimeManagement';
-  static const onboarding_effectiveTimeManagement =
-      'onboarding.effectiveTimeManagement';
-  static const onboarding_keepYourMotivationHigh =
-      'onboarding.keepYourMotivationHigh';
-  static const onboarding_progressFuelsMotivation =
-      'onboarding.progressFuelsMotivation';
+  static const onboarding_planningBringsSuccess = 'onboarding.planningBringsSuccess';
+  static const onboarding_theArtOfTimeManagement = 'onboarding.theArtOfTimeManagement';
+  static const onboarding_effectiveTimeManagement = 'onboarding.effectiveTimeManagement';
+  static const onboarding_keepYourMotivationHigh = 'onboarding.keepYourMotivationHigh';
+  static const onboarding_progressFuelsMotivation = 'onboarding.progressFuelsMotivation';
   static const onboarding_pomodoro = 'onboarding.pomodoro';
-  static const onboarding_concentrationBreedsPerfection =
-      'onboarding.concentrationBreedsPerfection';
+  static const onboarding_concentrationBreedsPerfection = 'onboarding.concentrationBreedsPerfection';
   static const onboarding = 'onboarding';
   static const login_email = 'login.email';
   static const login_password = 'login.password';
@@ -64,11 +58,9 @@ abstract class LocaleKeys {
   static const dashboard_taskStatistics = 'dashboard.taskStatistics';
   static const dashboard_totalWorkingHour = 'dashboard.totalWorkingHour';
   static const dashboard_totalTaskActivity = 'dashboard.totalTaskActivity';
-  static const dashboard_addYourTasksAndSeeProgress =
-      'dashboard.addYourTasksAndSeeProgress';
+  static const dashboard_addYourTasksAndSeeProgress = 'dashboard.addYourTasksAndSeeProgress';
   static const dashboard_productivity = 'dashboard.productivity';
-  static const dashboard_productivityDescription =
-      'dashboard.productivityDescription';
+  static const dashboard_productivityDescription = 'dashboard.productivityDescription';
   static const dashboard = 'dashboard';
   static const validators_normal = 'validators.normal';
   static const validators_invalidEmailFormat = 'validators.invalidEmailFormat';
@@ -139,35 +131,30 @@ abstract class LocaleKeys {
   static const dialog = 'dialog';
   static const settings_generalSettings = 'settings.generalSettings';
   static const settings_soundEffects = 'settings.soundEffects';
-  static const settings_soundEffectsPreferenceUpdated =
-      'settings.soundEffectsPreferenceUpdated';
-  static const settings_customizeUserInterface =
-      'settings.customizeUserInterface';
+  static const settings_soundEffectsPreferenceUpdated = 'settings.soundEffectsPreferenceUpdated';
+  static const settings_customizeUserInterface = 'settings.customizeUserInterface';
   static const settings_language = 'settings.language';
   static const settings_displayLanguage = 'settings.displayLanguage';
   static const settings_darkTheme = 'settings.darkTheme';
   static const settings_helpAndFeedback = 'settings.helpAndFeedback';
   static const settings_about = 'settings.about';
   static const settings_deleteAccount = 'settings.deleteAccount';
-  static const settings_deleteAccountDescription =
-      'settings.deleteAccountDescription';
+  static const settings_deleteAccountDescription = 'settings.deleteAccountDescription';
   static const settings_logOut = 'settings.logOut';
-  static const settings_areYouSureWantToLogOut =
-      'settings.areYouSureWantToLogOut';
+  static const settings_areYouSureWantToLogOut = 'settings.areYouSureWantToLogOut';
   static const settings = 'settings';
   static const error_failedToUsers = 'error.failedToUsers';
   static const error_userNotFound = 'error.userNotFound';
   static const error_unknownException = 'error.unknownException';
   static const error_userDisabled = 'error.userDisabled';
   static const error_invalidEmail = 'error.invalidEmail';
-  static const error_signUp_emailAlreadyInUse =
-      'error.signUp.emailAlreadyInUse';
-  static const error_signUp_operationNotAllowed =
-      'error.signUp.operationNotAllowed';
+  static const error_signUp_emailAlreadyInUse = 'error.signUp.emailAlreadyInUse';
+  static const error_signUp_operationNotAllowed = 'error.signUp.operationNotAllowed';
   static const error_signUp_weakPassword = 'error.signUp.weakPassword';
   static const error_signUp = 'error.signUp';
   static const error_login_userNotFound = 'error.login.userNotFound';
   static const error_login_wrongPassword = 'error.login.wrongPassword';
   static const error_login = 'error.login';
   static const error = 'error';
+
 }
