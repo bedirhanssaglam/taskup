@@ -43,7 +43,7 @@ class _FilterBottomSheetState extends ConsumerState<FilterBottomSheet>
     return Material(
       borderRadius: const AppBorderRadius.onlyTop(),
       child: Container(
-        height: 325.w,
+        height: 330.h,
         width: 1.sw,
         padding: const AppPadding.largeAll(),
         decoration: BoxDecoration(
